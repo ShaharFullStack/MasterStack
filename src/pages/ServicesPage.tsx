@@ -501,7 +501,7 @@ const ServicesPage = () => {
             לא מצאתם מה שחיפשתם?
           </h2>
           <p className="text-xl text-slate-300 mb-12 max-w-3xl mx-auto leading-relaxed">
-            אנחנו מתמחים בפתרונות מותאמים אישית. ספרו לנו על הצרכים שלכם ונמצא פתרון מושלם עבורכם.
+            אנחנו מומחים בפתרונות מותאמים אישית. ספרו לנו על הצרכים שלכם ונמצא פתרון מושלם עבורכם.
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
             <Button size="lg" className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-10 py-4 text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">

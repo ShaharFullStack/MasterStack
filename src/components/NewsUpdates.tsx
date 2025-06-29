@@ -1,61 +1,62 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Calendar, Clock, ArrowRight, TrendingUp, Zap, Award } from "lucide-react";
+import { Calendar, Clock, ArrowRight, TrendingUp, Zap, Award, Palette, Code, Lightbulb, Rocket } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const NewsUpdates = () => {
-  const news = [
+  const articles = [
     {
       id: 1,
-      title: "השקת פלטפורמת AI חדשנית לבניית אתרים",
-      description: "פיתחנו כלי AI מתקדם שמאפשר בניית אתרים מקצועיים תוך דקות ספורות, עם יכולות אופטימיזציה אוטומטיות.",
+      title: "מדריך מקיף: בניית אתר עם AI בשעה אחת",
+      description: "גלו כיצד להשתמש בכלי AI מתקדמים כמו Claude ו-ChatGPT לבניית אתר מקצועי מאפס. כולל קוד מוכן, טיפים מעשיים ודוגמאות עבודה.",
       date: "29 ביוני 2025",
-      category: "חדשנות",
+      category: "כלי AI",
       icon: <Zap className="w-5 h-5" />,
-      readTime: "3 דקות קריאה",
+      readTime: "8 דקות קריאה",
       featured: true
     },
     {
       id: 2,
-      title: "הזכייה בפרס החדשנות הדיגיטלית 2025",
-      description: "זכינו בפרס היוקרתי לחדשנות דיגיטלית בישראל על פיתוח הפתרונות המתקדמים שלנו.",
+      title: "5 טרנדים בעיצוב אתרים שחייבים לדעת ב-2025",
+      description: "מגלסמורפיזם ועד אנימציות מיקרו - כל מה שצריך לדעת על הטרנדים החמים ביותר בעיצוב אתרים השנה.",
       date: "25 ביוני 2025",
-      category: "הישגים",
-      icon: <Award className="w-5 h-5" />,
-      readTime: "2 דקות קריאה",
+      category: "עיצוב",
+      icon: <Palette className="w-5 h-5" />,
+      readTime: "6 דקות קריאה",
       featured: false
     },
     {
       id: 3,
-      title: "שדרוג מערכת האבטחה - הגנה מתקדמת יותר",
-      description: "השקנו מערכת אבטחה חדשה עם הגנה מפני איומים מתקדמים ובינה מלאכותית למניעת תקיפות.",
+      title: "React vs Vue vs Svelte - מה לבחור ב-2025?",
+      description: "השוואה מעמיקה של שלושת הפריימוורקס הפופולאריים ביותר, כולל ביצועים, קהילה ומתי להשתמש בכל אחד.",
       date: "20 ביוני 2025",
-      category: "אבטחה",
-      icon: <TrendingUp className="w-5 h-5" />,
-      readTime: "4 דקות קריאה",
+      category: "פיתוח",
+      icon: <Code className="w-5 h-5" />,
+      readTime: "12 דקות קריאה",
       featured: false
     },
     {
       id: 4,
-      title: "מדריך חדש: SEO מקומי לעסקים קטנים",
-      description: "פרסמנו מדריך מקיף ל-SEO מקומי שיעזור לעסקים קטנים להגביר את הנראות שלהם בחיפושים מקומיים.",
+      title: "טיפ מהיר: CSS Grid במקום Flexbox?",
+      description: "מתי להשתמש ב-CSS Grid ומתי ב-Flexbox? טיפים מעשיים שיחסכו לכם שעות של עבודה ויהפכו את הקוד ליותר נקי.",
       date: "15 ביוני 2025",
-      category: "חינוך",
-      icon: <TrendingUp className="w-5 h-5" />,
-      readTime: "5 דקות קריאה",
+      category: "טיפים",
+      icon: <Lightbulb className="w-5 h-5" />,
+      readTime: "3 דקות קריאה",
       featured: false
     }
   ];
 
   const getCategoryColor = (category: string) => {
     switch (category) {
-      case "חדשנות":
+      case "כלי AI":
+        return "bg-purple-600/20 text-purple-400 border-purple-600/30";
+      case "עיצוב":
+        return "bg-pink-600/20 text-pink-400 border-pink-600/30";
+      case "פיתוח":
         return "bg-blue-600/20 text-blue-400 border-blue-600/30";
-      case "הישגים":
-        return "bg-yellow-600/20 text-yellow-400 border-yellow-600/30";
-      case "אבטחה":
-        return "bg-red-600/20 text-red-400 border-red-600/30";
-      case "חינוך":
+      case "טיפים":
         return "bg-green-600/20 text-green-400 border-green-600/30";
       default:
         return "bg-gray-600/20 text-gray-400 border-gray-600/30";
@@ -70,21 +71,21 @@ const NewsUpdates = () => {
       <div className="container mx-auto relative z-10">
         <div className="text-center mb-20">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
-            חדשות ועדכונים
+            ניוזלטר ומאמרים
           </h2>
           <p className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
-            הישארו מעודכנים עם החדשות האחרונות, הפיתוחים החדשניים והשדרוגים המתקדמים שלנו
+            מדריכים מעשיים, טיפים מקצועיים וכלי AI מתקדמים לבניית אתרים ופיתוח מוצרים דיגיטליים
           </p>
         </div>
 
         <div className="grid lg:grid-cols-3 gap-12">
-          {/* כתבה מובילה */}
+          {/* מאמר מוביל */}
           <div className="lg:col-span-2">
-            {news
+            {articles
               .filter(item => item.featured)
               .map(item => (
                 <div key={item.id} className="bg-slate-800/60 backdrop-blur-sm rounded-3xl border border-slate-700/50 overflow-hidden shadow-2xl hover:shadow-cyan-500/10 transition-all duration-500 hover:scale-105">
-                  <div className="bg-gradient-to-r from-blue-600/20 to-cyan-600/20 backdrop-blur-sm p-8 border-b border-slate-600/30">
+                  <div className="bg-gradient-to-r from-purple-600/20 to-cyan-600/20 backdrop-blur-sm p-8 border-b border-slate-600/30">
                     <div className="flex items-center gap-4 mb-6">
                       <div className="bg-cyan-400/20 p-3 rounded-2xl border border-cyan-400/30">
                         <div className="text-cyan-400">
@@ -114,9 +115,11 @@ const NewsUpdates = () => {
                           <span>{item.readTime}</span>
                         </div>
                       </div>
-                      <Button className="bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white group transition-all duration-300">
-                        קרא עוד
-                        <ArrowRight className="w-4 h-4 mr-2 group-hover:translate-x-1 transition-transform" />
+                      <Button className="bg-gradient-to-r from-purple-600 to-cyan-600 hover:from-purple-700 hover:to-cyan-700 text-white group transition-all duration-300">
+                        <Link to="/articles" className="flex items-center">
+                          קרא את המאמר
+                          <ArrowRight className="w-4 h-4 mr-2 group-hover:translate-x-1 transition-transform" />
+                        </Link>
                       </Button>
                     </div>
                   </div>
@@ -124,9 +127,9 @@ const NewsUpdates = () => {
               ))}
           </div>
 
-          {/* כתבות נוספות */}
+          {/* מאמרים נוספים */}
           <div className="space-y-8">
-            {news
+            {articles
               .filter(item => !item.featured)
               .map(item => (
                 <div key={item.id} className="bg-slate-800/60 backdrop-blur-sm rounded-2xl border border-slate-700/50 p-6 shadow-xl hover:shadow-cyan-500/10 transition-all duration-500 hover:scale-105 group">
@@ -152,7 +155,9 @@ const NewsUpdates = () => {
                       <span>{item.date}</span>
                     </div>
                     <Button variant="ghost" size="sm" className="text-xs text-gray-400 hover:text-cyan-400 hover:bg-cyan-400/10">
-                      קרא עוד
+                      <Link to="/articles">
+                        קרא עוד
+                      </Link>
                     </Button>
                   </div>
                 </div>
@@ -160,11 +165,29 @@ const NewsUpdates = () => {
           </div>
         </div>
 
-        {/* קישור לכל החדשות */}
+        {/* הרשמה לניוזלטר */}
         <div className="text-center mt-16">
+          <div className="bg-slate-800/60 backdrop-blur-sm rounded-3xl border border-slate-700/50 p-8 max-w-2xl mx-auto mb-8">
+            <Rocket className="w-12 h-12 text-cyan-400 mx-auto mb-4" />
+            <h3 className="text-2xl font-bold text-white mb-4">הצטרפו לניוזלטר שלי</h3>
+            <p className="text-gray-300 mb-6">קבלו מדריכים חדשים, טיפים מקצועיים וכלי AI ישירות לתיבת המייל</p>
+            <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+              <input 
+                type="email" 
+                placeholder="הכתובת המייל שלכם" 
+                className="flex-1 px-4 py-3 bg-slate-700/50 border border-slate-600 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-cyan-400 transition-colors"
+              />
+              <Button className="bg-gradient-to-r from-purple-600 to-cyan-600 hover:from-purple-700 hover:to-cyan-700 text-white px-6 py-3 rounded-xl transition-all duration-300 transform hover:scale-105">
+                הרשמה
+              </Button>
+            </div>
+          </div>
+          
           <Button size="lg" className="bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white px-8 py-4 text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
-            צפה בכל החדשות
-            <ArrowRight className="w-5 h-5 mr-2" />
+            <Link to="/articles" className="flex items-center">
+              צפו בכל המאמרים
+              <ArrowRight className="w-5 h-5 mr-2" />
+            </Link>
           </Button>
         </div>
       </div>
