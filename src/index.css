@@ -1,0 +1,391 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom gentle animations for accessibility */
+@keyframes gentlePulse {
+  0%,
+  100% {
+    opacity: 0.8;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.02);
+  }
+}
+
+@keyframes slowFloat {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes gentleGlow {
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(59, 130, 246, 0.2);
+  }
+}
+
+/* Video fadeout animations */
+@keyframes videoFadeOut {
+  0% {
+    opacity: 1;
+    filter: brightness(1);
+  }
+  100% {
+    opacity: 0.7;
+    filter: brightness(0.6);
+  }
+}
+
+@keyframes contentFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes overlayFadeIn {
+  0% {
+    background-color: rgba(15, 23, 42, 0.1);
+  }
+  100% {
+    background-color: rgba(15, 23, 42, 0.6);
+  }
+}
+
+/* Fixed background image with fallback */
+.fixed-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: url('/assets/images/image.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: -50;
+}
+
+/* Fallback for browsers that don't support fixed attachment */
+@supports not (background-attachment: fixed) {
+  .fixed-background {
+    background-attachment: scroll;
+  }
+}
+
+/* Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Import accessibility styles - must be after Tailwind directives */
+
+/* Smooth scrolling for navigation */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px; /* Add padding to account for sticky navigation */
+}
+
+/* Ensure proper spacing for sticky navigation */
+body {
+  padding-top: 0;
+}
+
+/* Utility class for content that needs to avoid sticky header */
+.content-with-nav {
+  padding-top: 80px;
+  margin-top: -80px;
+}
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+    /* Accessibility font scaling */
+    font-size: calc(1rem * var(--accessibility-font-scale, 1));
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  /* Skip to content link */
+  .skip-to-content {
+    position: absolute;
+    top: -40px;
+    left: 6px;
+    background: #000;
+    color: #fff;
+    padding: 8px;
+    text-decoration: none;
+    z-index: 1000;
+    border-radius: 4px;
+    font-weight: bold;
+  }
+
+  .skip-to-content:focus {
+    top: 6px;
+  }
+}
+
+/* Accessibility Styles */
+@layer utilities {
+  /* High contrast mode */
+  .high-contrast {
+    filter: contrast(150%) brightness(120%);
+  }
+
+  .high-contrast * {
+    background-color: white !important;
+    color: black !important;
+    border-color: black !important;
+  }
+
+  .high-contrast a {
+    color: #0000ff !important;
+    text-decoration: underline !important;
+  }
+
+  .high-contrast button {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+    border: 2px solid #000000 !important;
+  }
+
+  /* Inverted contrast mode */
+  .inverted-contrast {
+    filter: invert(1) hue-rotate(180deg);
+  }
+
+  /* Large cursor */
+  .large-cursor * {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><path d="M2 2 L14 14 L8 14 L8 30 L2 24 L2 2 Z" fill="black" stroke="white" stroke-width="1"/></svg>'), auto !important;
+  }
+
+  .extra-large-cursor * {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48"><path d="M3 3 L21 21 L12 21 L12 45 L3 36 L3 3 Z" fill="black" stroke="white" stroke-width="2"/></svg>'), auto !important;
+  }
+
+  /* Highlight links */
+  .highlight-links a {
+    background-color: #ffff00 !important;
+    color: #000000 !important;
+    padding: 2px 4px !important;
+    border: 2px solid #ff0000 !important;
+    text-decoration: underline !important;
+    font-weight: bold !important;
+  }
+
+  .highlight-links a:hover,
+  .highlight-links a:focus {
+    background-color: #ff0000 !important;
+    color: #ffffff !important;
+  }
+
+  /* Highlight headings */
+  .highlight-headings h1,
+  .highlight-headings h2,
+  .highlight-headings h3,
+  .highlight-headings h4,
+  .highlight-headings h5,
+  .highlight-headings h6 {
+    background-color: #0066cc !important;
+    color: #ffffff !important;
+    padding: 8px !important;
+    border: 3px solid #003366 !important;
+    border-radius: 4px !important;
+    margin: 8px 0 !important;
+  }
+
+  /* Hide images */
+  .hide-images img,
+  .hide-images svg,
+  .hide-images [role="img"] {
+    opacity: 0.1 !important;
+    filter: grayscale(100%) !important;
+  }
+
+  .hide-images img:hover,
+  .hide-images img:focus {
+    opacity: 1 !important;
+    filter: none !important;
+  }
+
+  /* Disable animations */
+  .no-animations *,
+  .no-animations *::before,
+  .no-animations *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  /* RTL support */
+  .rtl-support {
+    direction: rtl;
+    text-align: right;
+  }
+
+  /* Focus indicators */
+  .enhanced-focus *:focus {
+    outline: 3px solid #ff6600 !important;
+    outline-offset: 2px !important;
+    box-shadow: 0 0 0 5px rgba(255, 102, 0, 0.3) !important;
+  }
+}
+
+/* Video background styles */
+.video-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -40;
+  animation: videoFadeOut 3s ease-out forwards;
+}
+
+.video-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -30;
+  animation: overlayFadeIn 3s ease-out forwards;
+}
+
+.content-appear {
+  animation: contentFadeIn 2s ease-out forwards;
+}
+
+/* Performance optimizations for video background */
+.video-performance-optimized {
+  will-change: filter, transform;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+/* Smooth content transitions */
+.content-smooth-entrance {
+  transition: opacity 3s ease-out, transform 3s ease-out;
+}
+
+/* Video overlay smooth transitions */
+.overlay-smooth-darken {
+  transition: background 4s ease-out;
+}

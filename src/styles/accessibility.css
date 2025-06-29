@@ -1,0 +1,244 @@
+/* Accessibility Styles for Israeli Web Accessibility Standards */
+
+/* Font scaling */
+* {
+  font-size: calc(1rem * var(--accessibility-font-scale, 1));
+}
+
+/* High contrast mode */
+.high-contrast {
+  filter: contrast(150%) brightness(120%);
+}
+
+.high-contrast * {
+  background-color: white !important;
+  color: black !important;
+  border-color: black !important;
+}
+
+.high-contrast a {
+  color: #0000ff !important;
+  text-decoration: underline !important;
+}
+
+.high-contrast button {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+  border: 2px solid #000000 !important;
+}
+
+/* Inverted contrast mode */
+.inverted-contrast {
+  filter: invert(1) hue-rotate(180deg);
+}
+
+/* Large cursor */
+.large-cursor * {
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><path d="M2 2 L14 14 L8 14 L8 30 L2 24 L2 2 Z" fill="black" stroke="white" stroke-width="1"/></svg>'), auto !important;
+}
+
+.extra-large-cursor * {
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48"><path d="M3 3 L21 21 L12 21 L12 45 L3 36 L3 3 Z" fill="black" stroke="white" stroke-width="2"/></svg>'), auto !important;
+}
+
+/* Highlight links */
+.highlight-links a {
+  background-color: #ffff00 !important;
+  color: #000000 !important;
+  padding: 2px 4px !important;
+  border: 2px solid #ff0000 !important;
+  text-decoration: underline !important;
+  font-weight: bold !important;
+}
+
+.highlight-links a:hover,
+.highlight-links a:focus {
+  background-color: #ff0000 !important;
+  color: #ffffff !important;
+}
+
+/* Highlight headings */
+.highlight-headings h1,
+.highlight-headings h2,
+.highlight-headings h3,
+.highlight-headings h4,
+.highlight-headings h5,
+.highlight-headings h6 {
+  background-color: #0066cc !important;
+  color: #ffffff !important;
+  padding: 8px !important;
+  border: 3px solid #003366 !important;
+  border-radius: 4px !important;
+  margin: 8px 0 !important;
+}
+
+/* Hide images */
+.hide-images img,
+.hide-images svg,
+.hide-images [role="img"] {
+  opacity: 0.1 !important;
+  filter: grayscale(100%) !important;
+}
+
+.hide-images img:hover,
+.hide-images img:focus {
+  opacity: 1 !important;
+  filter: none !important;
+}
+
+/* Reading guide */
+.reading-guide {
+  position: relative;
+}
+
+.reading-guide::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent 0%, #ff0000 50%, transparent 100%);
+  z-index: 9999;
+  pointer-events: none;
+  animation: reading-guide 3s ease-in-out infinite;
+}
+
+@keyframes reading-guide {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(200px); }
+}
+
+/* No animations */
+.no-animations *,
+.no-animations *::before,
+.no-animations *::after {
+  animation: none !important;
+  transition: none !important;
+  transform: none !important;
+}
+
+/* Focus indicators */
+*:focus {
+  outline: 3px solid #0066cc !important;
+  outline-offset: 2px !important;
+}
+
+/* Skip to content link */
+.skip-to-content {
+  position: absolute;
+  top: -50px;
+  left: 0;
+  background: #000000;
+  color: #ffffff;
+  padding: 8px 16px;
+  text-decoration: none;
+  font-weight: bold;
+  z-index: 10000;
+  border-radius: 0 0 4px 0;
+}
+
+.skip-to-content:focus {
+  top: 0;
+}
+
+/* Screen reader only content */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* High contrast mode specific fixes */
+@media (prefers-contrast: high) {
+  * {
+    border-color: currentColor !important;
+  }
+  
+  img {
+    filter: contrast(150%) !important;
+  }
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Print accessibility */
+@media print {
+  * {
+    background: white !important;
+    color: black !important;
+  }
+  
+  a::after {
+    content: " (" attr(href) ")";
+  }
+}
+
+/* Keyboard navigation helpers */
+[tabindex="-1"]:focus {
+  outline: none;
+}
+
+/* ARIA live regions */
+.live-region {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+/* Hebrew RTL specific accessibility */
+[dir="rtl"] .skip-to-content {
+  left: auto;
+  right: 0;
+  border-radius: 0 0 0 4px;
+}
+
+/* Color blind friendly colors */
+.color-blind-friendly {
+  --error-color: #d63031;
+  --warning-color: #f39c12;
+  --success-color: #00b894;
+  --info-color: #0984e3;
+}
+
+/* Better spacing for accessibility */
+.accessibility-spacing p,
+.accessibility-spacing li {
+  line-height: 1.6 !important;
+  margin-bottom: 1em !important;
+}
+
+.accessibility-spacing button,
+.accessibility-spacing a {
+  min-height: 44px !important;
+  min-width: 44px !important;
+  padding: 12px 16px !important;
+}
+
+/* Focus trap helpers */
+.focus-trap {
+  isolation: isolate;
+}
+
+.focus-trap:focus-within {
+  outline: 3px solid #0066cc;
+  outline-offset: 2px;
+}
