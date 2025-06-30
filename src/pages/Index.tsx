@@ -42,22 +42,12 @@ const Index = () => {
   const [videoLoaded, setVideoLoaded] = useState(false);
   const [showContent, setShowContent] = useState(false);
   const [videoError, setVideoError] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    // Check if device is mobile to potentially disable autoplay
-    const checkIsMobile = () => {
-      const userAgent = navigator.userAgent.toLowerCase();
-      const mobileKeywords = ['android', 'iphone', 'ipad', 'mobile', 'tablet'];
-      return mobileKeywords.some(keyword => userAgent.includes(keyword));
-    };
-    
-    setIsMobile(checkIsMobile());
-    
     // Show content after video starts loading
     const timer = setTimeout(() => {
       setShowContent(true);
-    }, 500); // קצר יותר כדי שה-fadeout יתחיל מוקדם יותר
+    }, 500);
 
     return () => clearTimeout(timer);
   }, []);
@@ -239,14 +229,14 @@ const Index = () => {
             className={`fixed inset-0 w-full h-full object-cover -z-40 transition-all duration-[4000ms] ease-out ${
               showContent ? 'brightness-50 scale-105' : 'brightness-100 scale-100'
             }`}
-            autoPlay={!isMobile} 
+            autoPlay 
             muted 
             loop 
             playsInline
             onLoadedData={handleVideoLoad}
             onError={handleVideoError}
             aria-hidden="true"
-            preload={isMobile ? "metadata" : "auto"}
+            preload="auto"
           >
             <source src="/assets/videos/background.mp4" type="video/mp4" />
           </video>
@@ -287,7 +277,7 @@ const Index = () => {
               <div className="flex items-center space-x-2 space-x-reverse bg-slate-900/60 backdrop-blur-sm rounded-xl px-4 py-2 border border-slate-700/30">
                 <div className="animate-spin rounded-full h-4 w-4 border border-blue-400/40 border-t-blue-400"></div>
                 <span className="text-gray-400 text-xs font-medium">
-                  {isMobile ? 'טוען...' : 'טוען סרטון...'}
+                  טוען סרטון...
                 </span>
               </div>
             </div>
