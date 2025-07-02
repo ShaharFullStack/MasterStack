@@ -140,7 +140,7 @@ const ServicesPage = () => {
       priceType: "לחודש (מנוי שנתי)"
     },
     {
-      id: 12,
+      id: 10,
       icon: <Lock className="w-8 h-8 text-red-500" />,
       title: "🔒 שירותי אבטחה ובטיחות אתרים",
       category: "אבטחה",
@@ -152,7 +152,7 @@ const ServicesPage = () => {
       priceType: "לחודש (לפי רמת האבטחה)"
     },
     {
-      id: 13,
+      id: 11,
       icon: <Gauge className="w-8 h-8 text-yellow-500" />,
       title: "🚀 שירותי מהירות ואופטימיזציה",
       category: "אופטימיזציה",

@@ -168,8 +168,8 @@ const Index = () => {
   ];
 
   const stats = [
-    { number: "13", label: "שירותים מובילים" },
-    { number: "8", label: "קטגוריות, מבניית האתר ועד הדרכה לתחזוקה עצמאית" },
+    { number: "11", label: "שירותים מובילים" },
+    { number: "7", label: "קטגוריות, מבניית האתר ועד הדרכה לתחזוקה עצמאית" },
     { number: "24/7", label: "תמיכה טכנית" },
     { number: "5+", label: "שנות ניסיון" }
   ];
@@ -481,11 +481,11 @@ const Index = () => {
               <div className="bg-gradient-to-br from-blue-600/20 to-cyan-600/20 rounded-3xl p-8 backdrop-blur-sm border border-slate-700/50">
                 <div className="grid grid-cols-2 gap-6">
                   <div className="text-center">
-                    <div className="text-3xl font-bold text-blue-400 mb-2">13</div>
+                    <div className="text-3xl font-bold text-blue-400 mb-2">11</div>
                     <div className="text-gray-400 text-sm">שירותים מובילים להתאמה אישית</div>
                   </div>
                   <div className="text-center">
-                    <div className="text-3xl font-bold text-cyan-400 mb-2">8</div>
+                    <div className="text-3xl font-bold text-cyan-400 mb-2">7</div>
                     <div className="text-gray-400 text-sm">קטגוריות הכוללות בניית אתר, תחזוקה, SEO </div>
                   </div>
                   <div className="text-center">

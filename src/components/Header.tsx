@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Menu, X, Phone, MessageCircle } from "lucide-react";
 import { useState, useEffect } from "react";
+import UserMenu from "./UserMenu";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -59,7 +60,7 @@ const Header = () => {
               </a>
             ))}
             
-            
+            {/* User Menu */}
           </nav>
 
           {/* Mobile Menu Button */}
@@ -70,6 +71,8 @@ const Header = () => {
           >
             {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
+            <UserMenu />
+
         </div>
 
         {/* Mobile Menu */}
@@ -87,10 +90,12 @@ const Header = () => {
                 >
                   {item.label}
                 </a>
+                
               ))}
               
               {/* Mobile CTA Button */}
-              <div className="px-6 pt-4">
+              <div className="px-6 pt-4 space-y-3">
+                <UserMenu />
                 <Button 
                   className="w-full bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white py-3 rounded-xl transition-all duration-300"
                   asChild
