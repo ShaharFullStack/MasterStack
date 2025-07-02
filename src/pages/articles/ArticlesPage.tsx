@@ -3,6 +3,11 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import AccessibilityMenu from "@/components/AccessibilityMenu";
+import FloatingWhatsApp from "@/components/FloatingWhatsApp";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import { useState } from "react";
 
 const ArticlesPage = () => {
@@ -18,6 +23,7 @@ const ArticlesPage = () => {
     readTime: "8 דקות קריאה",
     author: "MasterStack Digital",
     tags: ["AI", "פיתוח", "Next.js", "Tailwind", "מדריך"]
+  
   };
 
   const copyToClipboard = (code, index) => {
@@ -52,20 +58,45 @@ const ArticlesPage = () => {
   );
 
   return (
-    <div className="min-h-screen bg-slate-900" dir="rtl">
-      {/* Hero Section */}
-      <div className="relative bg-gradient-to-br from-slate-900 via-blue-900/20 to-slate-900 py-20">
-        <div className="absolute inset-0 bg-[url('/tech-background.jpg')] bg-cover bg-center opacity-10"></div>
-        <div className="container mx-auto px-6 relative z-10">
-          {/* Breadcrumbs */}
-          <nav className="flex items-center gap-2 text-sm text-gray-400 mb-8">
-            <Home className="w-4 h-4" />
-            <ChevronLeft className="w-4 h-4" />
-            <span>מאמרים</span>
-            <ChevronLeft className="w-4 h-4" />
-            <span className="text-cyan-400">מדריך מקיף: בניית אתר עם AI</span>
-          </nav>
+    <div className="min-h-screen text-white bg-transparent" dir="rtl">
+      {/* Background Video with same style as Index.tsx */}
+      <video 
+        className="fixed inset-0 w-full h-full object-cover -z-40 brightness-[0.3]"
+        autoPlay 
+        muted 
+        loop 
+        playsInline
+        aria-hidden="true"
+      >
+        <source src="/assets/videos/background.mp4" type="video/mp4" />
+      </video>
+      
+      {/* Fallback background image */}
+      <div 
+        className="fixed inset-0 w-full h-full -z-50"
+        style={{
+          backgroundImage: 'url(/assets/images/image.png)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+        }}
+        aria-hidden="true"
+      ></div>
 
+      <Header />
+      <AccessibilityMenu />
+      
+      <div className="relative z-10">
+        <Breadcrumbs 
+          items={[
+            { label: "מאמרים", href: "/articles" },
+            { label: "מדריך מקיף: בניית אתר עם AI", current: true }
+          ]} 
+        />
+        
+        {/* Hero Section */}
+        <div className="relative bg-gradient-to-br from-slate-900/80 via-blue-900/40 to-slate-900/80 py-20">
+          <div className="container mx-auto px-6 relative z-10">
           {/* Article Header */}
           <div className="max-w-5xl mx-auto text-center">
             <div className="flex items-center justify-center gap-4 mb-6">
@@ -937,6 +968,11 @@ vercel
           </div>
         </div>
       </div>
+      
+      </div> {/* End relative z-10 div */}
+      
+      <Footer />
+      <FloatingWhatsApp />
     </div>
   );
 };

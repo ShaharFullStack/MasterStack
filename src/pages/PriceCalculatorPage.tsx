@@ -3,6 +3,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
+import AccessibilityMenu from "@/components/AccessibilityMenu";
 
 const PriceCalculatorPage = () => {
   return (
@@ -32,6 +33,7 @@ const PriceCalculatorPage = () => {
       ></div>
       
       <Header />
+      <AccessibilityMenu />
       <div className="relative z-10">
         <Breadcrumbs 
           items={[
@@ -40,6 +42,7 @@ const PriceCalculatorPage = () => {
         />
         <PriceCalculator />
       </div>
+      <Footer />
       <FloatingWhatsApp />
     </div>
   );

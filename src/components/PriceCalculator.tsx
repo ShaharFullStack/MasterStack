@@ -199,23 +199,23 @@ const PriceCalculator = () => {
   };
 
   return (
-    <section className="min-h-screen text-white py-20 relative" dir="rtl">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
+    <section className="min-h-screen text-white py-12 md:py-20 relative" dir="rtl">
+      <div className="container mx-auto px-4 md:px-6">
+        <div className="text-center mb-12 md:mb-16">
           <div className="flex items-center justify-center gap-3 mb-6">
-            <div className="p-4 bg-blue-600/20 rounded-2xl border border-blue-500/30">
-              <Calculator className="w-8 h-8 text-blue-400" />
+            <div className="p-3 md:p-4 bg-blue-600/20 rounded-2xl border border-blue-500/30">
+              <Calculator className="w-6 h-6 md:w-8 md:h-8 text-blue-400" />
             </div>
-            <h2 className="text-4xl md:text-5xl font-bold text-white">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white">
               מחשבון מחיר
             </h2>
           </div>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
             קבלו הערכת מחיר מדויקת ומיידית לפרויקט שלכם
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8 max-w-7xl mx-auto">
           {/* טופס המחשבון */}
           <div className="lg:col-span-2 space-y-6">
             {/* סוג שירות עיקרי */}
@@ -234,15 +234,15 @@ const PriceCalculator = () => {
                       <div key={service.id} className="flex items-center space-x-2 space-x-reverse">
                         <RadioGroupItem value={service.id} id={service.id} />
                         <Label htmlFor={service.id} className="flex-1 cursor-pointer">
-                          <div className="p-4 border border-slate-600 rounded-lg hover:bg-slate-700 transition-colors">
-                            <div className="flex items-center gap-3 mb-2">
-                              {service.icon}
-                              <span className="text-2xl">{service.emoji}</span>
-                              <div className="font-semibold text-white">{service.name}</div>
+                          <div className="p-3 md:p-4 border border-slate-600 rounded-lg hover:bg-slate-700 transition-colors">
+                            <div className="flex items-center gap-2 md:gap-3 mb-2">
+                              <div className="flex-shrink-0">{service.icon}</div>
+                              <span className="text-xl md:text-2xl flex-shrink-0">{service.emoji}</span>
+                              <div className="font-semibold text-white text-sm md:text-base">{service.name}</div>
                             </div>
-                            <div className="text-sm text-gray-400 mb-2">{service.description}</div>
-                            <div className="text-xs text-gray-500 mb-3">{service.problem}</div>
-                            <Badge variant="outline" className="border-blue-500 text-blue-400">
+                            <div className="text-xs md:text-sm text-gray-400 mb-2">{service.description}</div>
+                            <div className="text-xs text-gray-500 mb-3 hidden md:block">{service.problem}</div>
+                            <Badge variant="outline" className="border-blue-500 text-blue-400 text-xs">
                               {service.minPrice.toLocaleString()}-{service.maxPrice.toLocaleString()}₪
                             </Badge>
                           </div>
@@ -347,18 +347,18 @@ const PriceCalculator = () => {
 
           {/* סיכום מחיר */}
           <div className="lg:col-span-1">
-            <div className="sticky top-8">
+            <div className="lg:sticky lg:top-8">
               <Card className="bg-slate-800/60 backdrop-blur-sm shadow-2xl border-2 border-blue-500/30">
                 <CardHeader className="bg-gradient-to-r from-blue-600 to-cyan-600 text-white rounded-t-lg">
-                  <CardTitle className="flex items-center gap-2">
-                    <DollarSign className="w-6 h-6" />
+                  <CardTitle className="flex items-center gap-2 text-lg md:text-xl">
+                    <DollarSign className="w-5 h-5 md:w-6 md:h-6" />
                     הערכת מחיר
                   </CardTitle>
-                  <CardDescription className="text-blue-100">
+                  <CardDescription className="text-blue-100 text-sm md:text-base">
                     מחיר מותאם לפרויקט שלכם
                   </CardDescription>
                 </CardHeader>
-                <CardContent className="p-6">
+                <CardContent className="p-4 md:p-6">
                   {serviceType ? (
                     <div className="space-y-4">
                       <div className="space-y-3">
@@ -415,8 +415,8 @@ const PriceCalculator = () => {
                         </div>
                       )}
                       
-                      <div className="space-y-2 pt-4">
-                        <Button className="w-full bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700">
+                      <div className="space-y-3 md:space-y-4 pt-4">
+                        <Button className="w-full bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 h-12 md:h-14 text-sm md:text-base">
                           <a 
                             href={`https://wa.me/972525347274?text=שלום, אני מעוניין לקבל הצעת מחיר לפרויקט. המחיר המשוער: ${price.total.toLocaleString()}₪`}
                             target="_blank"
@@ -427,22 +427,22 @@ const PriceCalculator = () => {
                             בקש הצעת מחיר בווצאפ
                           </a>
                         </Button>
-                        <Button variant="outline" className="w-full border-slate-600 text-gray-300 hover:bg-slate-700">
+                        <Button variant="outline" className="w-full border-slate-600 text-gray-300 hover:bg-slate-700 h-10 md:h-12 text-sm md:text-base">
                           התייעץ עם מומחה
                         </Button>
                       </div>
                       
-                      <div className="bg-green-900/20 p-3 rounded-lg border border-green-500/30">
-                        <div className="flex items-center gap-2 text-green-400 text-sm">
-                          <CheckCircle className="w-4 h-4" />
+                      <div className="bg-green-900/20 p-3 md:p-4 rounded-lg border border-green-500/30">
+                        <div className="flex items-center gap-2 text-green-400 text-xs md:text-sm">
+                          <CheckCircle className="w-4 h-4 flex-shrink-0" />
                           <span>הערכה ללא התחייבות</span>
                         </div>
                       </div>
                     </div>
                   ) : (
-                    <div className="text-center py-8">
-                      <AlertCircle className="w-12 h-12 text-slate-400 mx-auto mb-4" />
-                      <p className="text-gray-400">בחרו שירות עיקרי לקבלת הערכת מחיר</p>
+                    <div className="text-center py-6 md:py-8">
+                      <AlertCircle className="w-10 h-10 md:w-12 md:h-12 text-slate-400 mx-auto mb-3 md:mb-4" />
+                      <p className="text-gray-400 text-sm md:text-base">בחרו שירות עיקרי לקבלת הערכת מחיר</p>
                     </div>
                   )}
                 </CardContent>

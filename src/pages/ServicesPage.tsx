@@ -140,30 +140,6 @@ const ServicesPage = () => {
       priceType: "לחודש (מנוי שנתי)"
     },
     {
-      id: 10,
-      icon: <BookOpen className="w-8 h-8 text-indigo-400" />,
-      title: "📚 הדרכות שימוש באתר ללקוחות",
-      category: "הדרכה",
-      problem: "לקוחות מקבלים אתר מדהים אבל לא יודעים איך להוסיף תוכן או לנהל את האתר",
-      solution: "הדרכה אישית למערכת הניהול, מדריכי וידאו מותאמים, תמיכה צמודה לחודש הראשון",
-      uniqueness: "הדרכה מותאמת לרמת הידע של הלקוח, מדריכים בעברית, זמינות לשאלות",
-      targetAudience: "בעלי עסקים וקרייטיבים שרוצים לנהל את האתר בעצמם אחרי המסירה",
-      price: "500-900₪",
-      priceType: "חבילת הדרכה"
-    },
-    {
-      id: 11,
-      icon: <GraduationCap className="w-8 h-8 text-purple-500" />,
-      title: "🎓 מאמן דיגיטלי לעסקים קטנים",
-      category: "הדרכה",
-      problem: "עסקים קטנים וטכנופוביים שזקוקים לליווי הדרגתי לבניית יכולות דיגיטליות עצמאיות",
-      solution: "ליווי חודשי משולב AI וייעוץ אנושי לבניית יכולת דיגיטלית עצמאית במקום תלות מוחלטת",
-      uniqueness: "שילוב ייחודי של AI עם ליווי אישי בתהליך הדרגתי, נגיש במיוחד לטכנופוביים בפריפריה",
-      targetAudience: "עסקים קטנים בפריפריה, בעלי עסקים מבוגרים, טכנופוביים שרוצים עצמאות דיגיטלית",
-      price: "890-1,490₪",
-      priceType: "לחודש (ריטיינר ל-6-12 חודשים)"
-    },
-    {
       id: 12,
       icon: <Lock className="w-8 h-8 text-red-500" />,
       title: "🔒 שירותי אבטחה ובטיחות אתרים",
@@ -195,7 +171,6 @@ const ServicesPage = () => {
     { name: "בניית אתרים", color: "bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-300", count: 2 },
     { name: "קידום אתרים", color: "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300", count: 2 },
     { name: "תחזוקה", color: "bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-300", count: 3 },
-    { name: "הדרכה", color: "bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-300", count: 2 },
     { name: "אבטחה", color: "bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-300", count: 1 },
     { name: "אופטימיזציה", color: "bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-300", count: 1 }
   ];

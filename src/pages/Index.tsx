@@ -134,15 +134,6 @@ const Index = () => {
       price: "800-1,500₪",
       category: "אופטימיזציה"
     },
-    {
-      icon: <BookOpen className="w-8 h-8 text-indigo-400" />,
-      title: "הדרכות ומאמן דיגיטלי",
-      emoji: "📚",
-      problem: "לקוחות מקבלים אתר מדהים אבל לא יודעים איך לנהל אותו",
-      solution: "הדרכה אישית + מדריכי וידאו + ליווי חודשי לבניית יכולות דיגיטליות",
-      price: "500-1,490₪",
-      category: "הדרכה"
-    }
   ];
 
   const testimonials = [

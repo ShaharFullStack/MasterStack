@@ -3,6 +3,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
+import AccessibilityMenu from "@/components/AccessibilityMenu";
 
 const ContactPage = () => {
   return (
@@ -32,6 +33,7 @@ const ContactPage = () => {
       ></div>
       
       <Header />
+      <AccessibilityMenu />
       <div className="relative z-10">
         <Breadcrumbs 
           items={[
@@ -40,6 +42,7 @@ const ContactPage = () => {
         />
         <AdvancedContact />
       </div>
+      <Footer />
       <FloatingWhatsApp />
     </div>
   );

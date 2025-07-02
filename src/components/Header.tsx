@@ -27,7 +27,6 @@ const Header = () => {
     { href: "/", label: "בית" },
     { href: "/services", label: "שירותים" },
     { href: "/news", label: "חדשות" },
-    { href: "/articles", label: "מאמרים" },
     { href: "/calculator", label: "מחשבון מחיר" },
     { href: "/contact", label: "צור קשר" }
   ];
