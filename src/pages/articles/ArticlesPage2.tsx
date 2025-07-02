@@ -88,7 +88,7 @@ const BusinessWebsiteGuide = () => {
       <div className="relative z-10">
         <Breadcrumbs 
           items={[
-            { label: "מאמרים", href: "/articles" },
+            { label: "מאמרים", href: "/news" },
             { label: "מדריך לבניית אתר עסקי מנצח", current: true }
           ]} 
         />
@@ -135,11 +135,11 @@ const BusinessWebsiteGuide = () => {
 
             {/* Share Buttons */}
             <div className="flex items-center justify-center gap-4">
-              <Button variant="outline" className="border-slate-600 text-gray-400 hover:text-white hover:border-green-400">
+                    <Button size="lg" variant="outline" className="bg-slate-700/30 border-slate-600 text-gray-400 hover:border-cyan-400 hover:text-cyan-400 hover:bg-slate-700/30 transition-colors">
                 <Share2 className="w-4 h-4 mr-2" />
                 שתף
               </Button>
-              <Button variant="outline" className="border-slate-600 text-gray-400 hover:text-white hover:border-green-400">
+                    <Button size="lg" variant="outline" className="bg-slate-700/30 border-slate-600 text-gray-400 hover:border-cyan-400 hover:text-cyan-400 hover:bg-slate-700/30 transition-colors">
                 <BookOpen className="w-4 h-4 mr-2" />
                 שמור לקריאה
               </Button>
@@ -609,21 +609,21 @@ const BusinessWebsiteGuide = () => {
                           <div className="bg-slate-800 rounded-lg p-6 border border-slate-600">
                             <h4 className="text-white font-bold mb-2">דיני נזיקין</h4>
                             <p className="text-gray-300 text-sm">טיפול בתאונות דרכים ונזקי גוף</p>
-                            <Button variant="outline" className="mt-3 text-xs border-gray-600 text-gray-400">
+                            <Button variant="outline" className="mt-3 text-xs border-gray-600 text-blue-800">
                               קרא עוד
                             </Button>
                           </div>
                           <div className="bg-slate-800 rounded-lg p-6 border border-slate-600">
                             <h4 className="text-white font-bold mb-2">דיני עבודה</h4>
                             <p className="text-gray-300 text-sm">ייצוג עובדים ומעסיקים</p>
-                            <Button variant="outline" className="mt-3 text-xs border-gray-600 text-gray-400">
+                            <Button variant="outline" className="mt-3 text-xs border-gray-600 text-blue-800">
                               קרא עוד
                             </Button>
                           </div>
                           <div className="bg-slate-800 rounded-lg p-6 border border-slate-600">
                             <h4 className="text-white font-bold mb-2">דיני משפחה</h4>
                             <p className="text-gray-300 text-sm">גירושין וענייני משפחה</p>
-                            <Button variant="outline" className="mt-3 text-xs border-gray-600 text-gray-400">
+                            <Button variant="outline" className="mt-3 text-xs border-gray-600 text-blue-800">
                               קרא עוד
                             </Button>
                           </div>
@@ -1889,10 +1889,10 @@ const BusinessWebsiteGuide = () => {
                     שחר מעוז - מפתח פולסטאק ומומחה לכלי בינה מלאכותית לפיתוח. מלמד ומנחה צוותי פיתוח בבניית פתרונות דיגיטליים מתקדמים.
                   </p>
                   <div className="flex flex-wrap gap-4">
-                    <Button variant="outline" className="border-slate-600 text-gray-400 hover:border-green-400 hover:text-green-400 transition-colors">
+                    <Button variant="outline" className="bg-slate-700/30 border-slate-600 text-gray-400 hover:border-cyan-400 hover:text-cyan-400 hover:bg-slate-700/30 transition-colors">
                       הצטרפו לניוזלטר
                     </Button>
-                    <Button variant="outline" className="border-slate-600 text-gray-400 hover:border-green-400 hover:text-green-400 transition-colors">
+                    <Button variant="outline" className="bg-slate-700/30 border-slate-600 text-gray-400 hover:border-cyan-400 hover:text-cyan-400 hover:bg-slate-700/30 transition-colors">
                       מדריכים נוספים
                     </Button>
                   </div>
@@ -1912,11 +1912,11 @@ const BusinessWebsiteGuide = () => {
             קבלו ייעוץ אישי וליווי מקצועי בבניית האתר הבא שלכם
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white px-8 py-4 text-lg rounded-xl transition-all duration-300 transform hover:scale-105">
+                    <Button size="lg" variant="outline" className="bg-blue-900/30 border-blue-600 text-gray-400 hover:border-cyan-400 hover:text-cyan-400 hover:bg-blue-900/30 transition-colors">
               בואו נתחיל לבנות
               <ArrowRight className="w-5 h-5 mr-2" />
             </Button>
-            <Button size="lg" variant="outline" className="border-slate-600 text-gray-300 hover:border-green-400 hover:text-green-400 px-8 py-4 text-lg rounded-xl transition-colors">
+                    <Button size="lg" variant="outline" className="bg-blue-900/30 border-blue-600 text-gray-400 hover:border-cyan-400 hover:text-cyan-400 hover:bg-blue-900/30 transition-colors">
               עוד מדריכים
               <ExternalLink className="w-5 h-5 mr-2" />
             </Button>

@@ -8,8 +8,8 @@ const NewsUpdates = () => {
   const articles = [
     {
       id: 1,
-      title: "מדריך מקיף: בניית אתר עם AI בשעה אחת",
-      description: "גלו כיצד להשתמש בכלי AI מתקדמים כמו Claude ו-ChatGPT לבניית אתר מקצועי מאפס. כולל קוד מוכן, טיפים מעשיים ודוגמאות עבודה.",
+      title: "מדריך מקיף: בניית דף נחיתה עם AI בשעה אחת",
+      description: "גלו כיצד להשתמש בכלי AI מתקדמים כמו Claude ו-ChatGPT לבניית דף נחיתה מקצועי ומכירתי שממיר מבקרים ללקוחות. כולל קוד מוכן, טיפים מעשיים ודוגמאות עבודה.",
       date: "29 ביוני 2025",
       category: "כלי AI",
       icon: <Zap className="w-5 h-5" />,
@@ -79,7 +79,7 @@ const NewsUpdates = () => {
     <section className="py-16 md:py-32 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
       {/* Background matching Index.tsx */}
       <div className="absolute inset-0 bg-slate-900/50" aria-hidden="true"></div>
-      
+
       <div className="container mx-auto relative z-10 max-w-7xl">
         <div className="text-center mb-12 md:mb-20">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 md:mb-6 bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
@@ -184,9 +184,9 @@ const NewsUpdates = () => {
             <h3 className="text-xl sm:text-2xl font-bold text-white mb-4">הצטרפו לניוזלטר שלי</h3>
             <p className="text-gray-300 mb-6 text-sm sm:text-base px-2">קבלו מדריכים חדשים, טיפים מקצועיים וכלי AI ישירות לתיבת המייל</p>
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 max-w-md mx-auto">
-              <input 
-                type="email" 
-                placeholder="הכתובת המייל שלכם" 
+              <input
+                type="email"
+                placeholder="הכתובת המייל שלכם"
                 className="flex-1 px-4 py-3 bg-slate-700/50 border border-slate-600 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-cyan-400 transition-colors text-sm sm:text-base"
               />
               <Button className="bg-gradient-to-r from-purple-600 to-cyan-600 hover:from-purple-700 hover:to-cyan-700 text-white px-6 py-3 rounded-xl transition-all duration-300 transform hover:scale-105 text-sm sm:text-base">
@@ -194,7 +194,7 @@ const NewsUpdates = () => {
               </Button>
             </div>
           </div>
-          
+
           <Button size="lg" className="bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
             <Link to="/articles" className="flex items-center justify-center">
               צפו בכל המאמרים
