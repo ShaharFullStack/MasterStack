@@ -1892,7 +1892,7 @@ const BusinessWebsiteGuide = () => {
                     <Button variant="outline" className="bg-slate-700/30 border-slate-600 text-gray-400 hover:border-cyan-400 hover:text-cyan-400 hover:bg-slate-700/30 transition-colors">
                       הצטרפו לניוזלטר
                     </Button>
-                    <Button variant="outline" className="bg-slate-700/30 border-slate-600 text-gray-400 hover:border-cyan-400 hover:text-cyan-400 hover:bg-slate-700/30 transition-colors">
+                    <Button onClick={() => window.location.href = '/news'} variant="outline" className="bg-slate-700/30 border-slate-600 text-gray-400 hover:border-cyan-400 hover:text-cyan-400 hover:bg-slate-700/30 transition-colors">
                       מדריכים נוספים
                     </Button>
                   </div>
@@ -1916,7 +1916,7 @@ const BusinessWebsiteGuide = () => {
               בואו נתחיל לבנות
               <ArrowRight className="w-5 h-5 mr-2" />
             </Button>
-                    <Button size="lg" variant="outline" className="bg-blue-900/30 border-blue-600 text-gray-400 hover:border-cyan-400 hover:text-cyan-400 hover:bg-blue-900/30 transition-colors">
+                    <Button size="lg" onClick={() => window.location.href = '/news'} variant="outline" className="bg-slate-700/30 border-slate-600 text-gray-400 hover:border-cyan-400 hover:text-cyan-400 hover:bg-slate-700/30 transition-colors">
               עוד מדריכים
               <ExternalLink className="w-5 h-5 mr-2" />
             </Button>

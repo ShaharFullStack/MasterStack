@@ -89,7 +89,7 @@ const ArticlesPage = () => {
       <div className="relative z-10">
         <Breadcrumbs 
           items={[
-            { label: "מאמרים", href: "/articles" },
+            { label: "מאמרים", href: "/articles/landing-page-with-ai" },
             { label: "מדריך מקיף: בניית דף נחיתה עם AI", current: true }
           ]} 
         />
@@ -136,11 +136,33 @@ const ArticlesPage = () => {
 
             {/* Share Buttons */}
             <div className="flex items-center justify-center gap-4">
-                    <Button variant="outline" className="bg-slate-700/30 border-slate-600 text-gray-400 hover:border-cyan-400 hover:text-cyan-400 hover:bg-slate-700/30 transition-colors">
+              <Button 
+                onClick={() => {
+                  if (navigator.share) {
+                    navigator.share({
+                      title: article.title,
+                      text: article.description,
+                      url: window.location.href
+                    });
+                  } else {
+                    navigator.clipboard.writeText(window.location.href);
+                    alert('הקישור הועתק ללוח');
+                  }
+                }}
+                variant="outline" 
+                className="bg-slate-700/30 border-slate-600 text-gray-400 hover:border-cyan-400 hover:text-cyan-400 hover:bg-slate-700/30 transition-colors"
+              >
                 <Share2 className="w-4 h-4 mr-2" />
                 שתף
               </Button>
-                    <Button variant="outline" className="bg-slate-700/30 border-slate-600 text-gray-400 hover:border-cyan-400 hover:text-cyan-400 hover:bg-slate-700/30 transition-colors">
+              <Button 
+                onClick={() => {
+                  localStorage.setItem('savedArticle', JSON.stringify(article));
+                  alert('המאמר נשמר לקריאה מאוחר יותר');
+                }}
+                variant="outline" 
+                className="bg-slate-700/30 border-slate-600 text-gray-400 hover:border-cyan-400 hover:text-cyan-400 hover:bg-slate-700/30 transition-colors"
+              >
                 <BookOpen className="w-4 h-4 mr-2" />
                 שמור לקריאה
               </Button>
@@ -1285,7 +1307,7 @@ startCountdown(30 * 60);`}
                     <Button variant="outline" className="bg-slate-700/30 border-slate-600 text-gray-400 hover:border-cyan-400 hover:text-cyan-400 hover:bg-slate-700/30 transition-colors">
                       הצטרפו לניוזלטר
                     </Button>
-                    <Button variant="outline" className="bg-slate-700/30 border-slate-600 text-gray-400 hover:border-cyan-400 hover:text-cyan-400 hover:bg-slate-700/30 transition-colors">
+                    <Button onClick={() => window.location.href = '/news'} variant="outline" className="bg-slate-700/30 border-slate-600 text-gray-400 hover:border-cyan-400 hover:text-cyan-400 hover:bg-slate-700/30 transition-colors">
                       מדריכים נוספים
                     </Button>
                     <Button variant="outline" className="bg-slate-700/30 border-slate-600 text-gray-400 hover:border-cyan-400 hover:text-cyan-400 hover:bg-slate-700/30 transition-colors">
@@ -1355,7 +1377,7 @@ startCountdown(30 * 60);`}
               בואו נבנה דף שמוכר
               <ArrowRight className="w-5 h-5 mr-2" />
             </Button>
-                    <Button size="lg" variant="outline" className="bg-slate-700/30 border-slate-600 text-gray-400 hover:border-cyan-400 hover:text-cyan-400 hover:bg-slate-500/40 transition-colors">
+                    <Button size="lg" onClick={() => window.location.href = '/news'} variant="outline" className="bg-slate-700/30 border-slate-600 text-gray-400 hover:border-cyan-400 hover:text-cyan-400 hover:bg-slate-700/30 transition-colors">
               עוד מדריכים
               <ExternalLink className="w-5 h-5 mr-2" />
             </Button>
