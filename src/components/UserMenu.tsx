@@ -138,57 +138,7 @@ const UserMenu = () => {
       ) : (
         // Not logged in - show login and contact options
         <div className="flex items-center gap-2">
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button 
-                variant="outline" 
-                className="bg-slate-700/30 border-slate-600 text-gray-300 hover:border-cyan-400 hover:text-cyan-400 hover:bg-slate-600/50 transition-all duration-300"
-              >
-                <MessageCircle className="w-4 h-4 mr-2" />
-                צור קשר
-                <ChevronDown className="w-4 h-4 ml-2" />
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent 
-              className="w-64 bg-slate-800/95 backdrop-blur-md border-slate-700/50 shadow-xl" 
-              align="end"
-            >
-              <DropdownMenuLabel className="text-right text-white">
-                בחר דרך יצירת קשר
-              </DropdownMenuLabel>
-              <DropdownMenuSeparator className="bg-slate-700/50" />
-              
-              <DropdownMenuItem 
-                className="text-right text-gray-300 hover:text-white hover:bg-slate-700/50 cursor-pointer py-3"
-                onClick={() => handleContactAction('whatsapp')}
-              >
-                <div className="flex items-center gap-3 w-full justify-end">
-                  <span>WhatsApp</span>
-                  <MessageCircle className="w-4 h-4 text-green-400" />
-                </div>
-              </DropdownMenuItem>
-              
-              <DropdownMenuItem 
-                className="text-right text-gray-300 hover:text-white hover:bg-slate-700/50 cursor-pointer py-3"
-                onClick={() => handleContactAction('phone')}
-              >
-                <div className="flex items-center gap-3 w-full justify-end">
-                  <span>052-534-7274</span>
-                  <Phone className="w-4 h-4 text-blue-400" />
-                </div>
-              </DropdownMenuItem>
-              
-              <DropdownMenuItem 
-                className="text-right text-gray-300 hover:text-white hover:bg-slate-700/50 cursor-pointer py-3"
-                onClick={() => handleContactAction('email')}
-              >
-                <div className="flex items-center gap-3 w-full justify-end">
-                  <span>info@masterstack.co.il</span>
-                  <Mail className="w-4 h-4 text-cyan-400" />
-                </div>
-              </DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
+
 
           <Button 
             onClick={signInWithGoogle}
