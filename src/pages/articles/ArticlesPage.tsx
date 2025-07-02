@@ -15,14 +15,14 @@ const ArticlesPage = () => {
 
   const article = {
     id: 1,
-    title: "מדריך מקיף: בניית אתר עם AI בשעה אחת",
-    description: "גלו כיצד להשתמש בכלי AI מתקדמים כמו Claude ו-ChatGPT לבניית אתר מקצועי מאפס. כולל קוד מוכן, טיפים מעשיים ודוגמאות עבודה.",
+    title: "מדריך מקיף: בניית דף נחיתה עם AI בשעה אחת",
+    description: "גלו כיצד להשתמש בכלי AI מתקדמים כמו Claude ו-ChatGPT לבניית דף נחיתה מקצועי ומכירתי שממיר מבקרים ללקוחות. כולל קוד מוכן, טיפים מעשיים ודוגמאות עבודה.",
     date: "29 ביוני 2025",
     category: "כלי AI",
     icon: <Zap className="w-5 h-5" />,
     readTime: "8 דקות קריאה",
     author: "MasterStack Digital",
-    tags: ["AI", "פיתוח", "Next.js", "Tailwind", "מדריך"]
+    tags: ["AI", "דף נחיתה", "Landing Page", "Conversion", "מדריך"]
   
   };
 
@@ -90,7 +90,7 @@ const ArticlesPage = () => {
         <Breadcrumbs 
           items={[
             { label: "מאמרים", href: "/articles" },
-            { label: "מדריך מקיף: בניית אתר עם AI", current: true }
+            { label: "מדריך מקיף: בניית דף נחיתה עם AI", current: true }
           ]} 
         />
         
@@ -136,11 +136,11 @@ const ArticlesPage = () => {
 
             {/* Share Buttons */}
             <div className="flex items-center justify-center gap-4">
-              <Button variant="outline" className="border-slate-600 text-gray-400 hover:text-white hover:border-cyan-400">
+                    <Button variant="outline" className="bg-slate-700/30 border-slate-600 text-gray-400 hover:border-cyan-400 hover:text-cyan-400 hover:bg-slate-700/30 transition-colors">
                 <Share2 className="w-4 h-4 mr-2" />
                 שתף
               </Button>
-              <Button variant="outline" className="border-slate-600 text-gray-400 hover:text-white hover:border-cyan-400">
+                    <Button variant="outline" className="bg-slate-700/30 border-slate-600 text-gray-400 hover:border-cyan-400 hover:text-cyan-400 hover:bg-slate-700/30 transition-colors">
                 <BookOpen className="w-4 h-4 mr-2" />
                 שמור לקריאה
               </Button>
@@ -161,16 +161,16 @@ const ArticlesPage = () => {
                   תוכן העניינים
                 </h3>
                 <ul className="space-y-3 text-gray-300 text-lg">
-                  <li><a href="#intro" className="hover:text-cyan-400 transition-colors">הקדמה - למה AI זה המשחק החדש?</a></li>
+                  <li><a href="#intro" className="hover:text-cyan-400 transition-colors">הקדמה - למה דף נחיתה זה כל כך חשוב?</a></li>
                   <li><a href="#requirements" className="hover:text-cyan-400 transition-colors">מה תצטרכו לפני שמתחילים?</a></li>
-                  <li><a href="#planning" className="hover:text-cyan-400 transition-colors">השלב הראשון: תכנון האתר (10 דקות)</a></li>
-                  <li><a href="#technology" className="hover:text-cyan-400 transition-colors">השלב השני: בחירת הטכנולוגיה (5 דקות)</a></li>
-                  <li><a href="#design" className="hover:text-cyan-400 transition-colors">השלב השלישי: יצירת העיצוב (15 דקות)</a></li>
-                  <li><a href="#content" className="hover:text-cyan-400 transition-colors">השלב הרביעי: יצירת תוכן (10 דקות)</a></li>
-                  <li><a href="#review" className="hover:text-cyan-400 transition-colors">השלב החמישי: שילוב וביקורת (15 דקות)</a></li>
-                  <li><a href="#deployment" className="hover:text-cyan-400 transition-colors">השלב השישי: פרסום (5 דקות)</a></li>
-                  <li><a href="#examples" className="hover:text-cyan-400 transition-colors">דוגמאות עבודה ומוצעי זמן</a></li>
-                  <li><a href="#tips" className="hover:text-cyan-400 transition-colors">טיפים מתקדמים לייעול התהליך</a></li>
+                  <li><a href="#planning" className="hover:text-cyan-400 transition-colors">השלב הראשון: הגדרת המטרה והקהל (8 דקות)</a></li>
+                  <li><a href="#structure" className="hover:text-cyan-400 transition-colors">השלב השני: תכנון מבנה הדף (7 דקות)</a></li>
+                  <li><a href="#design" className="hover:text-cyan-400 transition-colors">השלב השלישי: יצירת העיצוב (20 דקות)</a></li>
+                  <li><a href="#content" className="hover:text-cyan-400 transition-colors">השלב הרביעי: כתיבת תוכן שמוכר (15 דקות)</a></li>
+                  <li><a href="#optimization" className="hover:text-cyan-400 transition-colors">השלב החמישי: אופטימיזציה להמרות (7 דקות)</a></li>
+                  <li><a href="#deployment" className="hover:text-cyan-400 transition-colors">השלב השישי: פרסום ומעקב (3 דקות)</a></li>
+                  <li><a href="#examples" className="hover:text-cyan-400 transition-colors">דוגמאות דפי נחיתה מוצלחים</a></li>
+                  <li><a href="#tips" className="hover:text-cyan-400 transition-colors">טיפים לשיפור שיעורי ההמרה</a></li>
                 </ul>
               </div>
 
@@ -179,14 +179,22 @@ const ArticlesPage = () => {
                 
                 <section id="intro" className="mb-12">
                   <h2 className="text-3xl font-bold text-white mb-6 border-r-4 border-cyan-400 pr-4">
-                    הקדמה - למה AI זה המשחק החדש?
+                    הקדמה - למה דף נחיתה זה כל כך חשוב?
                   </h2>
                   <p className="text-gray-300 text-lg leading-relaxed mb-4">
-                    בעולם שבו המהירות קובעת את ההצלחה, היכולת לבנות אתר מקצועי תוך שעה אחת כבר לא נשמעת כמו חלום. כלי AI מתקדמים כמו <strong className="text-cyan-400">Claude</strong>, <strong className="text-cyan-400">ChatGPT</strong> ו-<strong className="text-cyan-400">GitHub Copilot</strong> הפכו את תהליך הפיתוח לזמין יותר מתמיד.
+                    בעולם השיווק הדיגיטלי, דף הנחיתה הוא הכלי החשוב ביותר להמרת מבקרים ללקוחות. דף נחיתה טוב יכול להכפיל את שיעור ההמרה שלכם, ועם <strong className="text-cyan-400">כלי AI מתקדמים</strong> אתם יכולים לבנות אחד כזה תוך שעה אחת בלבד.
                   </p>
-                  <p className="text-gray-300 text-lg leading-relaxed">
-                    במאמר זה תלמדו להשתמש בכלי AI ליצירת אתר מקצועי מאפס, כולל עיצוב מודרני, תוכן איכותי וקוד נקי - הכל תוך שעה אחת.
+                  <p className="text-gray-300 text-lg leading-relaxed mb-6">
+                    במאמר זה תלמדו כיצד להשתמש ב-<strong className="text-cyan-400">Claude</strong>, <strong className="text-cyan-400">ChatGPT</strong> ו-<strong className="text-cyan-400">GitHub Copilot</strong> ליצירת דף נחיתה שלא רק נראה מקצועי, אלא גם אמיתי מוכר.
                   </p>
+                  
+                  <div className="bg-cyan-600/10 border border-cyan-600/30 rounded-xl p-8">
+                    <h3 className="text-cyan-400 font-bold text-xl mb-4">מה זה דף נחיתה?</h3>
+                    <p className="text-gray-300">
+                      דף נחיתה (Landing Page) הוא דף ייעודי שנועד להמיר מבקרים לפעולה ספציפית - רכישה, הרשמה, הורדה או יצירת קשר. 
+                      בניגוד לאתר רגיל, דף הנחיתה מתמקד במטרה אחת ברורה ומוביל את המבקר אליה צעד אחר צעד.
+                    </p>
+                  </div>
                 </section>
 
                 <Separator className="my-12 bg-slate-600" />
@@ -204,8 +212,9 @@ const ArticlesPage = () => {
                           כלי AI חיוניים
                         </h3>
                         <ul className="space-y-3 text-gray-300">
-                          <li><strong className="text-white">Claude</strong> (חינם עם מגבלות) - לכתיבת קוד ותוכן</li>
-                          <li><strong className="text-white">ChatGPT</strong> (חינם/פרו) - לרעיונות ובדיקת קוד</li>
+                          <li><strong className="text-white">Claude</strong> (חינם/פרו) - לכתיבת קוד ותוכן מכירתי</li>
+                          <li><strong className="text-white">ChatGPT</strong> (חינם/פרו) - לאסטרטגיית שיווק ותוכן</li>
+                          <li><strong className="text-white">Gemini</strong> (חינם/פרו) - לאסטרטגיית שיווק ותוכן</li>
                           <li><strong className="text-white">GitHub Copilot</strong> (אופציונלי) - לזיקוק קוד</li>
                         </ul>
                       </CardContent>
@@ -229,13 +238,13 @@ const ArticlesPage = () => {
                     <Card className="bg-slate-700/30 border-slate-600/30">
                       <CardContent className="p-8">
                         <h3 className="text-xl font-bold text-cyan-400 mb-4 flex items-center gap-2">
-                          <BookOpen className="w-5 h-5" />
-                          ידע בסיסי נדרש
+                          <TrendingUp className="w-5 h-5" />
+                          ידע בשיווק דיגיטלי
                         </h3>
                         <ul className="space-y-3 text-gray-300">
-                          <li>HTML/CSS בסיסי</li>
-                          <li>JavaScript בסיסי</li>
-                          <li>הבנה כללית של React (לא חובה)</li>
+                          <li>הבנה בסיסית בעקרונות המרה</li>
+                          <li>ידע על קהל היעד</li>
+                          <li>הכרת המוצר/שירות שלכם</li>
                         </ul>
                       </CardContent>
                     </Card>
@@ -246,73 +255,79 @@ const ArticlesPage = () => {
 
                 <section id="planning" className="mb-12">
                   <h2 className="text-3xl font-bold text-white mb-6 border-r-4 border-cyan-400 pr-4">
-                    השלב הראשון: תכנון האתר (10 דקות)
+                    השלב הראשון: הגדרת המטרה והקהל (8 דקות)
                   </h2>
                   
-                  <h3 className="text-2xl font-bold text-white mb-4">הגדרת המטרה</h3>
-                  <p className="text-gray-300 mb-6">לפני שמתחילים לקודד, חשוב להגדיר:</p>
+                  <h3 className="text-2xl font-bold text-white mb-4">לפני שבונים - צריך לדעת למי ולמה</h3>
+                  <p className="text-gray-300 mb-6">דף נחיתה מוצלח מתחיל בהבנה ברורה של המטרה והקהל יעד:</p>
                   
                   <div className="grid md:grid-cols-2 gap-8 mb-10">
                     <div className="bg-slate-700/30 rounded-xl p-8 border border-slate-600/30">
-                      <h4 className="text-xl font-bold text-cyan-400 mb-3">מה סוג האתר?</h4>
+                      <h4 className="text-xl font-bold text-cyan-400 mb-3">מה המטרה של הדף?</h4>
                       <ul className="space-y-2 text-gray-300">
-                        <li>• אתר תדמית עסקי</li>
-                        <li>• פורטפוליו אישי</li>
-                        <li>• דף נחיתה למוצר</li>
-                        <li>• בלוג או מגזין</li>
+                        <li>• מכירת מוצר ספציפי</li>
+                        <li>• איסוף leads (רשימת לקוחות פוטנציאלים)</li>
+                        <li>• הרשמה לאירוע או קורס</li>
+                        <li>• הורדת משאב (eBook, מדריך)</li>
+                        <li>• יצירת קשר לייעוץ</li>
                       </ul>
                     </div>
 
                     <div className="bg-slate-700/30 rounded-xl p-8 border border-slate-600/30">
                       <h4 className="text-xl font-bold text-cyan-400 mb-3">מי הקהל יעד?</h4>
                       <ul className="space-y-2 text-gray-300">
-                        <li>• גיל ותחומי עניין</li>
-                        <li>• רמת הידע הטכני</li>
-                        <li>• התנהגות גלישה</li>
+                        <li>• גיל, מקצוע ורמת הכנסה</li>
+                        <li>• הכאבים והבעיות שלהם</li>
+                        <li>• איך הם מגיעים אליכם (גוגל, פייסבוק, המלצה)</li>
+                        <li>• מה הם מצפים למצוא בדף</li>
+                        <li>• איזה טון דיבור מדבר אליהם</li>
                       </ul>
                     </div>
                   </div>
 
-                  <h3 className="text-2xl font-bold text-white mb-4">פרומפט לתכנון עם Claude</h3>
+                  <h3 className="text-2xl font-bold text-white mb-4">פרומפט לתכנון אסטרטגי עם Claude</h3>
                   
                   <CodeBlock language="prompt" index="planning">
-{`אני רוצה לבנות אתר [סוג האתר] עבור [תיאור העסק/מטרה].
-קהל היעד שלי הוא [תיאור קהל היעד].
+{`אני רוצה לבנות דף נחיתה למכירת [תיאור המוצר/שירות].
+קהל היעד שלי: [תיאור מפורט של הקהל יעד].
+המטרה: [המרת מבקרים למה - רכישה/הרשמה/lead וכו'].
 
-אנא תן לי:
-1. המלצה על מבנה האתר (דפים וקטעים)
-2. 5 רעיונות עיצוביים שמתאימים לתחום
-3. צבעים וטיפוגרפיה מומלצים
-4. רשימת תכנים שצריך להכין`}
+אנא עזור לי:
+1. לנסח הצעת ערך ייחודית (Unique Value Proposition)
+2. לזהות 3-5 כאבים מרכזיים של הקהל יעד
+3. להכין רשימת יתרונות שפותרים את הכאבים האלה
+4. לתכנן מבנה דף נחיתה שמוביל להמרה
+5. לכתוב headline ראשי מושך ומשכנע`}
                   </CodeBlock>
 
                   <div className="bg-blue-600/10 border border-blue-600/30 rounded-xl p-8">
                     <p className="text-gray-300">
-                      <strong className="text-cyan-400">דוגמה לתשובה שתקבלו:</strong> Claude יציע מבנה מפורט עם הסברים, צבעים ספציפיים, וגם רשימת תכנים מוכנה.
+                      <strong className="text-cyan-400">דוגמה לתשובה שתקבלו:</strong> Claude יציע הצעת ערך ברורה, יזהה כאבים ספציפיים של הקהל יעד, ויתכנן מבנה דף שמוביל צעד אחר צעד להמרה.
                     </p>
                   </div>
                 </section>
 
                 <Separator className="my-12 bg-slate-600" />
 
-                <section id="technology" className="mb-12">
+                <section id="structure" className="mb-12">
                   <h2 className="text-3xl font-bold text-white mb-6 border-r-4 border-cyan-400 pr-4">
-                    השלב השני: בחירת הטכנולוגיה (5 דקות)
+                    השלב השני: תכנון מבנה הדף (7 דקות)
                   </h2>
 
-                  <h3 className="text-2xl font-bold text-white mb-6">האופציות המומלצות לבניית אתר מהירה:</h3>
+                  <h3 className="text-2xl font-bold text-white mb-6">המבנה הקלאסי של דף נחיתה מוצלח:</h3>
 
                   <div className="space-y-8 mb-10">
                     <Card className="bg-slate-700/30 border-slate-600/30">
                       <CardContent className="p-8">
                         <h4 className="text-xl font-bold text-green-400 mb-3 flex items-center gap-2">
-                          <Rocket className="w-5 h-5" />
-                          Next.js + Tailwind CSS (המומלץ ביותר)
+                          <span className="bg-green-400 text-black w-6 h-6 rounded-full flex items-center justify-center text-sm font-bold">1</span>
+                          Hero Section - הרושם הראשון
                         </h4>
                         <ul className="space-y-2 text-gray-300">
-                          <li>• מהיר ומותאם ל-SEO</li>
-                          <li>• Tailwind מאפשר עיצוב מהיר</li>
-                          <li>• תמיכה מצוינת של AI בכלים האלה</li>
+                          <li>• כותרת ראשית חזקה שתופסת תשומת לב</li>
+                          <li>• תת-כותרת שמסבירה את הערך</li>
+                          <li>• כפתור CTA בולט</li>
+                          <li>• תמונה/וידאו רלווטי</li>
                         </ul>
                       </CardContent>
                     </Card>
@@ -320,235 +335,423 @@ const ArticlesPage = () => {
                     <Card className="bg-slate-700/30 border-slate-600/30">
                       <CardContent className="p-8">
                         <h4 className="text-xl font-bold text-cyan-400 mb-3 flex items-center gap-2">
-                          <Zap className="w-5 h-5" />
-                          Vite + React + Tailwind
+                          <span className="bg-cyan-400 text-black w-6 h-6 rounded-full flex items-center justify-center text-sm font-bold">2</span>
+                          בעיה + פתרון - למה דווקא אני?
                         </h4>
                         <ul className="space-y-2 text-gray-300">
-                          <li>• הקמה מהירה יותר</li>
-                          <li>• פחות תכונות אבל יותר פשוט</li>
+                          <li>• הבעיה שאתם פותרים</li>
+                          <li>• למה הפתרונות הקיימים לא עובדים</li>
+                          <li>• איך המוצר שלכם שונה וטוב יותר</li>
                         </ul>
                       </CardContent>
                     </Card>
 
                     <Card className="bg-slate-700/30 border-slate-600/30">
                       <CardContent className="p-8">
-                        <h4 className="text-xl font-bold text-purple-500 mb-3 flex items-center gap-2">
-                          <Code className="w-5 h-5" />
-                          HTML/CSS/JS טהור
+                        <h4 className="text-xl font-bold text-purple-400 mb-3 flex items-center gap-2">
+                          <span className="bg-purple-400 text-black w-6 h-6 rounded-full flex items-center justify-center text-sm font-bold">3</span>
+                          יתרונות וFEATURES - מה אני מקבל?
                         </h4>
                         <ul className="space-y-2 text-gray-300">
-                          <li>• הכי פשוט לתחילת דרך</li>
-                          <li>• פחות תלות בכלים חיצוניים</li>
+                          <li>• 3-5 יתרונות מרכזיים</li>
+                          <li>• הסבר קצר איך זה עוזר ללקוח</li>
+                          <li>• אייקונים או תמונות להמחשה</li>
+                        </ul>
+                      </CardContent>
+                    </Card>
+
+                    <Card className="bg-slate-700/30 border-slate-600/30">
+                      <CardContent className="p-8">
+                        <h4 className="text-xl font-bold text-yellow-400 mb-3 flex items-center gap-2">
+                          <span className="bg-yellow-400 text-black w-6 h-6 rounded-full flex items-center justify-center text-sm font-bold">4</span>
+                          Social Proof - הוכחה חברתית
+                        </h4>
+                        <ul className="space-y-2 text-gray-300">
+                          <li>• המלצות לקוחות</li>
+                          <li>• לוגואים של חברות שעובדות איתכם</li>
+                          <li>• מספרים מרשימים (X לקוחות, Y% שיפור וכו')</li>
+                        </ul>
+                      </CardContent>
+                    </Card>
+
+                    <Card className="bg-slate-700/30 border-slate-600/30">
+                      <CardContent className="p-8">
+                        <h4 className="text-xl font-bold text-red-400 mb-3 flex items-center gap-2">
+                          <span className="bg-red-400 text-black w-6 h-6 rounded-full flex items-center justify-center text-sm font-bold">5</span>
+                          CTA Final - הקריאה לפעולה
+                        </h4>
+                        <ul className="space-y-2 text-gray-300">
+                          <li>• כפתור גדול ובולט</li>
+                          <li>• טקסט שיוצר דחיפות</li>
+                          <li>• הסרת ספקות אחרונים</li>
                         </ul>
                       </CardContent>
                     </Card>
                   </div>
 
-                  <h3 className="text-2xl font-bold text-white mb-4">הקמת הפרויקט</h3>
+                  <h3 className="text-2xl font-bold text-white mb-4">בחירת הטכנולוגיה הנכונה</h3>
                   
-                  <CodeBlock language="bash" index="setup">
-{`# Next.js (מומלץ)
-npx create-next-app@latest my-ai-website --typescript --tailwind --app
+                  <div className="grid md:grid-cols-2 gap-8 mb-8">
+                    <Card className="bg-green-600/10 border-green-600/30">
+                      <CardContent className="p-8">
+                        <h4 className="text-green-400 font-bold mb-3">למתחילים: HTML + CSS + JS</h4>
+                        <ul className="space-y-2 text-gray-300 text-sm">
+                          <li>• הכי פשוט להתחיל</li>
+                          <li>• מהיר לטעינה</li>
+                          <li>• אפשר להשתמש בתבניות מוכנות</li>
+                        </ul>
+                        <CodeBlock language="bash" index="simple-setup">
+{`# יצירת פרויקט פשוט
+mkdir my-landing-page
+cd my-landing-page
+touch index.html style.css script.js`}
+                        </CodeBlock>
+                      </CardContent>
+                    </Card>
 
-# או Vite
-npm create vite@latest my-ai-website -- --template react-ts
-cd my-ai-website && npm install -D tailwindcss@latest`}
-                  </CodeBlock>
+                    <Card className="bg-blue-600/10 border-blue-600/30">
+                      <CardContent className="p-8">
+                        <h4 className="text-blue-400 font-bold mb-3">למתקדמים: Next.js + Tailwind</h4>
+                        <ul className="space-y-2 text-gray-300 text-sm">
+                          <li>• אופטימיזציה טובה יותר</li>
+                          <li>• SEO מובנה</li>
+                          <li>• קל לתחזוקה</li>
+                        </ul>
+                        <CodeBlock language="bash" index="nextjs-setup">
+{`# יצירת פרויקט Next.js
+npx create-next-app@latest my-landing --typescript --tailwind --app
+cd my-landing && npm run dev`}
+                        </CodeBlock>
+                      </CardContent>
+                    </Card>
+                  </div>
                 </section>
 
                 <Separator className="my-12 bg-slate-600" />
 
                 <section id="design" className="mb-12">
                   <h2 className="text-3xl font-bold text-white mb-6 border-r-4 border-cyan-400 pr-4">
-                    השלב השלישי: יצירת העיצוב (15 דקות)
+                    השלב השלישי: יצירת העיצוב (20 דקות)
                   </h2>
 
-                  <h3 className="text-2xl font-bold text-white mb-4">פרומפט לבניית עיצוב עם Claude</h3>
+                  <h3 className="text-2xl font-bold text-white mb-4">פרומפט לבניית Hero Section עם Claude</h3>
                   
-                  <CodeBlock language="prompt" index="design">
-{`אני בונה [סוג האתר] והתכנון שלי כולל [תיאור הדפים והקטעים].
+                  <CodeBlock language="prompt" index="hero-design">
+{`אני בונה דף נחיתה למכירת [המוצר/שירות שלכם].
+הקהל יעד: [תיאור הקהל יעד]
+הצעת הערך: [ההצעת ערך שהגדרתם קודם]
 
-אנא צור לי:
-1. קומפוננט Header מודרני עם navigation
-2. Hero section מרשים עם CTA
-3. קטע "אודות" או "שירותים"
-4. Footer מפורט
+אנא צור לי Hero Section שכולל:
+1. כותרת ראשית מושכת תשומת לב
+2. תת-כותרת שמסבירה את הערך
+3. 2-3 bullet points קצרים
+4. כפתור CTA בולט
+5. עיצוב מודרני עם Tailwind CSS
 
 דרישות טכניות:
 - Next.js עם TypeScript
 - Tailwind CSS בלבד
 - Responsive design
 - אנימציות קלות
-- גישה לטקסט (accessibility)
+- נגישות (accessibility)
 
-צבעי הבסיס: [הצבעים שבחרתם]`}
+צבעי הבסיס: כחול וירוק להרגשת אמינות וצמיחה`}
                   </CodeBlock>
 
-                  <h3 className="text-2xl font-bold text-white mb-4">דוגמה לקוד שתקבלו:</h3>
+                  <h3 className="text-2xl font-bold text-white mb-4">דוגמה לHero Section שתקבלו:</h3>
                   
-                  <CodeBlock language="tsx" index="header">
-{`// components/Header.tsx
-import Link from 'next/link';
-import { useState } from 'react';
-
-const Header = () => {
-  const [isOpen, setIsOpen] = useState(false);
-
+                  <CodeBlock language="tsx" index="hero-example">
+{`// components/HeroSection.tsx
+const HeroSection = () => {
   return (
-    <nav className="bg-white shadow-lg fixed w-full z-50">
+    <section className="bg-gradient-to-br from-blue-50 to-green-50 py-20 lg:py-28">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-16">
-          <div className="flex items-center">
-            <Link href="/" className="text-2xl font-bold text-blue-600">
-              לוגו
-            </Link>
-          </div>
+        <div className="text-center">
+          {/* Headline */}
+          <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+            הפכו את העסק שלכם ל
+            <span className="text-blue-600">מכונת מכירות</span>
+            תוך 30 יום
+          </h1>
           
-          {/* Desktop Menu */}
-          <div className="hidden md:flex items-center space-x-8">
-            <Link href="#about" className="text-gray-700 hover:text-blue-600 transition-colors">
-              אודות
-            </Link>
-            <Link href="#services" className="text-gray-700 hover:text-blue-600 transition-colors">
-              שירותים
-            </Link>
-            <Link href="#contact" className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors">
-              צור קשר
-            </Link>
-          </div>
+          {/* Sub-headline */}
+          <p className="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto">
+            המערכת היחידה שתזרים לכם לידים איכותיים 24/7 
+            ללא השקעה בפרסום או מחלקת מכירות יקרה
+          </p>
 
-          {/* Mobile menu button */}
-          <div className="md:hidden flex items-center">
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-700 hover:text-blue-600 focus:outline-none"
-            >
-              <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} 
-                      d={isOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"} />
-              </svg>
-            </button>
-          </div>
-        </div>
-
-        {/* Mobile Menu */}
-        {isOpen && (
-          <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t">
-              <Link href="#about" className="block px-3 py-2 text-gray-700 hover:text-blue-600">
-                אודות
-              </Link>
-              <Link href="#services" className="block px-3 py-2 text-gray-700 hover:text-blue-600">
-                שירותים
-              </Link>
-              <Link href="#contact" className="block px-3 py-2 text-gray-700 hover:text-blue-600">
-                צור קשר
-              </Link>
+          {/* Benefits */}
+          <div className="flex flex-col md:flex-row items-center justify-center gap-6 mb-10 text-gray-700">
+            <div className="flex items-center gap-2">
+              <CheckCircle className="w-5 h-5 text-green-600" />
+              <span>300% עלייה בלידים</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <CheckCircle className="w-5 h-5 text-green-600" />
+              <span>התקנה תוך 24 שעות</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <CheckCircle className="w-5 h-5 text-green-600" />
+              <span>ללא התחייבות חודשית</span>
             </div>
           </div>
-        )}
+
+          {/* CTA */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <button className="bg-blue-600 text-white px-8 py-4 rounded-lg text-xl font-semibold hover:bg-blue-700 transition-colors shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+              קבלו הצעה בחינם
+            </button>
+            <p className="text-sm text-gray-500">
+              ללא התחייבות • תשובה תוך שעה • 100% בחינם
+            </p>
+          </div>
+        </div>
       </div>
-    </nav>
+    </section>
   );
 };
 
-export default Header;`}
+export default HeroSection;`}
                   </CodeBlock>
-                </section>
 
-                <Separator className="my-12 bg-slate-600" />
-
-                <section id="content" className="mb-12">
-                  <h2 className="text-3xl font-bold text-white mb-6 border-r-4 border-cyan-400 pr-4">
-                    השלב הרביעי: יצירת תוכן (10 דקות)
-                  </h2>
-
-                  <h3 className="text-2xl font-bold text-white mb-4">פרומפט ליצירת תוכן איכותי</h3>
+                  <h3 className="text-2xl font-bold text-white mb-4">פרומפט לקטע יתרונות</h3>
                   
-                  <CodeBlock language="prompt" index="content">
-{`אני צריך תוכן מקצועי לאתר [סוג האתר] עבור [תיאור העסק].
+                  <CodeBlock language="prompt" index="benefits-section">
+{`עכשיו אני צריך קטע יתרונות שכולל:
 
-אנא כתב לי:
-1. כותרת ראשית מושכת (H1)
-2. טקסט היכרות של 2-3 משפטים
-3. 3-4 שירותים/יתרונות עיקריים עם הסברים קצרים
-4. קטע "אודות" של פסקה אחת
-5. טקסט CTA (קריאה לפעולה) משכנע
+1. כותרת מרכזית
+2. 3-4 יתרונות עיקריים עם:
+   - אייקון רלוונטי
+   - כותרת קצרה
+   - הסבר של 1-2 משפטים איך זה עוזר ללקוח
+3. עיצוב עם כרטיסיות
+4. צבעים שמשלימים את ההירו
 
-סגנון כתיבה: [מקצועי/ידידותי/טכני] בעברית`}
+הקהל יעד: [הקהל יעד שלכם]
+הבעיות שאנחנו פותרים: [הבעיות שזיהיתם]`}
                   </CodeBlock>
 
                   <div className="bg-yellow-600/10 border border-yellow-600/30 rounded-xl p-6">
                     <h4 className="text-yellow-400 font-bold mb-2 flex items-center gap-2">
                       <Lightbulb className="w-5 h-5" />
-                      טיפ חשוב לתוכן
+                      טיפ חשוב לעיצוב
                     </h4>
                     <p className="text-gray-300">
-                      <strong>תמיד בקשו מ-AI לספק גרסאות:</strong>
+                      <strong>תמיד בקשו מ-AI לקבל גרסאות:</strong>
                     </p>
                     <ul className="space-y-1 text-gray-300 mt-2">
-                      <li>• "תן לי 3 גרסאות שונות לכותרת הראשית"</li>
-                      <li>• "איך אפשר לכתוב את זה יותר משכנע?"</li>
+                      <li>• "תן לי 3 גרסאות שונות לכותרת הHero"</li>
+                      <li>• "איך אפשר לשפר את הCTA?"</li>
+                      <li>• "תעשה את העיצוב יותר מודרני"</li>
                     </ul>
                   </div>
                 </section>
 
                 <Separator className="my-12 bg-slate-600" />
 
-                <section id="review" className="mb-12">
+                <section id="content" className="mb-12">
                   <h2 className="text-3xl font-bold text-white mb-6 border-r-4 border-cyan-400 pr-4">
-                    השלב החמישי: שילוב וביקורת (15 דקות)
+                    השלב הרביעי: כתיבת תוכן שמוכר (15 דקות)
                   </h2>
 
-                  <h3 className="text-2xl font-bold text-white mb-4">בדיקת איכות עם AI</h3>
+                  <h3 className="text-2xl font-bold text-white mb-4">עקרונות כתיבה מכירתית</h3>
                   
-                  <CodeBlock language="prompt" index="review">
-{`אני שולח לך את הקוד של האתר שלי. 
-אנא בדוק:
+                  <div className="grid md:grid-cols-2 gap-8 mb-8">
+                    <Card className="bg-slate-700/30 border-slate-600/30">
+                      <CardContent className="p-8">
+                        <h4 className="text-cyan-400 font-bold mb-3">נוסחת AIDA:</h4>
+                        <ul className="space-y-2 text-gray-300">
+                          <li><strong className="text-white">A</strong>ttention - תשומת לב</li>
+                          <li><strong className="text-white">I</strong>nterest - עניין</li>
+                          <li><strong className="text-white">D</strong>esire - רצון</li>
+                          <li><strong className="text-white">A</strong>ction - פעולה</li>
+                        </ul>
+                      </CardContent>
+                    </Card>
 
-1. שגיאות קוד או דברים שיכולים להתקלקל
-2. בעיות נגישות (accessibility)
-3. אופטימיזציות לביצועים
-4. שיפורים באבטחה
-5. SEO בסיסי
+                    <Card className="bg-slate-700/30 border-slate-600/30">
+                      <CardContent className="p-8">
+                        <h4 className="text-cyan-400 font-bold mb-3">עקרונות פסיכולוגיים:</h4>
+                        <ul className="space-y-2 text-gray-300">
+                          <li>• יצירת דחיפות (scarcity)</li>
+                          <li>• הוכחה חברתית (social proof)</li>
+                          <li>• פחד מהחמצה (FOMO)</li>
+                          <li>• אמינות (testimonials)</li>
+                        </ul>
+                      </CardContent>
+                    </Card>
+                  </div>
 
-[כאן תדביקו את הקוד]`}
+                  <h3 className="text-2xl font-bold text-white mb-4">פרומפט לכתיבת תוכן מכירתי</h3>
+                  
+                  <CodeBlock language="prompt" index="copywriting">
+{`אני צריך תוכן מכירתי לדף נחיתה למכירת [המוצר/שירות].
+
+פרטים על המוצר:
+- מה זה עושה: [תיאור התועלת]
+- למי זה מיועד: [קהל היעד]
+- מה הבעיה שזה פותר: [הכאב של הלקוח]
+
+אנא כתב לי:
+1. כותרת ראשית חזקה (headline) שגורמת לעצור ולקרוא
+2. תת-כותרת שמרחיבה על הערך
+3. 4 יתרונות מרכזיים עם הסבר איך זה עוזר ללקוח
+4. 2-3 המלצות לקוחות (מדומות אבל ריאליסטיות)
+5. טקסט CTA שיוצר דחיפות
+
+סגנון כתיבה: ישיר, ביטחון עצמי, בעברית פשוטה`}
                   </CodeBlock>
 
-                  <p className="text-gray-300 mb-6">Claude יזהה בעיות ויציע תיקונים מדויקים.</p>
+                  <h3 className="text-2xl font-bold text-white mb-4">דוגמה לתוכן שתקבלו:</h3>
+                  
+                  <CodeBlock language="text" index="copy-example">
+{`כותרת ראשית:
+"תפסיקו לאבד לקוחות בגלל אתר שלא עובד - קבלו אתר שמוכר 24/7"
 
-                  <h3 className="text-2xl font-bold text-white mb-4">טיפים למקסימום יעילות:</h3>
+תת-כותרת:
+"המערכת היחידה שהופכת כל ביקור באתר ללקוח משלם, 
+ללא השקעה בפרסום יקר או צוות מכירות גדול"
 
-                  <div className="grid md:grid-cols-2 gap-6">
+יתרונות:
+✅ עלייה של 300% בהמרות תוך 30 יום
+מערכת בינה מלאכותית שמזהה בדיוק מה הלקוח רוצה ומובילה אותו לרכישה
+
+✅ התקנה תוך 24 שעות ללא תקלות
+הצוות שלנו עושה הכל בשבילכם - אתם רק רואים את התוצאות
+
+✅ תמיכה מלאה 24/7 בעברית
+לא נשארים לבד - צוות מומחים זמין תמיד לעזור
+
+המלצה:
+"תוך חודש העלנו את המכירות ב-250%. 
+הלקוחות פשוט זורמים באתר וקונים בקלות."
+- דני כהן, בעלים של חנות אונליין
+
+CTA:
+"קבלו ניתוח חינמי של האתר תוך 24 שעות - 
+עוד יום שאתם מחכים זה עוד כסף שאתם מפסידים"`}
+                  </CodeBlock>
+
+                  <div className="bg-red-600/10 border border-red-600/30 rounded-xl p-6">
+                    <h4 className="text-red-400 font-bold mb-2 flex items-center gap-2">
+                      <AlertCircle className="w-5 h-5" />
+                      טעויות נפוצות בכתיבה מכירתית
+                    </h4>
+                    <ul className="space-y-1 text-gray-300">
+                      <li>• יותר מדי טקסט - אנשים לא קוראים, הם סורקים</li>
+                      <li>• התמקדות בתכונות במקום ביתרונות ללקוח</li>
+                      <li>• CTA חלש שלא יוצר דחיפות</li>
+                      <li>• חוסר הוכחה חברתית או המלצות</li>
+                    </ul>
+                  </div>
+                </section>
+
+                <Separator className="my-12 bg-slate-600" />
+
+                <section id="optimization" className="mb-12">
+                  <h2 className="text-3xl font-bold text-white mb-6 border-r-4 border-cyan-400 pr-4">
+                    השלב החמישי: אופטימיזציה להמרות (7 דקות)
+                  </h2>
+
+                  <h3 className="text-2xl font-bold text-white mb-4">אלמנטים קריטיים לשיפור ההמרה</h3>
+                  
+                  <div className="space-y-8 mb-10">
                     <Card className="bg-slate-700/30 border-slate-600/30">
-                      <CardContent className="p-6">
-                        <h4 className="text-cyan-400 font-bold mb-3 flex items-center gap-2">
+                      <CardContent className="p-8">
+                        <h4 className="text-xl font-bold text-green-400 mb-3 flex items-center gap-2">
                           <TrendingUp className="w-5 h-5" />
-                          בדיקת איכות מהירה
+                          כפתורי CTA אופטימליים
                         </h4>
-                        <CodeBlock language="bash" index="quality">
-{`# בדיקת syntax
-npm run build
+                        <div className="grid md:grid-cols-2 gap-6">
+                          <div>
+                            <h5 className="text-white font-bold mb-2">עיצוב הכפתור:</h5>
+                            <ul className="space-y-1 text-gray-300 text-sm">
+                              <li>• צבע בולט שבולט מהעיצוב</li>
+                              <li>• גודל גדול מספיק (מינימום 44px גובה)</li>
+                              <li>• פינות מעוגלות לנוחות חזותית</li>
+                              <li>• אפקט hover שמעיד על אינטראקטיביות</li>
+                            </ul>
+                          </div>
+                          <div>
+                            <h5 className="text-white font-bold mb-2">טקסט הכפתור:</h5>
+                            <ul className="space-y-1 text-gray-300 text-sm">
+                              <li>• "קבלו עכשיו" במקום "שלח"</li>
+                              <li>• "התחילו בחינם" במקום "הרשמה"</li>
+                              <li>• הוספת דחיפות: "זמין רק היום"</li>
+                            </ul>
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
 
-# בדיקת performance
-npm run lighthouse`}
+                    <Card className="bg-slate-700/30 border-slate-600/30">
+                      <CardContent className="p-8">
+                        <h4 className="text-xl font-bold text-cyan-400 mb-3 flex items-center gap-2">
+                          <Globe className="w-5 h-5" />
+                          מהירות טעינה - קריטי להמרות
+                        </h4>
+                        <p className="text-gray-300 mb-4">כל שנייה עיכוב = 7% ירידה בהמרות</p>
+                        
+                        <CodeBlock language="bash" index="performance">
+{`# בדיקת ביצועים
+npx lighthouse https://yoursite.com --only-performance
+
+# אופטימיזציית תמונות
+npm install next-optimized-images
+npm install imagemin-mozjpeg imagemin-optipng`}
                         </CodeBlock>
                       </CardContent>
                     </Card>
 
                     <Card className="bg-slate-700/30 border-slate-600/30">
-                      <CardContent className="p-6">
-                        <h4 className="text-cyan-400 font-bold mb-3 flex items-center gap-2">
-                          <Zap className="w-5 h-5" />
-                          אופטימיזציות בסיסיות
+                      <CardContent className="p-8">
+                        <h4 className="text-xl font-bold text-purple-400 mb-3 flex items-center gap-2">
+                          <User className="w-5 h-5" />
+                          הוכחה חברתית מושכת
                         </h4>
-                        <ul className="space-y-2 text-gray-300">
-                          <li>• דחיסת תמונות (TinyPNG)</li>
-                          <li>• מינימיזציה של CSS/JS</li>
-                          <li>• הוספת meta tags לSEO</li>
-                        </ul>
+                        <div className="space-y-4">
+                          <div>
+                            <h5 className="text-white font-bold mb-2">מספרים מרשימים:</h5>
+                            <CodeBlock language="text" index="social-proof">
+{`"יותר מ-10,000 לקוחות מרוצים"
+"שיפור ממוצע של 250% במכירות"
+"דירוג 4.9/5 כוכבים ב-Google"`}
+                            </CodeBlock>
+                          </div>
+                          <div>
+                            <h5 className="text-white font-bold mb-2">לוגואי לקוחות:</h5>
+                            <p className="text-gray-300 text-sm">הוספת לוגואים של חברות מוכרות מגבירה אמינות ב-50%</p>
+                          </div>
+                        </div>
                       </CardContent>
                     </Card>
+                  </div>
+
+                  <h3 className="text-2xl font-bold text-white mb-4">פרומפט לבדיקת אופטימיזציה</h3>
+                  
+                  <CodeBlock language="prompt" index="optimization-check">
+{`אני שולח לך את הקוד של דף הנחיתה שלי.
+אנא בדוק ותציע שיפורים עבור:
+
+1. מיקום וצבע כפתורי ה-CTA
+2. מהירות טעינה ואופטימיזציות
+3. הוכחה חברתית ואמינות
+4. נגישות (accessibility)
+5. עיצוב responsive למובייל
+6. הוספת אלמנטים שיגבירו המרות
+
+[כאן תדביקו את הקוד]`}
+                  </CodeBlock>
+
+                  <div className="bg-green-600/10 border border-green-600/30 rounded-xl p-6">
+                    <h4 className="text-green-400 font-bold mb-2 flex items-center gap-2">
+                      <CheckCircle className="w-5 h-5" />
+                      טיפ זהב לאופטימיזציה
+                    </h4>
+                    <p className="text-gray-300">
+                      <strong>תמיד בדקו את הדף במובייל:</strong> יותר מ-60% מהמבקרים מגיעים ממובייל. 
+                      דף שלא עובד טוב במובייל = איבוד הרבה המרות.
+                    </p>
                   </div>
                 </section>
 
@@ -556,42 +759,98 @@ npm run lighthouse`}
 
                 <section id="deployment" className="mb-12">
                   <h2 className="text-3xl font-bold text-white mb-6 border-r-4 border-cyan-400 pr-4">
-                    השלב השישי: פרסום (5 דקות)
+                    השלב השישי: פרסום ומעקב (3 דקות)
                   </h2>
 
-                  <h3 className="text-2xl font-bold text-white mb-4">פרסום ב-Vercel (הכי מהיר)</h3>
+                  <h3 className="text-2xl font-bold text-white mb-4">פרסום מהיר ב-Vercel</h3>
                   
                   <CodeBlock language="bash" index="deploy">
-{`# התקנה
+{`# התקנה והתחברות
 npm i -g vercel
+vercel login
 
 # פרסום
 vercel
 
-# המערכת תשאל מספר שאלות - סמנו Yes לכולן`}
+# הדף יהיה באוויר תוך דקות!`}
                   </CodeBlock>
 
-                  <h3 className="text-2xl font-bold text-white mb-4">חלופות מהירות:</h3>
+                  <h3 className="text-2xl font-bold text-white mb-4">הוספת מעקב והמרות - חובה!</h3>
                   
-                  <div className="grid md:grid-cols-3 gap-6">
+                  <div className="grid md:grid-cols-2 gap-8 mb-8">
                     <Card className="bg-slate-700/30 border-slate-600/30">
-                      <CardContent className="p-6">
-                        <h4 className="text-cyan-400 font-bold mb-2">Netlify</h4>
-                        <p className="text-gray-300 text-sm">גרירה ושחרור של תיקייה</p>
+                      <CardContent className="p-8">
+                        <h4 className="text-cyan-400 font-bold mb-3">Google Analytics 4</h4>
+                        <p className="text-gray-300 text-sm mb-3">למעקב אחר מבקרים והתנהגות</p>
+                        <CodeBlock language="bash" index="analytics">
+{`npm install gtag
+
+# בקובץ _app.tsx או layout.tsx
+import { GoogleAnalytics } from '@next/third-parties/google'
+
+<GoogleAnalytics gaId="GA_MEASUREMENT_ID" />`}
+                        </CodeBlock>
                       </CardContent>
                     </Card>
+
                     <Card className="bg-slate-700/30 border-slate-600/30">
-                      <CardContent className="p-6">
-                        <h4 className="text-cyan-400 font-bold mb-2">GitHub Pages</h4>
-                        <p className="text-gray-300 text-sm">חינם לפרויקטים פומביים</p>
+                      <CardContent className="p-8">
+                        <h4 className="text-cyan-400 font-bold mb-3">Facebook Pixel</h4>
+                        <p className="text-gray-300 text-sm mb-3">למעקב המרות ו-remarketing</p>
+                        <CodeBlock language="javascript" index="pixel">
+{`// הוספה ל-<head>
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', 'YOUR_PIXEL_ID');
+fbq('track', 'PageView');
+</script>`}
+                        </CodeBlock>
                       </CardContent>
                     </Card>
-                    <Card className="bg-slate-700/30 border-slate-600/30">
-                      <CardContent className="p-6">
-                        <h4 className="text-cyan-400 font-bold mb-2">Surge.sh</h4>
-                        <p className="text-gray-300 text-sm">פקודה אחת ואתם באוויר</p>
-                      </CardContent>
-                    </Card>
+                  </div>
+
+                  <h3 className="text-2xl font-bold text-white mb-4">מעקב אחר המרות</h3>
+                  
+                  <CodeBlock language="javascript" index="conversion-tracking">
+{`// במקום שקורית ההמרה (כמו שליחת טופס)
+function trackConversion() {
+  // Google Analytics
+  gtag('event', 'conversion', {
+    'send_to': 'AW-CONVERSION_ID/CONVERSION_LABEL'
+  });
+  
+  // Facebook Pixel
+  fbq('track', 'Lead');
+  
+  // אם זו רכישה
+  fbq('track', 'Purchase', {
+    value: 99.00,
+    currency: 'ILS'
+  });
+}`}
+                  </CodeBlock>
+
+                  <div className="bg-red-600/10 border border-red-600/30 rounded-xl p-6">
+                    <h4 className="text-red-400 font-bold mb-2 flex items-center gap-2">
+                      <AlertCircle className="w-5 h-5" />
+                      חשוב: הגדרת Goals
+                    </h4>
+                    <p className="text-gray-300">
+                      <strong>אל תשכחו להגדיר מטרות ב-Google Analytics:</strong>
+                    </p>
+                    <ul className="space-y-1 text-gray-300 mt-2">
+                      <li>• שליחת טופס יצירת קשר</li>
+                      <li>• הורדת משאב</li>
+                      <li>• לחיצה על כפתור טלפון</li>
+                      <li>• זמן שהייה מעל X דקות</li>
+                    </ul>
                   </div>
                 </section>
 
@@ -599,23 +858,34 @@ vercel
 
                 <section id="examples" className="mb-12">
                   <h2 className="text-3xl font-bold text-white mb-6 border-r-4 border-cyan-400 pr-4">
-                    דוגמאות עבודה ומוצעי זמן
+                    דוגמאות דפי נחיתה מוצלחים
                   </h2>
 
                   <div className="space-y-8">
                     <Card className="bg-slate-700/30 border-slate-600/30">
                       <CardContent className="p-8">
-                        <h3 className="text-2xl font-bold text-green-400 mb-4">אתר תדמית עסקי (45 דקות)</h3>
+                        <h3 className="text-2xl font-bold text-green-400 mb-4">דף נחיתה לקורס אונליין (60 דקות)</h3>
                         <p className="text-gray-300 mb-4">
-                          <strong>מה יצא:</strong> דף נחיתה עם 5 קטעים, טופס יצירת קשר, עיצוב מותאם לנייד
+                          <strong>התוצאה:</strong> שיעור המרה של 12% מביקור לרכישה, מכירות של 50,000₪ בחודש הראשון
                         </p>
-                        <div className="bg-slate-700/30 rounded-lg p-6">
+                        <div className="bg-slate-700/30 rounded-lg p-6 mb-4">
                           <h4 className="text-white font-bold mb-2">הזמנים בפועל:</h4>
                           <ul className="space-y-1 text-gray-300">
-                            <li>• תכנון: 8 דקות</li>
-                            <li>• קוד: 25 דקות</li>
-                            <li>• תוכן: 7 דקות</li>
-                            <li>• פרסום: 5 דקות</li>
+                            <li>• תכנון אסטרטגיה: 8 דקות</li>
+                            <li>• מבנה דף: 7 דקות</li>
+                            <li>• עיצוב: 20 דקות</li>
+                            <li>• תוכן מכירתי: 15 דקות</li>
+                            <li>• אופטימיזציה: 7 דקות</li>
+                            <li>• פרסום: 3 דקות</li>
+                          </ul>
+                        </div>
+                        <div className="bg-green-600/10 border border-green-600/30 rounded-lg p-6">
+                          <h4 className="text-green-400 font-bold mb-2">מרכיבי הצלחה:</h4>
+                          <ul className="space-y-1 text-gray-300">
+                            <li>• וידאו הסבר של 90 שניות</li>
+                            <li>• 15 המלצות לקוחות עם תמונות</li>
+                            <li>• כפתור CTA כל 2 מקטעים</li>
+                            <li>• מחיר עם הנחה מוגבלת בזמן</li>
                           </ul>
                         </div>
                       </CardContent>
@@ -623,24 +893,55 @@ vercel
 
                     <Card className="bg-slate-700/30 border-slate-600/30">
                       <CardContent className="p-8">
-                        <h3 className="text-2xl font-bold text-cyan-400 mb-4">פורטפוליו מעצב (35 דקות)</h3>
+                        <h3 className="text-2xl font-bold text-cyan-400 mb-4">דף נחיתה לשירות B2B (45 דקות)</h3>
                         <p className="text-gray-300 mb-4">
-                          <strong>מה יצא:</strong> גלריית עבודות, אודות, קורות חיים להורדה
+                          <strong>התוצאה:</strong> 180 leads איכותיים בחודש, שיעור המרה 8.5%
                         </p>
-                        <div className="bg-yellow-600/10 border border-yellow-600/30 rounded-lg p-6">
-                          <p className="text-yellow-400 font-bold">טיפ: השתמשו ב-Unsplash API לתמונות מקום</p>
+                        <div className="bg-cyan-600/10 border border-cyan-600/30 rounded-lg p-6">
+                          <h4 className="text-cyan-400 font-bold mb-2">אסטרטגיה שעבדה:</h4>
+                          <ul className="space-y-1 text-gray-300">
+                            <li>• ROI calculator אינטראקטיבי</li>
+                            <li>• Case studies מפורטים</li>
+                            <li>• לוגואי 20+ לקוחות מוכרים</li>
+                            <li>• הצעת ייעוץ חינמי במקום מכירה ישירה</li>
+                          </ul>
                         </div>
                       </CardContent>
                     </Card>
 
                     <Card className="bg-slate-700/30 border-slate-600/30">
                       <CardContent className="p-8">
-                        <h3 className="text-2xl font-bold text-cyan-400 mb-4">דף נחיתה למוצר (30 דקות)</h3>
-                        <p className="text-gray-300">
-                          <strong>מה יצא:</strong> Hero מרשים, יתרונות, מחירים, עדויות לקוחות
+                        <h3 className="text-2xl font-bold text-purple-400 mb-4">דף נחיתה למוצר פיזי (35 דקות)</h3>
+                        <p className="text-gray-300 mb-4">
+                          <strong>התוצאה:</strong> עלייה של 340% במכירות תוך 3 שבועות
                         </p>
+                        <div className="bg-purple-600/10 border border-purple-600/30 rounded-lg p-6">
+                          <h4 className="text-purple-400 font-bold mb-2">נקודות חשובות:</h4>
+                          <ul className="space-y-1 text-gray-300">
+                            <li>• תמונות מוצר איכותיות עם זום</li>
+                            <li>• ביקורות מ-Amazon עם כוכבים</li>
+                            <li>• משלוח חינם + החזרה מובטחת</li>
+                            <li>• מלאי מוגבל ודחיפות</li>
+                          </ul>
+                        </div>
                       </CardContent>
                     </Card>
+                  </div>
+
+                  <div className="bg-blue-600/10 border border-blue-600/30 rounded-xl p-8 mt-10">
+                    <h3 className="text-blue-400 font-bold mb-4">מה מובא לכל הדוגמאות המוצלחות?</h3>
+                    <div className="grid md:grid-cols-2 gap-6">
+                      <ul className="space-y-2 text-gray-300">
+                        <li>• <strong className="text-white">כותרת ברורה</strong> שמסבירה את הערך תוך 5 שניות</li>
+                        <li>• <strong className="text-white">CTA בולט</strong> שנראה מעל הקפלה</li>
+                        <li>• <strong className="text-white">הוכחה חברתית</strong> מרובה ואמינה</li>
+                      </ul>
+                      <ul className="space-y-2 text-gray-300">
+                        <li>• <strong className="text-white">מהירות טעינה</strong> מתחת ל-3 שניות</li>
+                        <li>• <strong className="text-white">עיצוב רספונסיבי</strong> שעובד מושלם במובייל</li>
+                        <li>• <strong className="text-white">מעקב והמרות</strong> מדויק</li>
+                      </ul>
+                    </div>
                   </div>
                 </section>
 
@@ -648,95 +949,165 @@ vercel
 
                 <section id="tips" className="mb-12">
                   <h2 className="text-3xl font-bold text-white mb-6 border-r-4 border-cyan-400 pr-4">
-                    טיפים מתקדמים לייעול התהליך
+                    טיפים לשיפור שיעורי ההמרה
                   </h2>
 
                   <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-2">
-                    <Zap className="w-6 h-6 text-cyan-400" />
-                    פרומפטים מנצחים
+                    <TrendingUp className="w-6 h-6 text-cyan-400" />
+                    פרומפטים מתקדמים לאופטימיזציה
                   </h3>
 
                   <div className="space-y-8 mb-10">
                     <div>
-                      <h4 className="text-xl font-bold text-cyan-400 mb-3">לעיצוב רספונסיבי:</h4>
-                      <CodeBlock language="prompt" index="responsive">
-{`צור קומפוננט שנראה מושלם בכל גודל מסך.
-השתמש ב-Tailwind responsive classes (sm:, md:, lg:, xl:).
-וודא שהטקסט קריא במובייל.`}
+                      <h4 className="text-xl font-bold text-cyan-400 mb-3">לשיפור כותרת ראשית:</h4>
+                      <CodeBlock language="prompt" index="headline-optimization">
+{`נתח את הכותרת שלי ותציע 5 גרסאות משופרות:
+
+"[הכותרת הנוכחית שלכם]"
+
+אני מוכר [מוצר/שירות] לקהל של [תיאור הקהל].
+הבעיה העיקרית שאני פותר: [הבעיה]
+
+תעשה את הכותרות:
+1. יותר ספציפיות עם מספרים
+2. יותר אמוציונליות
+3. עם תחושת דחיפות
+4. שמתמקדות בתוצאה הסופית
+5. שפונות ישירות לכאב של הלקוח`}
                       </CodeBlock>
                     </div>
 
                     <div>
-                      <h4 className="text-xl font-bold text-cyan-400 mb-3">לאנימציות:</h4>
-                      <CodeBlock language="prompt" index="animations">
-{`הוסף אנימציות עדינות עם Tailwind:
-- Fade in בכניסה לדף
-- Hover effects על כפתורים
-- Smooth scroll בין קטעים`}
+                      <h4 className="text-xl font-bold text-cyan-400 mb-3">לטקסט CTA מנצח:</h4>
+                      <CodeBlock language="prompt" index="cta-optimization">
+{`תן לי 10 רעיונות לטקסט CTA עבור כפתור שמוביל ל[פעולה - רכישה/הרשמה/הורדה].
+
+הקהל שלי: [תיאור]
+הערך שהם מקבלים: [ערך]
+
+החלק לקטגוריות:
+1. דחיפות (זמן מוגבל)
+2. סקרנות (מה יקרה אחרי הלחיצה)
+3. יתרון (מה הם ירוויחו)
+4. פחד מהחמצה (FOMO)
+5. פשוט וישיר`}
                       </CodeBlock>
                     </div>
                   </div>
 
                   <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-2">
-                    <Rocket className="w-6 h-6 text-cyan-400" />
-                    קיצורי דרך שחוסכים זמן
+                    <Zap className="w-6 h-6 text-cyan-400" />
+                    A/B Testing מהיר עם AI
                   </h3>
 
                   <div className="grid md:grid-cols-2 gap-8 mb-10">
                     <Card className="bg-slate-700/30 border-slate-600/30">
                       <CardContent className="p-8">
-                        <h4 className="text-cyan-400 font-bold mb-3">Emmet Snippets בVS Code:</h4>
-                        <ul className="space-y-2 text-gray-300 font-mono text-sm">
-                          <li>• <code>div.container.mx-auto.px-4</code> ← קונטיינר מוכן</li>
-                          <li>• <code>button.bg-blue-500.text-white.px-4.py-2.rounded</code> ← כפתור מעוצב</li>
+                        <h4 className="text-cyan-400 font-bold mb-3">מה לבדוק ראשון:</h4>
+                        <ul className="space-y-2 text-gray-300">
+                          <li>• <strong className="text-white">כותרת ראשית</strong> - ההשפעה הגדולה ביותר</li>
+                          <li>• <strong className="text-white">צבע כפתור CTA</strong> - שינוי של 20-30% בהמרות</li>
+                          <li>• <strong className="text-white">מיקום הCTA</strong> - מעל הקפלה vs. אחרי יתרונות</li>
+                          <li>• <strong className="text-white">אורך הדף</strong> - קצר vs. ארוך ומפורט</li>
                         </ul>
                       </CardContent>
                     </Card>
 
                     <Card className="bg-slate-700/30 border-slate-600/30">
                       <CardContent className="p-8">
-                        <h4 className="text-cyan-400 font-bold mb-3">ChatGPT Extensions:</h4>
+                        <h4 className="text-cyan-400 font-bold mb-3">כלים לA/B Testing:</h4>
                         <ul className="space-y-2 text-gray-300">
-                          <li>• <strong>WebChatGPT</strong> - תוספת לחיפוש ברשת</li>
-                          <li>• <strong>AIPRM</strong> - תבניות פרומפטים מוכנות</li>
+                          <li>• <strong className="text-white">Google Optimize</strong> (חינם)</li>
+                          <li>• <strong className="text-white">Hotjar</strong> - מפות חום</li>
+                          <li>• <strong className="text-white">VWO</strong> - פלטפורמה מתקדמת</li>
+                          <li>• <strong className="text-white">Unbounce</strong> - ספציאלית לדפי נחיתה</li>
                         </ul>
                       </CardContent>
                     </Card>
                   </div>
 
                   <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-2">
-                    <Palette className="w-6 h-6 text-cyan-400" />
-                    משאבים לעיצוב מהיר
+                    <Rocket className="w-6 h-6 text-cyan-400" />
+                    טקטיקות מתקדמות להגברת המרות
                   </h3>
 
-                  <div className="grid md:grid-cols-3 gap-8">
+                  <div className="space-y-6">
                     <Card className="bg-slate-700/30 border-slate-600/30">
                       <CardContent className="p-8">
-                        <h4 className="text-cyan-400 font-bold mb-3">צבעים:</h4>
-                        <ul className="space-y-2 text-gray-300 text-sm">
-                          <li>• <a href="https://tailwindcss.com/docs/customizing-colors" className="hover:text-cyan-400">TailwindCSS Colors</a></li>
-                          <li>• <a href="https://coolors.co" className="hover:text-cyan-400">Coolors.co</a> - פלטות צבעים אוטומטיות</li>
-                        </ul>
+                        <h4 className="text-green-400 font-bold mb-3 flex items-center gap-2">
+                          <CheckCircle className="w-5 h-5" />
+                          Exit Intent Popup
+                        </h4>
+                        <p className="text-gray-300 mb-3">כשמשתמש מנסה לצאת מהדף - הצעה אחרונה</p>
+                        <CodeBlock language="javascript" index="exit-intent">
+{`// JavaScript פשוט ל-Exit Intent
+let hasShownPopup = false;
+
+document.addEventListener('mouseleave', function(e) {
+  if (e.clientY <= 0 && !hasShownPopup) {
+    hasShownPopup = true;
+    // הצג popup עם הצעה מיוחדת
+    showExitIntentOffer();
+  }
+});`}
+                        </CodeBlock>
                       </CardContent>
                     </Card>
 
                     <Card className="bg-slate-700/30 border-slate-600/30">
                       <CardContent className="p-8">
-                        <h4 className="text-cyan-400 font-bold mb-3">אייקונים:</h4>
-                        <ul className="space-y-2 text-gray-300 text-sm">
-                          <li>• <a href="https://heroicons.com" className="hover:text-cyan-400">Heroicons</a> - מובנה ב-Tailwind</li>
-                          <li>• <a href="https://lucide.dev" className="hover:text-cyan-400">Lucide React</a> - ספרייה עשירה</li>
-                        </ul>
+                        <h4 className="text-blue-400 font-bold mb-3 flex items-center gap-2">
+                          <Globe className="w-5 h-5" />
+                          Social Proof בזמן אמת
+                        </h4>
+                        <p className="text-gray-300 mb-3">"5 אנשים קנו את המוצר ב-24 השעות האחרונות"</p>
+                        <CodeBlock language="javascript" index="social-proof">
+{`// עדכון דינמי של מספר לקוחות
+function updateSocialProof() {
+  const counter = document.getElementById('customer-count');
+  const baseNumber = 1247;
+  const randomAdd = Math.floor(Math.random() * 10);
+  counter.textContent = baseNumber + randomAdd;
+}
+
+// עדכון כל 30 שניות
+setInterval(updateSocialProof, 30000);`}
+                        </CodeBlock>
                       </CardContent>
                     </Card>
 
                     <Card className="bg-slate-700/30 border-slate-600/30">
                       <CardContent className="p-8">
-                        <h4 className="text-cyan-400 font-bold mb-3">תמונות:</h4>
-                        <ul className="space-y-2 text-gray-300 text-sm">
-                          <li>• <a href="https://unsplash.com" className="hover:text-cyan-400">Unsplash</a> - תמונות איכותיות חינם</li>
-                          <li>• <a href="https://pixabay.com" className="hover:text-cyan-400">Pixabay</a> - וקטורים ותמונות</li>
-                        </ul>
+                        <h4 className="text-purple-400 font-bold mb-3 flex items-center gap-2">
+                          <AlertCircle className="w-5 h-5" />
+                          Scarcity Timer
+                        </h4>
+                        <p className="text-gray-300 mb-3">ספירה לאחור שיוצרת דחיפות אמיתית</p>
+                        <CodeBlock language="javascript" index="scarcity-timer">
+{`// Timer לספירה לאחור
+function startCountdown(duration) {
+  const timer = duration, minutes, seconds;
+  const display = document.getElementById('countdown');
+  
+  const interval = setInterval(function () {
+    minutes = parseInt(timer / 60, 10);
+    seconds = parseInt(timer % 60, 10);
+    
+    minutes = minutes < 10 ? "0" + minutes : minutes;
+    seconds = seconds < 10 ? "0" + seconds : seconds;
+    
+    display.textContent = minutes + ":" + seconds;
+    
+    if (--timer < 0) {
+      clearInterval(interval);
+      display.textContent = "ההצעה נגמרה!";
+    }
+  }, 1000);
+}
+
+// התחל עם 30 דקות
+startCountdown(30 * 60);`}
+                        </CodeBlock>
                       </CardContent>
                     </Card>
                   </div>
@@ -816,19 +1187,23 @@ vercel
                         <ul className="space-y-2 text-gray-300">
                           <li className="flex items-center gap-2">
                             <CheckCircle className="w-4 h-4 text-green-400" />
-                            אתר מקצועי ומעוצב
+                            דף נחיתה מקצועי שמוכר
                           </li>
                           <li className="flex items-center gap-2">
                             <CheckCircle className="w-4 h-4 text-green-400" />
-                            קוד נקי ומתועד
+                            תוכן מכירתי שמדבר אל הלקוח
                           </li>
                           <li className="flex items-center gap-2">
                             <CheckCircle className="w-4 h-4 text-green-400" />
-                            עיצוב רספונסיבי
+                            עיצוב מותאם למובייל
                           </li>
                           <li className="flex items-center gap-2">
                             <CheckCircle className="w-4 h-4 text-green-400" />
-                            אתר באוויר וזמין לכולם
+                            מעקב אחר המרות
+                          </li>
+                          <li className="flex items-center gap-2">
+                            <CheckCircle className="w-4 h-4 text-green-400" />
+                            דף באוויר ומוכן לקבל תנועה
                           </li>
                         </ul>
                       </CardContent>
@@ -838,10 +1213,11 @@ vercel
                       <CardContent className="p-8">
                         <h3 className="text-cyan-400 font-bold mb-4">צעדים הבאים לשיפור:</h3>
                         <ol className="space-y-2 text-gray-300">
-                          <li>1. <strong>SEO מתקדם</strong> - Google Search Console, Schema Markup</li>
-                          <li>2. <strong>אנליטיקס</strong> - Google Analytics, Hotjar</li>
-                          <li>3. <strong>אבטחה</strong> - SSL, Headers בטיחותיים</li>
-                          <li>4. <strong>ביצועים</strong> - CDN, Cache, Image Optimization</li>
+                          <li>1. <strong>A/B Testing</strong> - בדקו גרסאות שונות של כותרת וCTA</li>
+                          <li>2. <strong>מפות חום</strong> - נתחו איך משתמשים מתנהגים בדף</li>
+                          <li>3. <strong>Social Proof</strong> - הוסיפו עוד המלצות ומספרים</li>
+                          <li>4. <strong>אופטימיזציה לSEO</strong> - כדי להביא תנועה אורגנית</li>
+                          <li>5. <strong>Remarketing</strong> - פנייה חוזרת למי שלא המיר</li>
                         </ol>
                       </CardContent>
                     </Card>
@@ -850,20 +1226,38 @@ vercel
                   <Card className="bg-blue-900/20 border-blue-600/30">
                     <CardContent className="p-8">
                       <h3 className="text-blue-400 font-bold mb-4">משאבים להעמקה:</h3>
-                      <ul className="space-y-2 text-gray-300">
-                        <li>• <a href="https://nextjs.org/docs" className="hover:text-cyan-400">מדריך Next.js הרשמי</a></li>
-                        <li>• <a href="https://tailwindcss.com/docs" className="hover:text-cyan-400">תיעוד Tailwind CSS</a></li>
-                        <li>• <a href="https://web.dev/performance/" className="hover:text-cyan-400">Web.dev Performance</a></li>
-                      </ul>
+                      <div className="grid md:grid-cols-2 gap-6">
+                        <div>
+                          <h4 className="text-white font-bold mb-2">טכני:</h4>
+                          <ul className="space-y-1 text-gray-300 text-sm">
+                            <li>• <a href="https://nextjs.org/docs" className="hover:text-cyan-400">מדריך Next.js הרשמי</a></li>
+                            <li>• <a href="https://tailwindcss.com/docs" className="hover:text-cyan-400">תיעוד Tailwind CSS</a></li>
+                            <li>• <a href="https://web.dev/performance/" className="hover:text-cyan-400">Web.dev Performance</a></li>
+                          </ul>
+                        </div>
+                        <div>
+                          <h4 className="text-white font-bold mb-2">שיווק דיגיטלי:</h4>
+                          <ul className="space-y-1 text-gray-300 text-sm">
+                            <li>• <a href="https://unbounce.com/landing-page-articles/" className="hover:text-cyan-400">מדריכי Unbounce</a></li>
+                            <li>• <a href="https://www.copyhackers.com/" className="hover:text-cyan-400">Copyhackers - כתיבה מכירתית</a></li>
+                            <li>• <a href="https://conversion-rate-experts.com/" className="hover:text-cyan-400">Conversion Rate Experts</a></li>
+                          </ul>
+                        </div>
+                      </div>
                     </CardContent>
                   </Card>
 
-                  <div className="bg-gradient-to-r from-blue-600/20 to-cyan-600/20 rounded-3xl p-10 border border-cyan-600/30 mt-10">
+                  <div className="bg-gradient-to-r from-purple-600/20 to-cyan-600/20 rounded-3xl p-10 border border-cyan-600/30 mt-10">
                     <h3 className="text-2xl font-bold text-white mb-4 text-center">זכרו:</h3>
-                    <p className="text-gray-300 text-lg leading-relaxed text-center">
-                      המטרה היא לא לבנות אתר מושלם בשעה אחת, אלא ליצור בסיס איכותי שתוכלו לפתח ולשפר עליו. 
-                      AI הוא כלי עוצמתי, אבל הוא לא מחליף חשיבה יצירתית ובדיקה מדוקדקת.
+                    <p className="text-gray-300 text-lg leading-relaxed text-center mb-6">
+                      דף נחיתה טוב הוא לא רק דף יפה - זה דף שמוכר. השקיעו בבדיקות, תאמנו את התוכן, 
+                      ותמיד חשבו על הלקוח: מה הוא רוצה לשמוע? איך הוא מגיע אליכם? מה יגרום לו לבטוח בכם?
                     </p>
+                    <div className="text-center">
+                      <div className="bg-gradient-to-r from-green-400 to-blue-500 text-transparent bg-clip-text font-bold text-xl">
+                        הצלחה בדרך! 🚀
+                      </div>
+                    </div>
                   </div>
                 </section>
               </div>
@@ -888,13 +1282,13 @@ vercel
                     <strong className="text-cyan-400" dir="ltr">MasterStack Shahar Maoz</strong> <br />שחר מעוז - מפתח פולסטאק ומומחה לכלי בינה מלאכותית לפיתוח. מלמד ומנחה צוותי פיתוח בבניית פתרונות דיגיטליים מתקדמים.
                   </p>
                   <div className="flex flex-wrap gap-4">
-                    <Button variant="outline" className="border-slate-600 text-gray-400 hover:border-cyan-400 hover:text-cyan-400 transition-colors">
+                    <Button variant="outline" className="bg-slate-700/30 border-slate-600 text-gray-400 hover:border-cyan-400 hover:text-cyan-400 hover:bg-slate-700/30 transition-colors">
                       הצטרפו לניוזלטר
                     </Button>
-                    <Button variant="outline" className="border-slate-600 text-gray-400 hover:border-cyan-400 hover:text-cyan-400 transition-colors">
+                    <Button variant="outline" className="bg-slate-700/30 border-slate-600 text-gray-400 hover:border-cyan-400 hover:text-cyan-400 hover:bg-slate-700/30 transition-colors">
                       מדריכים נוספים
                     </Button>
-                    <Button variant="outline" className="border-slate-600 text-gray-400 hover:border-cyan-400 hover:text-cyan-400 transition-colors">
+                    <Button variant="outline" className="bg-slate-700/30 border-slate-600 text-gray-400 hover:border-cyan-400 hover:text-cyan-400 hover:bg-slate-700/30 transition-colors">
                       ווצאפ
                     </Button>
                   </div>
@@ -952,16 +1346,16 @@ vercel
       {/* CTA Section */}
       <div className="bg-gradient-to-r from-blue-900/50 to-cyan-900/50 py-20">
         <div className="container mx-auto px-6 text-center">
-          <h3 className="text-3xl font-bold text-white mb-4">מוכנים לבנות אתר בעצמכם?</h3>
+          <h3 className="text-3xl font-bold text-white mb-4">מוכנים לבנות דף נחיתה שמוכר?</h3>
           <p className="text-xl text-gray-300 mb-10 max-w-3xl mx-auto">
-            קבלו ייעוץ אישי וליווי מקצועי בבניית האתר הבא שלכם
+            קבלו ייעוץ אישי וליווי מקצועי בבניית דף הנחיתה הבא שלכם - מהאסטרטגיה ועד ההמרה הראשונה
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-gradient-to-r from-purple-600 to-cyan-600 hover:from-purple-700 hover:to-cyan-700 text-white px-8 py-4 text-lg rounded-xl transition-all duration-300 transform hover:scale-105">
-              בואו נתחיל לבנות
+                    <Button size="lg" variant="outline" className="bg-slate-700/30 border-slate-600 text-gray-400 hover:border-cyan-400 hover:text-cyan-400 hover:bg-slate-500/40 transition-colors">
+              בואו נבנה דף שמוכר
               <ArrowRight className="w-5 h-5 mr-2" />
             </Button>
-            <Button size="lg" variant="outline" className="border-slate-600 text-gray-300 hover:border-cyan-400 hover:text-cyan-400 px-8 py-4 text-lg rounded-xl transition-colors">
+                    <Button size="lg" variant="outline" className="bg-slate-700/30 border-slate-600 text-gray-400 hover:border-cyan-400 hover:text-cyan-400 hover:bg-slate-500/40 transition-colors">
               עוד מדריכים
               <ExternalLink className="w-5 h-5 mr-2" />
             </Button>
