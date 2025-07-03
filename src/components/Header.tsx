@@ -2,8 +2,10 @@ import { Button } from "@/components/ui/button";
 import { Menu, X, Phone, MessageCircle } from "lucide-react";
 import { useState, useEffect } from "react";
 import UserMenu from "./UserMenu";
+import { useAuth } from "@/hooks/useAuth";
 
 const Header = () => {
+  const { contactByWhatsApp } = useAuth();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -98,18 +100,13 @@ const Header = () => {
                 <UserMenu />
                 <Button 
                   className="w-full bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white py-3 rounded-xl transition-all duration-300"
-                  asChild
+                  onClick={() => {
+                    contactByWhatsApp();
+                    closeMenu();
+                  }}
                 >
-                  <a 
-                    href="https://wa.me/972525347274" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-center text-white"
-                    onClick={closeMenu}
-                  >
-                    <MessageCircle className="w-5 h-5 ml-2" />
-                    צור קשר בווצאפ
-                  </a>
+                  <MessageCircle className="w-5 h-5 ml-2" />
+                  צור קשר בווצאפ
                 </Button>
               </div>
             </nav>

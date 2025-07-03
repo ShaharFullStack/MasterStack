@@ -23,8 +23,10 @@ import {
   MessageSquareCodeIcon,
   MessageCircle
 } from "lucide-react";
+import { useAuth } from "@/hooks/useAuth";
 
 const AdvancedContact = () => {
+  const { contactByWhatsApp, contactByPhone, contactByEmail } = useAuth();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -288,17 +290,13 @@ const AdvancedContact = () => {
                   <div className="space-y-2 text-gray-300">
                     <p className="text-lg font-semibold text-white">+972525347274</p>
                     <div className="flex gap-3">
-                      <Button size="sm" className="bg-green-600 hover:bg-green-700">
-                        <a href="https://wa.me/972525347274" target="_blank" rel="noopener noreferrer" className="text-white">
-                            <MessageCircle className="w-4 h-4 inline-block mr-1" />
-                            הודעה בווצאפ
-                        </a>
+                      <Button size="sm" className="bg-green-600 hover:bg-green-700" onClick={contactByWhatsApp}>
+                        <MessageCircle className="w-4 h-4 ml-1" />
+                        הודעה בווצאפ
                       </Button>
-                      <Button size="sm" className="bg-green-600 hover:bg-green-700">
-                        <a href="https://wa.me/972525347274" target="_blank" rel="noopener noreferrer" className="text-white">
-                            <Phone className="w-4 h-4 inline-block mr-1" />
-                            שיחה טלפונית
-                        </a>
+                      <Button size="sm" className="bg-green-600 hover:bg-green-700" onClick={contactByPhone}>
+                        <Phone className="w-4 h-4 ml-1" />
+                        שיחה טלפונית
                       </Button>
                     </div>
                   </div>
@@ -318,10 +316,8 @@ const AdvancedContact = () => {
                   </div>
                   <div className="space-y-2 text-gray-300">
                     <p className="text-lg font-semibold text-white">admin@master-stack.com</p>
-                    <Button size="sm" variant="outline" className="border-slate-600 text-gray-300 hover:bg-slate-700">
-                      <a href="mailto:admin@master-stack.com" className="text-gray-300">
-                        שלח מייל
-                      </a>
+                    <Button size="sm" variant="outline" className="border-slate-600 text-gray-300 hover:bg-slate-700" onClick={contactByEmail}>
+                      שלח מייל
                     </Button>
                   </div>
                 </CardContent>

@@ -26,8 +26,10 @@ import {
   Phone,
   MessageCircle
 } from "lucide-react";
+import { useAuth } from "@/hooks/useAuth";
 
 const ServicesPage = () => {
+  const { contactByWhatsApp } = useAuth();
   const [selectedCategory, setSelectedCategory] = useState<string>("הכל");
 
   const services = [
@@ -430,17 +432,14 @@ const ServicesPage = () => {
                       <Button 
                         className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl"
                         aria-label={`צור קשר בווצאפ עבור השירות ${service.title}`}
+                        onClick={() => {
+                          const message = `היי! אשמח לשמוע עוד על ${service.title} שאתם מציעים באתר`;
+                          const whatsappNumber = import.meta.env.VITE_WHATSAPP_NUMBER || '+972525347274';
+                          window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`, '_blank');
+                        }}
                       >
-                        <a 
-                          href={`https://wa.me/972525347274?text=היי! אשמח לשמוע עוד על ${service.title} שאתם מציעים באתר`}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="w-full text-white flex items-center justify-center gap-2"
-                          aria-label={`פתח ווצאפ ליצירת קשר בנוגע לשירות ${service.title}`}
-                        >
-                          <MessageCircle className="w-4 h-4" aria-hidden="true" />
-                          פנו אלינו בווצאפ
-                        </a>
+                        <MessageCircle className="w-4 h-4 ml-2" aria-hidden="true" />
+                        פנו אלינו בווצאפ
                       </Button>
                     </div>
                   </CardContent>
@@ -479,16 +478,17 @@ const ServicesPage = () => {
             אנחנו מומחים בפתרונות מותאמים אישית. ספרו לנו על הצרכים שלכם ונמצא פתרון מושלם עבורכם.
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-            <Button size="lg" className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-10 py-4 text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
-              <a 
-                href="https://wa.me/972525347274?text=שלום, אני מחפש פתרון דיגיטלי מותאם לעסק שלי"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-white flex items-center gap-2"
-              >
-                <MessageCircle className="w-5 h-5" />
-                התייעצו איתנו בווצאפ
-              </a>
+            <Button 
+              size="lg" 
+              className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-10 py-4 text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+              onClick={() => {
+                const message = "שלום, אני מחפש פתרון דיגיטלי מותאם לעסק שלי";
+                const whatsappNumber = import.meta.env.VITE_WHATSAPP_NUMBER || '+972525347274';
+                window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`, '_blank');
+              }}
+            >
+              <MessageCircle className="w-5 h-5 ml-2" />
+              התייעצו איתנו בווצאפ
             </Button>
             <Button size="lg" variant="outline" className="border-2 border-cyan-400 text-cyan-400 hover:bg-cyan-400/10 px-10 py-4 text-lg rounded-xl transition-all duration-300 bg-transparent">
               <CheckCircle className="w-5 h-5 mr-2" />

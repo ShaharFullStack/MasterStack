@@ -52,7 +52,7 @@ export const useAuth = () => {
   };
 
   const handleContactByWhatsApp = () => {
-    const whatsappNumber = import.meta.env.VITE_WHATSAPP_NUMBER || '972525347274';
+    const whatsappNumber = import.meta.env.VITE_WHATSAPP_NUMBER || '+972525347274';
     const message = encodeURIComponent('היי! אשמח לקבל מידע נוסף על השירותים שלכם.');
     window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank');
     toast.info('פותח WhatsApp');

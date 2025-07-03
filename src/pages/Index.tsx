@@ -2,19 +2,20 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
+import { useAuth } from "@/hooks/useAuth";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import AccessibilityMenu from "@/components/AccessibilityMenu";
 import Header from "@/components/Header";
-import { 
-  CheckCircle, 
-  Zap, 
-  Shield, 
-  Users, 
-  TrendingUp, 
-  Code, 
-  Search, 
-  Palette, 
-  Settings, 
+import {
+  CheckCircle,
+  Zap,
+  Shield,
+  Users,
+  TrendingUp,
+  Code,
+  Search,
+  Palette,
+  Settings,
   BookOpen,
   UserCheck,
   Lock,
@@ -39,6 +40,7 @@ import { useState, useEffect } from "react";
 import "../index.css"; // Import your global styles
 
 const Index = () => {
+  const { contactByWhatsApp, contactByEmail } = useAuth();
   const [videoLoaded, setVideoLoaded] = useState(false);
   const [showContent, setShowContent] = useState(false);
   const [videoError, setVideoError] = useState(false);
@@ -188,10 +190,10 @@ const Index = () => {
 
   return (
     <div className="min-h-screen text-white bg-transparent" dir="rtl">
-      
+
       {/* Skip to main content link */}
-      <a 
-        href="#main-content" 
+      <a
+        href="#main-content"
         className="absolute -top-10 left-2 bg-slate-800 text-white px-3 py-2 rounded text-sm z-50 focus:top-2 transition-all duration-300"
         tabIndex={1}
         style={{
@@ -205,10 +207,10 @@ const Index = () => {
       >
         עבור לתוכן הראשי
       </a>
-      
+
       {/* Accessibility Menu */}
       <AccessibilityMenu />
-      
+
       {/* Header Navigation */}
       <Header />
 
@@ -216,13 +218,12 @@ const Index = () => {
       <main id="main-content" className="relative pt-20 pb-32 px-4 overflow-hidden min-h-screen flex items-center">
         {/* Background Video */}
         {!videoError && (
-          <video 
-            className={`fixed inset-0 w-full h-full object-cover -z-40 transition-all duration-[4000ms] ease-out ${
-              showContent ? 'brightness-50 scale-105' : 'brightness-100 scale-100'
-            }`}
-            autoPlay 
-            muted 
-            loop 
+          <video
+            className={`fixed inset-0 w-full h-full object-cover -z-40 transition-all duration-[4000ms] ease-out ${showContent ? 'brightness-50 scale-105' : 'brightness-100 scale-100'
+              }`}
+            autoPlay
+            muted
+            loop
             playsInline
             onLoadedData={handleVideoLoad}
             onError={handleVideoError}
@@ -232,10 +233,10 @@ const Index = () => {
             <source src="/assets/videos/background.mp4" type="video/mp4" />
           </video>
         )}
-        
+
         {/* Fallback background image - shows ONLY if video fails to load */}
         {videoError && (
-          <div 
+          <div
             className="fixed inset-0 w-full h-full -z-40"
             style={{
               backgroundImage: 'url(/assets/images/image.png)',
@@ -246,22 +247,20 @@ const Index = () => {
             aria-hidden="true"
           ></div>
         )}
-        
+
         {/* Gradual fadeout overlay - starts transparent and gradually darkens */}
-        <div 
-          className={`fixed inset-0 w-full h-full -z-30 transition-all duration-[4000ms] ease-out ${
-            showContent ? 'bg-gradient-to-b from-slate-900/40 via-slate-900/60 to-slate-900/80' : 'bg-slate-900/10'
-          }`}
+        <div
+          className={`fixed inset-0 w-full h-full -z-30 transition-all duration-[4000ms] ease-out ${showContent ? 'bg-gradient-to-b from-slate-900/40 via-slate-900/60 to-slate-900/80' : 'bg-slate-900/10'
+            }`}
           aria-hidden="true"
         ></div>
-        
+
         {/* Additional readability overlay */}
         <div className="absolute inset-0 bg-slate-900/20" aria-hidden="true"></div>
-        
-        <div className={`container mx-auto text-center relative z-10 transition-all duration-[3000ms] ease-out ${
-          showContent ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-        }`}>
-          
+
+        <div className={`container mx-auto text-center relative z-10 transition-all duration-[3000ms] ease-out ${showContent ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}>
+
           {/* Video Loading Indicator - very subtle */}
           {!videoLoaded && !videoError && (
             <div className="fixed top-8 right-8 z-50 opacity-60">
@@ -273,7 +272,7 @@ const Index = () => {
               </div>
             </div>
           )}
-          
+
           {/* Video Error Notice - very subtle */}
           {videoError && (
             <div className="fixed bottom-4 right-4 z-50 opacity-50">
@@ -282,7 +281,7 @@ const Index = () => {
               </div>
             </div>
           )}
-          
+
           {/* Massive Enhanced Title */}
           <div className="mb-12">
             <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl 2xl:text-[8rem] font-black leading-none mb-4 relative">
@@ -297,12 +296,12 @@ const Index = () => {
                 MasterStack
               </div>
             </h1>
-            
+
             {/* Animated Subtitle */}
             <div className="relative">
               <p className="text-xl md:text-2xl lg:text-3xl text-gray-300 max-w-5xl mx-auto leading-relaxed">
-                  הפתרון המקצועי והמותאם
-                </p>
+                הפתרון המקצועי והמותאם
+              </p>
               <p className="text-xl md:text-2xl lg:text-3xl text-gray-300 max-w-5xl mx-auto leading-relaxed">
                 לכל הצרכים הדיגיטליים שלכם
                 <br />
@@ -312,11 +311,11 @@ const Index = () => {
               </p>
             </div>
           </div>
-          
+
           {/* Enhanced CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">              
-            <Button 
-              size="lg" 
+          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
+            <Button
+              size="lg"
               className="group relative bg-gradient-to-r from-blue-600 via-cyan-600 to-blue-600 hover:from-blue-700 hover:via-cyan-700 hover:to-blue-700 text-white px-12 py-6 text-xl font-bold rounded-2xl shadow-2xl hover:shadow-cyan-500/25 transition-all duration-500 transform hover:scale-105 hover:-translate-y-2"
               aria-label="עבור לעמוד השירותים שלנו"
             >
@@ -326,38 +325,31 @@ const Index = () => {
                 השירותים שלנו
               </a>
             </Button>
-            
-            <Button 
-              variant="outline" 
-              size="lg" 
+
+            <Button
+              variant="outline"
+              size="lg"
               className="group relative border-3 border-cyan-400 text-cyan-400 hover:text-white hover:bg-cyan-500 px-12 py-6 text-xl font-bold rounded-2xl transition-all duration-500 bg-transparent backdrop-blur-sm hover:shadow-2xl hover:shadow-cyan-500/25 transform hover:scale-105 hover:-translate-y-2"
               aria-label="פתח ווצאפ ליצירת קשר מיידי"
+              onClick={contactByWhatsApp}
             >
               <div className="absolute inset-0 bg-gradient-to-r from-cyan-600/20 to-blue-600/20 rounded-2xl blur opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10"></div>
               <MessageCircle className="w-6 h-6 ml-3 group-hover:animate-slow-float" aria-hidden="true" />
-              <a 
-                href="https://wa.me/972525347274" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="relative z-10"
-                aria-label="צור קשר איתנו דרך ווצאפ במספר 972525347274"
-              >
-                בואו נדבר בווצאפ 
-              </a>
+              <span className="relative z-10">בואו נדבר בווצאפ</span>
             </Button>
           </div>
 
           {/* Enhanced Stats */}
-          <div 
+          <div
             className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-6xl mx-auto"
             role="region"
             aria-label="נתונים סטטיסטיים על החברה"
           >
             {stats.map((stat, index) => (
-              <div 
-                key={index} 
-                className="group text-center p-6 bg-slate-800/30 backdrop-blur-sm rounded-2xl border border-slate-700/50 hover:bg-slate-700/40 hover:border-cyan-400/50 transition-all duration-500 transform hover:scale-105 hover:-translate-y-3 relative" 
-                role="group" 
+              <div
+                key={index}
+                className="group text-center p-6 bg-slate-800/30 backdrop-blur-sm rounded-2xl border border-slate-700/50 hover:bg-slate-700/40 hover:border-cyan-400/50 transition-all duration-500 transform hover:scale-105 hover:-translate-y-3 relative"
+                role="group"
                 aria-label={`${stat.label}: ${stat.number}`}
               >
                 <div className="text-4xl md:text-6xl lg:text-7xl font-black text-transparent bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text mb-4 drop-shadow-lg" aria-hidden="true">
@@ -366,7 +358,7 @@ const Index = () => {
                 <div className="text-gray-300 text-sm md:text-base font-semibold group-hover:text-white transition-colors duration-300">
                   {stat.label}
                 </div>
-                
+
                 {/* Glowing effect on hover */}
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-cyan-600/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10 blur"></div>
               </div>
@@ -379,28 +371,28 @@ const Index = () => {
       <section className="py-32 px-4 relative overflow-hidden">
         {/* Dark overlay */}
         <div className="absolute inset-0 bg-slate-900/40" aria-hidden="true"></div>
-        
+
         <div className="container mx-auto relative z-10">
           <div className="text-center mb-20">
-                <h2 className="text-blue-400 font-bold text-2xl md:text-3xl lg:text-6xl mb-8 bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
+            <h2 className="text-blue-400 font-bold text-2xl md:text-3xl lg:text-6xl mb-8 bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
               למה לבחור ב-MasterStack?
             </h2>
             <p className="text-2xl md:text-3xl text-gray-400 max-w-4xl mx-auto font-light leading-relaxed">
               אנחנו נתאים את הפתרון המושלם לצרכים הדיגיטליים שלך
               <br />
-                <span className="text-blue-400 font-bold text-4xl md:text-3xl lg:text-3xl bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
+              <span className="text-blue-400 font-bold text-4xl md:text-3xl lg:text-3xl bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
                 אנחנו בונים עסקים דיגיטליים מצליחים
-              <br />עם טכנולוגיות מתקדמות
-            </span>
+                <br />עם טכנולוגיות מתקדמות
+              </span>
             </p>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mb-20">
             {features.map((feature, index) => (
               <div key={index} className="group text-center p-8 bg-slate-800/60 backdrop-blur-sm rounded-3xl border border-slate-700/50 hover:bg-slate-700/60 hover:border-cyan-400/50 transition-all duration-700 hover:scale-105 hover:-translate-y-4 shadow-lg hover:shadow-2xl hover:shadow-cyan-500/20 relative overflow-hidden">
                 {/* Glowing background effect */}
                 <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 to-cyan-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-3xl"></div>
-                
+
                 <div className="flex justify-center mb-6 relative z-10">
                   <div className="p-6 bg-gradient-to-br from-blue-600/30 to-cyan-600/30 rounded-3xl text-blue-400 group-hover:text-cyan-300 transition-all duration-700 group-hover:scale-110 shadow-lg group-hover:shadow-cyan-500/30">
                     {feature.icon}
@@ -408,7 +400,7 @@ const Index = () => {
                 </div>
                 <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-cyan-300 transition-colors duration-700 relative z-10">{feature.title}</h3>
                 <p className="text-gray-400 group-hover:text-gray-300 transition-colors duration-700 text-lg leading-relaxed relative z-10">{feature.desc}</p>
-                
+
                 {/* Static border - no animation */}
                 <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-blue-500/10 to-cyan-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
               </div>
@@ -426,10 +418,10 @@ const Index = () => {
                 <div className="flex justify-center mb-6">
                   <div className={`p-6 bg-gradient-to-br ${item.bgColor} backdrop-blur-sm rounded-3xl shadow-2xl transition-all duration-700 group-hover:scale-110 group-hover:-translate-y-2 border border-slate-700/30 group-hover:border-slate-600/50`}>
                     <div className={`text-4xl`} style={{
-                      background: `linear-gradient(to right, ${item.color.includes('yellow') ? '#facc15, #f97316' : 
-                                                            item.color.includes('green') ? '#22c55e, #10b981' :
-                                                            item.color.includes('blue') ? '#3b82f6, #06b6d4' :
-                                                            '#a855f7, #ec4899'})`,
+                      background: `linear-gradient(to right, ${item.color.includes('yellow') ? '#facc15, #f97316' :
+                        item.color.includes('green') ? '#22c55e, #10b981' :
+                          item.color.includes('blue') ? '#3b82f6, #06b6d4' :
+                            '#a855f7, #ec4899'})`,
                       WebkitBackgroundClip: 'text',
                       WebkitTextFillColor: 'transparent'
                     }}>
@@ -439,7 +431,7 @@ const Index = () => {
                 </div>
                 <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-cyan-300 transition-colors duration-700">{item.title}</h3>
                 <p className="text-gray-400 group-hover:text-gray-300 transition-colors duration-700 text-base leading-relaxed">{item.desc}</p>
-                
+
                 {/* Gentle glowing effect on hover */}
                 <div className={`absolute inset-0 bg-gradient-to-br ${item.bgColor} opacity-0 group-hover:opacity-20 transition-opacity duration-700 rounded-2xl blur-xl -z-10`}></div>
               </div>
@@ -459,11 +451,11 @@ const Index = () => {
                 מי אנחנו ב-MasterStack?
               </h2>
               <p className="text-lg text-gray-300 mb-6 leading-relaxed">
-                אנחנו צוות של מפתחים ומעצבים מנוסים מומחים בבניית פתרונות דיגיטליים מותאמת אישית. 
+                אנחנו צוות של מפתחים ומעצבים מנוסים מומחים בבניית פתרונות דיגיטליים מותאמת אישית.
                 עם למעלה מ-5 שנות ניסיון בתחום, אנו מבינים בדיוק מה העסק שלכם צריך כדי להצליח באינטרנט.
               </p>
               <p className="text-lg text-gray-300 mb-8 leading-relaxed">
-                המומחיות שלנו משתרעת מתיקון אתרים שנבנו בעזרת AI ועד פיתוח מערכות מתקדמות עם אבטחה ברמה הגבוהה ביותר. 
+                המומחיות שלנו משתרעת מתיקון אתרים שנבנו בעזרת AI ועד פיתוח מערכות מתקדמות עם אבטחה ברמה הגבוהה ביותר.
                 אנחנו מאמינים שכל עסק, גדול או קטן, ראוי לנוכחות דיגיטלית מקצועית ומרשימה.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
@@ -514,7 +506,7 @@ const Index = () => {
               ביקורות אמיתיות מלקוחות מרוצים שחוו את השירות המקצועי שלנו
             </p>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {testimonials.map((testimonial, index) => (
               <Card key={index} className="bg-slate-800/80 border-slate-700 hover:bg-slate-700/80 transition-all duration-300 hover:scale-105 text-center">
@@ -552,17 +544,17 @@ const Index = () => {
         <div className="container mx-auto text-center relative z-10">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">מוכנים להתחיל?</h2>
           <p className="text-xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed">
-            בואו נבנה יחד את הנוכחות הדיגיטלית המושלמת לעסק שלכם. 
+            בואו נבנה יחד את הנוכחות הדיגיטלית המושלמת לעסק שלכם.
             קבלו ייעוץ חינם ותצטרפו למעגל הלקוחות המרוצים שלנו.
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-            <Button size="lg" className="bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white px-10 py-4 text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+            <Button size="lg" className="bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white px-10 py-4 text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105" onClick={contactByWhatsApp}>
               <MessageCircle className="w-5 h-5 ml-2" />
-              <a href="https://wa.me/972525347274" target="_blank" rel="noopener noreferrer" className="text-white">ווצאפ</a>
+              ווצאפ
             </Button>
-            <Button size="lg" variant="outline" className="border-2 border-cyan-400 text-cyan-400 hover:bg-cyan-400/10 px-10 py-4 text-lg rounded-xl transition-all duration-300 bg-transparent">
+            <Button size="lg" variant="outline" className="border-2 border-cyan-400 text-cyan-400 hover:bg-cyan-400/10 px-10 py-4 text-lg rounded-xl transition-all duration-300 bg-transparent" onClick={contactByEmail}>
               <Mail className="w-5 h-5 ml-2" />
-              מייל 
+              מייל
             </Button>
           </div>
         </div>
@@ -579,7 +571,6 @@ const Index = () => {
               אנחנו כאן כדי לעזור לכם להצליח. בואו נדבר על הפרויקט הבא שלכם
             </p>
           </div>
-          
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
             <div className="text-center p-6 bg-slate-700/50 rounded-2xl border border-slate-600/50">
               <div className="flex justify-center mb-4">
@@ -588,10 +579,12 @@ const Index = () => {
                 </div>
               </div>
               <h3 className="text-lg font-bold text-white mb-2">ווצאפ</h3>
-              <p className="text-gray-400">972-52-5347-274+</p>
+              <button onClick={contactByWhatsApp} className="text-gray-400 hover:text-blue-400 transition-colors">
+                972-52-5347-274+
+              </button>
               <p className="text-gray-500 text-sm mt-1">א'-ה' מ 08:00 עד 21:00</p>
             </div>
-            
+
             <div className="text-center p-6 bg-slate-700/50 rounded-2xl border border-slate-600/50">
               <div className="flex justify-center mb-4">
                 <div className="p-4 bg-cyan-600/20 rounded-2xl">
@@ -599,10 +592,12 @@ const Index = () => {
                 </div>
               </div>
               <h3 className="text-lg font-bold text-white mb-2">אימייל</h3>
-                  <a href="mailto:admin@master-stack.com">admin@master-stack.com</a>
+              <button onClick={contactByEmail} className="text-gray-400 hover:text-blue-400 transition-colors">
+                admin@master-stack.com
+              </button>
               <p className="text-gray-500 text-sm mt-1">מענה מהיר</p>
             </div>
-            
+
             <div className="text-center p-6 bg-slate-700/50 rounded-2xl border border-slate-600/50">
               <div className="flex justify-center mb-4">
                 <div className="p-4 bg-green-600/20 rounded-2xl">
@@ -637,7 +632,7 @@ const Index = () => {
                 </div>
               </div>
             </div>
-            
+
             <div>
               <h4 className="text-lg font-bold mb-4 text-white">שירותים</h4>
               <ul className="space-y-2 text-gray-400">
@@ -647,7 +642,7 @@ const Index = () => {
                 <li><a href="#" className="hover:text-blue-400 transition-colors">תחזוקה ואבטחה</a></li>
               </ul>
             </div>
-            
+
             <div>
               <h4 className="text-lg font-bold mb-4 text-white">החברה</h4>
               <ul className="space-y-2 text-gray-400">
@@ -657,17 +652,21 @@ const Index = () => {
                 <li><a href="#" className="hover:text-blue-400 transition-colors">קריירה</a></li>
               </ul>
             </div>
-            
+
             <div>
               <h4 className="text-lg font-bold mb-4 text-white">צור קשר</h4>
               <div className="space-y-3 text-gray-400">
                 <div className="flex items-center gap-3">
                   <MessageCircle className="w-4 h-4 text-blue-400" />
-                  <span>972525347274+</span>
+                  <button onClick={contactByWhatsApp} className="text-gray-400 hover:text-blue-400 transition-colors">
+                    972525347274+
+                  </button>
                 </div>
                 <div className="flex items-center gap-3">
                   <Mail className="w-4 h-4 text-cyan-400" />
-                  <a href="mailto:admin@master-stack.com">admin@master-stack.com</a>
+                  <button onClick={contactByEmail} className="text-gray-400 hover:text-blue-400 transition-colors">
+                    admin@master-stack.com
+                  </button>
                 </div>
                 <div className="flex items-start gap-3">
                   <MapPin className="w-4 h-4 text-green-400 mt-1" />
@@ -676,9 +675,9 @@ const Index = () => {
               </div>
             </div>
           </div>
-          
+
           <Separator className="my-8 bg-slate-800" />
-          
+
           <div className="flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
             <p>©MasterStack כל הזכויות שמורות {year}.</p>
             <div className="flex gap-6 mt-4 md:mt-0">
@@ -690,7 +689,7 @@ const Index = () => {
           </div>
         </div>
       </footer>
-      
+
       {/* Floating WhatsApp Button */}
       <FloatingWhatsApp />
     </div>

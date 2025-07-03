@@ -9,8 +9,10 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Slider } from "@/components/ui/slider";
 import { Separator } from "@/components/ui/separator";
 import { Calculator, Code, Search, Palette, Target, Settings, Lock, Gauge, BookOpen, GraduationCap, CheckCircle, AlertCircle, DollarSign, Phone, MessageCircle } from "lucide-react";
+import { useAuth } from "@/hooks/useAuth";
 
 const PriceCalculator = () => {
+  const { contactByWhatsApp } = useAuth();
   const [serviceType, setServiceType] = useState("");
   const [additionalServices, setAdditionalServices] = useState<string[]>([]);
   const [timeline, setTimeline] = useState("");
@@ -416,16 +418,17 @@ const PriceCalculator = () => {
                       )}
                       
                       <div className="space-y-3 md:space-y-4 pt-4">
-                        <Button className="w-full bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 h-12 md:h-14 text-sm md:text-base">
-                          <a 
-                            href={`https://wa.me/972525347274?text=היי! אשמח לקבל הצעת מחיר מדויקת יותר על: ${price.total.toLocaleString()}₪`}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="w-full text-white flex items-center justify-center gap-2"
-                          >
-                            <MessageCircle className="w-4 h-4" />
-                            בקש הצעת מחיר בווצאפ
-                          </a>
+                        <Button 
+                          className="w-full bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 h-12 md:h-14 text-sm md:text-base"
+                          onClick={() => {
+                            const message = `היי! אשמח לקבל הצעת מחיר מדויקת יותר על: ${price.total.toLocaleString()}₪`;
+                            // Create a custom WhatsApp contact with the specific message
+                            const whatsappNumber = import.meta.env.VITE_WHATSAPP_NUMBER || '+972525347274';
+                            window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`, '_blank');
+                          }}
+                        >
+                          <MessageCircle className="w-4 h-4 ml-2" />
+                          בקש הצעת מחיר בווצאפ
                         </Button>
                         <Button variant="outline" className="w-full border-slate-600 text-gray-300 hover:bg-slate-700 h-10 md:h-12 text-sm md:text-base">
                           התייעץ עם מומחה

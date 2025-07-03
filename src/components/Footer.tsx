@@ -1,8 +1,10 @@
 import { Separator } from "@/components/ui/separator";
 import { Mail, Phone, MapPin } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useAuth } from "@/hooks/useAuth";
 
 const Footer = () => {
+  const { contactByEmail } = useAuth();
   return (
     <footer className="bg-slate-900/90 backdrop-blur-sm text-white py-12 px-4 border-t border-slate-700/50 relative">
       <div className="container mx-auto">
@@ -57,8 +59,9 @@ const Footer = () => {
               </div>
               <div className="flex items-center gap-3">
                 <Mail className="w-4 h-4 text-cyan-400" />
-                  <a href="mailto:admin@master-stack.com">admin@master-stack.com</a>
-                <span>admin@master-stack.com</span>
+                <button onClick={contactByEmail} className="text-gray-400 hover:text-blue-400 transition-colors">
+                  admin@master-stack.com
+                </button>
               </div>
               <div className="flex items-start gap-3">
                 <MapPin className="w-4 h-4 text-green-400 mt-1" />
