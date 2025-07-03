@@ -183,7 +183,7 @@ const UserMenu = () => {
                 variant="outline"
               >
                 <div className="flex items-center gap-2">
-                  <span>התקשר עכשיו - 052-534-7274</span>
+                  <span>התקשר עכשיו</span>
                   <Phone className="w-5 h-5" />
                 </div>
               </Button>
@@ -194,7 +194,7 @@ const UserMenu = () => {
                 variant="outline"
               >
                 <div className="flex items-center gap-2">
-                  <span>שלח מייל - admin@master-stack.com</span>
+                  <span>שלח מייל</span>
                   <Mail className="w-5 h-5" />
                 </div>
               </Button>

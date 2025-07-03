@@ -193,8 +193,8 @@ export default {
 
 ## 📞 יצירת קשר
 
-- **אתר**: [masterstack.digital](https://masterstack.digital)
-- **אימייל**: contact@masterstack.com
+- **אתר**: [master-stack.com](https://master-stack.com)
+- **אימייל**: admin@master-stack.com
 - **טלפון**: +972-50-123-4567
 - **WhatsApp**: [שלח הודעה](https://wa.me/972501234567)
 

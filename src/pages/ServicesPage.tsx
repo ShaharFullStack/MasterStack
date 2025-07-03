@@ -432,11 +432,7 @@ const ServicesPage = () => {
                       <Button 
                         className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl"
                         aria-label={`צור קשר בווצאפ עבור השירות ${service.title}`}
-                        onClick={() => {
-                          const message = `היי! אשמח לשמוע עוד על ${service.title} שאתם מציעים באתר`;
-                          const whatsappNumber = import.meta.env.VITE_WHATSAPP_NUMBER || '+972525347274';
-                          window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`, '_blank');
-                        }}
+                        onClick={() => contactByWhatsApp()}
                       >
                         <MessageCircle className="w-4 h-4 ml-2" aria-hidden="true" />
                         פנו אלינו בווצאפ
@@ -481,11 +477,7 @@ const ServicesPage = () => {
             <Button 
               size="lg" 
               className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-10 py-4 text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
-              onClick={() => {
-                const message = "שלום, אני מחפש פתרון דיגיטלי מותאם לעסק שלי";
-                const whatsappNumber = import.meta.env.VITE_WHATSAPP_NUMBER || '+972525347274';
-                window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`, '_blank');
-              }}
+              onClick={contactByWhatsApp}
             >
               <MessageCircle className="w-5 h-5 ml-2" />
               התייעצו איתנו בווצאפ

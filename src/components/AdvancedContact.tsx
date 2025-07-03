@@ -315,7 +315,9 @@ const AdvancedContact = () => {
                     </div>
                   </div>
                   <div className="space-y-2 text-gray-300">
-                    <p className="text-lg font-semibold text-white">admin@master-stack.com</p>
+                    <button onClick={contactByEmail} className="text-lg font-semibold text-white hover:text-blue-400 transition-colors">
+                      admin@master-stack.com
+                    </button>
                     <Button size="sm" variant="outline" className="border-slate-600 text-gray-300 hover:bg-slate-700" onClick={contactByEmail}>
                       שלח מייל
                     </Button>
