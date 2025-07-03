@@ -57,6 +57,7 @@ const Footer = () => {
               </div>
               <div className="flex items-center gap-3">
                 <Mail className="w-4 h-4 text-cyan-400" />
+                  <a href="mailto:admin@master-stack.com">admin@master-stack.com</a>
                 <span>admin@master-stack.com</span>
               </div>
               <div className="flex items-start gap-3">

@@ -2,7 +2,7 @@ import { MessageCircle } from "lucide-react";
 
 const FloatingWhatsApp = () => {
   const whatsappNumber = "+972525347274";
-  const defaultMessage = "שלום! אני מעוניין לקבל מידע נוסף על השירותים שלכם";
+  const defaultMessage = "היי! אשמח לקבל מידע נוסף על השירותים שלכם.";
 
   return (
     <a

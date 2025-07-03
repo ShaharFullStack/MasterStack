@@ -432,7 +432,7 @@ const ServicesPage = () => {
                         aria-label={`צור קשר בווצאפ עבור השירות ${service.title}`}
                       >
                         <a 
-                          href={`https://wa.me/972525347274?text=שלום, אני מעוניין לקבל מידע נוסף על השירות: ${service.title}`}
+                          href={`https://wa.me/972525347274?text=היי! אשמח לשמוע עוד על ${service.title} שאתם מציעים באתר`}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="w-full text-white flex items-center justify-center gap-2"

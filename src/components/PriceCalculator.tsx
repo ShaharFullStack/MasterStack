@@ -418,7 +418,7 @@ const PriceCalculator = () => {
                       <div className="space-y-3 md:space-y-4 pt-4">
                         <Button className="w-full bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 h-12 md:h-14 text-sm md:text-base">
                           <a 
-                            href={`https://wa.me/972525347274?text=שלום, אני מעוניין לקבל הצעת מחיר לפרויקט. המחיר המשוער: ${price.total.toLocaleString()}₪`}
+                            href={`https://wa.me/972525347274?text=היי! אשמח לקבל הצעת מחיר מדויקת יותר על: ${price.total.toLocaleString()}₪`}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="w-full text-white flex items-center justify-center gap-2"
