@@ -245,16 +245,14 @@ const AdvancedContact = () => {
                   />
                 </div>
 
-                <Button 
-                  type="submit" 
-                  className="w-full bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white py-6 text-lg font-semibold rounded-xl transition-all duration-300 shadow-lg hover:shadow-cyan-500/25"
-                  disabled={isSubmitted}
-                >
+                    <Button type="submit" size="lg" variant="outline" className="p-3 text-blue-400 bg-blue-600/20 rounded-2xl border border-blue-500/30 group-hover:bg-blue-600/30 hover:bg-blue-600/60 hover:text-blue-300 transition-colors" onClick={contactByEmail}>
+
                   {isSubmitted ? (
                     <>
                       <CheckCircle className="w-5 h-5 ml-2" />
                       נשלח בהצלחה!
                     </>
+                    
                   ) : (
                     <>
                       <Send className="w-5 h-5 ml-2" />
@@ -279,8 +277,8 @@ const AdvancedContact = () => {
               <Card className="bg-slate-800/60 backdrop-blur-sm border-slate-700/50 overflow-hidden group hover:scale-105 transition-all duration-300">
                 <CardContent className="p-8">
                   <div className="flex items-center gap-4 mb-4">
-                    <div className="p-3 bg-blue-600/20 rounded-2xl border border-blue-500/30 group-hover:bg-blue-600/30 transition-colors">
-                      <Phone className="w-6 h-6 text-blue-400" />
+                    <div className="p-3 bg-green-600/20 rounded-2xl border border-green-500/30 group-hover:bg-green-600/30 transition-colors">
+                      <Phone className="w-6 h-6 text-green-400" />
                     </div>
                     <div>
                       <h3 className="text-xl font-bold text-white">ווצאפ וטלפון</h3>
@@ -288,13 +286,13 @@ const AdvancedContact = () => {
                     </div>
                   </div>
                   <div className="space-y-2 text-gray-300">
-                    <p className="text-lg font-semibold text-white">+972525347274</p>
+                    <p className="text-lg font-semibold text-white">972525347274+</p>
                     <div className="flex gap-3">
-                      <Button size="sm" className="bg-green-600 hover:bg-green-700" onClick={contactByWhatsApp}>
+                    <Button size="sm" variant="outline" className="p-3 text-green-400 bg-green-600/20 rounded-2xl border border-green-500/30 group-hover:bg-green-600/30 hover:text-green-300 transition-colors" onClick={contactByWhatsApp}>
                         <MessageCircle className="w-4 h-4 ml-1" />
                         הודעה בווצאפ
                       </Button>
-                      <Button size="sm" className="bg-green-600 hover:bg-green-700" onClick={contactByPhone}>
+                    <Button size="sm" variant="outline" className="p-3 text-green-400 bg-green-600/20 rounded-2xl border border-green-500/30 group-hover:bg-green-600/30 hover:text-green-300 transition-colors" onClick={contactByPhone}>
                         <Phone className="w-4 h-4 ml-1" />
                         שיחה טלפונית
                       </Button>
@@ -318,7 +316,9 @@ const AdvancedContact = () => {
                     <button onClick={contactByEmail} className="text-lg font-semibold text-white hover:text-blue-400 transition-colors">
                       admin@master-stack.com
                     </button>
-                    <Button size="sm" variant="outline" className="border-slate-600 text-gray-300 hover:bg-slate-700" onClick={contactByEmail}>
+                    <br/>
+                    <Button size="sm" variant="outline" className="p-3 text-cyan-400 bg-cyan-600/20 rounded-2xl border border-cyan-500/30 group-hover:bg-cyan-600/30 hover:text-cyan-300 transition-colors" onClick={contactByEmail}>
+                    
                       שלח מייל
                     </Button>
                   </div>
@@ -328,8 +328,8 @@ const AdvancedContact = () => {
               <Card className="bg-slate-800/60 backdrop-blur-sm border-slate-700/50 overflow-hidden group hover:scale-105 transition-all duration-300">
                 <CardContent className="p-8">
                   <div className="flex items-center gap-4 mb-4">
-                    <div className="p-3 bg-green-600/20 rounded-2xl border border-green-500/30 group-hover:bg-green-600/30 transition-colors">
-                      <MapPin className="w-6 h-6 text-green-400" />
+                    <div className="p-3 bg-red-600/20 rounded-2xl border border-red-500/30 group-hover:bg-red-600/30 transition-colors">
+                      <MapPin className="w-6 h-6 text-red-400" />
                     </div>
                     <div>
                       <h3 className="text-xl font-bold text-white">מיקום</h3>
