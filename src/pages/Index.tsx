@@ -599,7 +599,7 @@ const Index = () => {
                 </div>
               </div>
               <h3 className="text-lg font-bold text-white mb-2">אימייל</h3>
-              <p className="text-gray-400">rakloze@gmail.com</p>
+              <p className="text-gray-400">admin@master-stack.com</p>
               <p className="text-gray-500 text-sm mt-1">מענה מהיר</p>
             </div>
             
@@ -667,7 +667,7 @@ const Index = () => {
                 </div>
                 <div className="flex items-center gap-3">
                   <Mail className="w-4 h-4 text-cyan-400" />
-                  <span>rakloze@gmail.com</span>
+                  <span>admin@master-stack.com</span>
                 </div>
                 <div className="flex items-start gap-3">
                   <MapPin className="w-4 h-4 text-green-400 mt-1" />

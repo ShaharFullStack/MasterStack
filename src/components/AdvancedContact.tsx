@@ -317,9 +317,9 @@ const AdvancedContact = () => {
                     </div>
                   </div>
                   <div className="space-y-2 text-gray-300">
-                    <p className="text-lg font-semibold text-white">rakloze@gmail.com</p>
+                    <p className="text-lg font-semibold text-white">admin@master-stack.com</p>
                     <Button size="sm" variant="outline" className="border-slate-600 text-gray-300 hover:bg-slate-700">
-                      <a href="mailto:rakloze@gmail.com" className="text-gray-300">
+                      <a href="mailto:admin@master-stack.com" className="text-gray-300">
                         שלח מייל
                       </a>
                     </Button>

@@ -194,7 +194,7 @@ const UserMenu = () => {
                 variant="outline"
               >
                 <div className="flex items-center gap-2">
-                  <span>שלח מייל - info@masterstack.co.il</span>
+                  <span>שלח מייל - admin@master-stack.com</span>
                   <Mail className="w-5 h-5" />
                 </div>
               </Button>

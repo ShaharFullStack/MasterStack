@@ -46,7 +46,7 @@ export const useAuth = () => {
   };
 
   const handleContactByEmail = () => {
-    const email = import.meta.env.VITE_EMAIL_ADDRESS || 'info@masterstack.co.il';
+    const email = import.meta.env.VITE_EMAIL_ADDRESS || 'admin@master-stack.com';
     window.open(`mailto:${email}`, '_blank');
     toast.info(`פותח מייל ל-${email}`);
   };
