@@ -1,19 +1,108 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="he" dir="rtl">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MasterStack Web Solutions</title>
-    <meta name="description" content="By Shahar Maoz" />
-    <meta name="author" content="Shahar Maoz" />
-
-    <meta property="og:title" content="MasterStack" />
-    <meta property="og:description" content="MasterStack Web Solutions" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    
+    <!-- Base Title and Description (will be overridden by React Helmet) -->
+    <title>MasterStack Web Solutions - פתרונות דיגיטליים מקצועיים | בניית אתרים ו-SEO</title>
+    <meta name="description" content="MasterStack מספקת שירותי בניית אתרים, תיקון אתרים, SEO ושיווק דיגיטלי מתקדם. פתרונות מותאמים אישית לעסקים בישראל עם ניסיון של 5+ שנים ותמיכה 24/7" />
+    <meta name="keywords" content="בניית אתרים, תיקון אתרים, SEO, שיווק דיגיטלי, עיצוב אתרים, פיתוח אתרים, ישראל, הרצליה, MasterStack" />
+    <meta name="author" content="Shahar Maoz - MasterStack" />
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://master-stack.com/" />
+    
+    <!-- Language and Locale -->
+    <meta http-equiv="content-language" content="he" />
+    <link rel="alternate" hrefLang="he" href="https://master-stack.com/" />
+    <link rel="alternate" hrefLang="en" href="https://master-stack.com/en/" />
+    <link rel="alternate" hrefLang="x-default" href="https://master-stack.com/" />
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="MasterStack Web Solutions - פתרונות דיגיטליים מקצועיים" />
+    <meta property="og:description" content="MasterStack מספקת שירותי בניית אתרים, תיקון אתרים, SEO ושיווק דיגיטלי מתקדם. פתרונות מותאמים אישית לעסקים בישראל" />
     <meta property="og:type" content="website" />
-
+    <meta property="og:url" content="https://master-stack.com/" />
+    <meta property="og:image" content="https://master-stack.com/assets/images/masterstack-og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="MasterStack Web Solutions - פתרונות דיגיטליים מקצועיים" />
+    <meta property="og:site_name" content="MasterStack Web Solutions" />
+    <meta property="og:locale" content="he_IL" />
+    
+    <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@shaharmh" />
-    <meta name="twitter:image" content="/assets/images/image.png" />
+    <meta name="twitter:site" content="@masterstack_il" />
+    <meta name="twitter:creator" content="@shaharmh" />
+    <meta name="twitter:title" content="MasterStack Web Solutions - פתרונות דיגיטליים מקצועיים" />
+    <meta name="twitter:description" content="MasterStack מספקת שירותי בניית אתרים, תיקון אתרים, SEO ושיווק דיגיטלי מתקדם" />
+    <meta name="twitter:image" content="https://master-stack.com/assets/images/masterstack-og-image.jpg" />
+    <meta name="twitter:image:alt" content="MasterStack Web Solutions" />
+    
+    <!-- Theme and App Meta Tags -->
+    <meta name="theme-color" content="#0ea5e9" />
+    <meta name="msapplication-TileColor" content="#0ea5e9" />
+    <meta name="application-name" content="MasterStack" />
+    <meta name="apple-mobile-web-app-title" content="MasterStack" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    
+    <!-- Favicon and Icons -->
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    
+    <!-- Geo Tags for Local SEO -->
+    <meta name="geo.region" content="IL" />
+    <meta name="geo.placename" content="Herzliya, Israel" />
+    <meta name="geo.position" content="32.1624;34.8444" />
+    <meta name="ICBM" content="32.1624, 34.8444" />
+    
+    <!-- Preconnect to external domains for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    
+    <!-- DNS Prefetch -->
+    <link rel="dns-prefetch" href="//google-analytics.com" />
+    <link rel="dns-prefetch" href="//googletagmanager.com" />
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "MasterStack Web Solutions",
+      "url": "https://master-stack.com",
+      "logo": "https://master-stack.com/assets/images/logo.png",
+      "description": "חברת פיתוח אתרים ופתרונות דיגיטליים מקצועית בישראל",
+      "founder": {
+        "@type": "Person",
+        "name": "Shahar Maoz"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "הרצליה",
+        "addressCountry": "IL"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+972-52-534-7274",
+        "contactType": "customer service",
+        "email": "admin@master-stack.com",
+        "availableLanguage": ["Hebrew", "English"]
+      },
+      "sameAs": [
+        "https://wa.me/972525347274"
+      ],
+      "areaServed": "IL",
+      "serviceType": ["Web Development", "SEO", "Digital Marketing", "Website Maintenance"]
+    }
+    </script>
   </head>
 
   <body>

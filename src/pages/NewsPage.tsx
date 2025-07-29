@@ -4,10 +4,31 @@ import Footer from "@/components/Footer";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import AccessibilityMenu from "@/components/AccessibilityMenu";
+import SEO from "@/components/SEO";
 
 const NewsPage = () => {
+  const newsStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "חדשות וטרנדים דיגיטליים - MasterStack",
+    "description": "עדכונים חדשים בעולם הטכנולוגיה, טרנדים בבניית אתרים ומדריכים מקצועיים",
+    "publisher": {
+      "@type": "Organization",
+      "name": "MasterStack Web Solutions"
+    },
+    "inLanguage": "he"
+  };
+
   return (
     <div className="min-h-screen text-white bg-transparent" dir="rtl">
+      <SEO 
+        title="חדשות וטרנדים דיגיטליים - MasterStack | עדכונים מעולם הטכנולוגיה"
+        description="עקבו אחר החדשות והטרנדים האחרונים בעולם הטכנולוגיה והאינטרנט. מדריכים מקצועיים, טיפים לבניית אתרים ועדכונים על SEO ושיווק דיגיטלי מ-MasterStack."
+        keywords="חדשות טכנולוגיה, טרנדים דיגיטליים, בניית אתרים, SEO, שיווק דיגיטלי, מדריכים, MasterStack, עדכונים"
+        type="website"
+        image="/assets/images/news-og-image.jpg"
+        structuredData={newsStructuredData}
+      />
       {/* Background Video with same style as Index.tsx */}
       <video 
         className="fixed inset-0 w-full h-full object-cover -z-40 brightness-[0.3]"

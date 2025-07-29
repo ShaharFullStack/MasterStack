@@ -6,6 +6,7 @@ import { useAuth } from "@/hooks/useAuth";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import AccessibilityMenu from "@/components/AccessibilityMenu";
 import Header from "@/components/Header";
+import SEO from "@/components/SEO";
 import {
   CheckCircle,
   Zap,
@@ -63,81 +64,6 @@ const Index = () => {
     setShowContent(true); // Show content even if video fails
   };
 
-  const services = [
-    {
-      icon: <Code className="w-8 h-8 text-blue-400" />,
-      title: "שחר עושה סדר",
-      emoji: "🆘",
-      problem: "אתר שנבנה בעזרת AI לא עובד / לא נראה טוב / לא מביא לקוחות",
-      solution: "תיקון ושדרוג אתרים שנבנו בעזרת AI - כשניסיתם לבד ונתקעתם",
-      price: "1,500-3,500₪",
-      category: "תיקון אתרים"
-    },
-    {
-      icon: <Search className="w-8 h-8 text-cyan-400" />,
-      title: "סריקה ופתרונות",
-      emoji: "🔍",
-      problem: "האתר לא מביא לקוחות ולא יודע למה ומה לתקן",
-      solution: "סריקה מקצועית של האתר + דוח פידבק מפורט עם המלצות לתיקון",
-      price: "399-499₪",
-      category: "ניתוח אתרים"
-    },
-    {
-      icon: <Palette className="w-8 h-8 text-purple-400" />,
-      title: "אתר תדמית לאמנים",
-      emoji: "🎨",
-      problem: "אמנים, ספורטאים ומקצועות חופשיים זקוקים לנוכחות דיגיטלית מקצועית",
-      solution: "אתר תדמית מרשים + גלריה מקצועית + מערכת הזמנות + אופטימיזציה למובייל",
-      price: "2,500-3,300₪",
-      category: "בניית אתרים"
-    },
-    {
-      icon: <Briefcase className="w-8 h-8 text-emerald-400" />,
-      title: "אתר לעסקים קטנים-בינוניים",
-      emoji: "🏢",
-      problem: "עסקים קטנים-בינוניים זקוקים לנוכחות דיגיטלית מקצועית",
-      solution: "אתר מרשים + מערכת ניהול תוכן + מערכת הזמנות + אופטימיזציה למובייל",
-      price: "4,500-8,900₪",
-      category: "בניית אתרים"
-    },
-    {
-      icon: <TrendingUp className="w-8 h-8 text-green-400" />,
-      title: "SEO מקומי",
-      emoji: "🎯",
-      problem: "אתרים יפים שאף אחד לא מוצא בגוגל כשמחפשים בעיר שלהם",
-      solution: "אופטימיזציה לחיפושים מקומיים, הגדרת Google My Business, קידום על מילות מפתח",
-      price: "1,200-2,500₪",
-      category: "קידום אתרים"
-    },
-    {
-      icon: <Settings className="w-8 h-8 text-orange-400" />,
-      title: "חבילות תחזוקה",
-      emoji: "🔧",
-      problem: "בעלי אתרים זקוקים לתחזוקה שוטפת אבל לא יכולים להרשות שירות יקר",
-      solution: "עדכוני מערכת ותוספים, גיבוי חודשי, סריקת קישורים שבורים, בדיקת PageSpeed",
-      price: "149-999₪/חודש",
-      category: "תחזוקה"
-    },
-    {
-      icon: <Lock className="w-8 h-8 text-red-400" />,
-      title: "שירותי אבטחה",
-      emoji: "🔒",
-      problem: "אתרים נפרצים, וירוסים, התקפות DDoS, ואיבוד מידע שהורס עסקים שלמים",
-      solution: "מערכת אבטחה מתקדמת, גיבוי יומי אוטומטי, מוניטורינג 24/7, שחזור מהיר",
-      price: "299-599₪/חודש",
-      category: "אבטחה"
-    },
-    {
-      icon: <Gauge className="w-8 h-8 text-yellow-400" />,
-      title: "שירותי מהירות ואופטימיזציה",
-      emoji: "🚀",
-      problem: "אתרים איטיים שגורמים ללקוחות לעזוב וירידה בדירוגי גוגל",
-      solution: "אופטימיזציה מלאה למהירות, דחיסת תמונות, אופטימיזציה לקוד, CDN",
-      price: "800-1,500₪",
-      category: "אופטימיזציה"
-    },
-  ];
-
   const testimonials = [
     {
       name: "מיכל כהן",
@@ -188,8 +114,85 @@ const Index = () => {
   const year = new Date().getFullYear();
   const month = new Date().toLocaleString('he', { month: 'long' });
 
+  const homeStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "MasterStack Web Solutions",
+    "url": "https://master-stack.com",
+    "logo": "https://master-stack.com/assets/images/logo.png",
+    "description": "חברת פיתוח אתרים ופתרונות דיגיטליים מקצועית בישראל המתמחה בבניית אתרים, תיקון אתרים, SEO ושיווק דיגיטלי",
+    "founder": {
+      "@type": "Person",
+      "name": "Shahar Maoz"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "הרצליה",
+      "addressRegion": "המרכז",
+      "addressCountry": "IL"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+972-52-534-7274",
+      "contactType": "customer service",
+      "email": "admin@master-stack.com",
+      "availableLanguage": ["Hebrew", "English"],
+      "hoursAvailable": "Mo-Th 08:00-21:00"
+    },
+    "sameAs": [
+      "https://wa.me/972525347274"
+    ],
+    "areaServed": {
+      "@type": "Country",
+      "name": "Israel"
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Web Development Services",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "בניית אתרים",
+            "description": "פיתוח אתרים מקצועיים ומותאמים אישית"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "תיקון אתרים",
+            "description": "תיקון ושיפור אתרים קיימים"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "SEO וקידום",
+            "description": "שירותי קידום אתרים במנועי החיפוש"
+          }
+        }
+      ]
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5",
+      "reviewCount": "50+"
+    }
+  };
+
   return (
     <div className="min-h-screen text-white bg-transparent" dir="rtl">
+      <SEO 
+        title="MasterStack Web Solutions - פתרונות דיגיטליים מקצועיים | בניית אתרים ו-SEO"
+        description="MasterStack מספקת שירותי בניית אתרים, תיקון אתרים, SEO ושיווק דיגיטלי מתקדם. פתרונות מותאמים אישית לעסקים בישראל עם ניסיון של 5+ שנים ותמיכה 24/7. התקשרו עכשיו לייעוץ חינם!"
+        keywords="בניית אתרים, תיקון אתרים, SEO, שיווק דיגיטלי, עיצוב אתרים, פיתוח אתרים, ישראל, הרצליה, MasterStack, אבטחת אתרים, תחזוקת אתרים, קידום אתרים, עסקים דיגיטליים"
+        type="website"
+        image="/assets/images/masterstack-og-image.jpg"
+        structuredData={homeStructuredData}
+      />
 
       {/* Skip to main content link */}
       <a
@@ -284,18 +287,6 @@ const Index = () => {
 
           {/* Massive Enhanced Title */}
           <div className="mb-12">
-            <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl 2xl:text-[8rem] font-black leading-none mb-4 relative">
-              {/* Subtle Static Glowing Effects */}
-              <div className="inset-0 text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl 2xl:text-[8rem] font-black leading-none text-blue-400/90 -z-10 animate-gentle-pulse">
-                MasterStack
-              </div>
-              <div className="absolute inset-0 text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl 2xl:text-[8rem] font-black leading-none text-cyan-400/20 blur-lg -z-20">
-                MasterStack
-              </div>
-              <div className="absolute inset-0 text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl 2xl:text-[8rem] font-black leading-none text-purple-400/10 blur-xl -z-30">
-                MasterStack
-              </div>
-            </h1>
 
             {/* Animated Subtitle */}
             <div className="relative">

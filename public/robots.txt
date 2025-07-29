@@ -1,8 +1,61 @@
+# Robots.txt for MasterStack Web Solutions
+# Website: https://master-stack.com
+# Last updated: 2025-07-29
+
+User-agent: *
+Allow: /
+
+# Main pages
+Allow: /services
+Allow: /contact
+Allow: /calculator
+Allow: /news
+Allow: /articles/
+
+# Disallow admin and sensitive areas
+Disallow: /admin/
+Disallow: /.env
+Disallow: /.firebase/
+Disallow: /src/
+Disallow: /node_modules/
+Disallow: /dist/build/
+Disallow: /*.config.js
+Disallow: /package.json
+
+# Block unnecessary crawling of specific file types
+Disallow: /*.ts$
+Disallow: /*.tsx$
+Disallow: /*.css.map$
+Disallow: /*.js.map$
+
+# Allow important assets
+Allow: /assets/
+Allow: /images/
+Allow: /videos/
+Allow: /*.css
+Allow: /*.js
+Allow: /*.png
+Allow: /*.jpg
+Allow: /*.jpeg
+Allow: /*.gif
+Allow: /*.svg
+Allow: /*.webp
+Allow: /*.ico
+
+# Sitemap location
+Sitemap: https://master-stack.com/sitemap.xml
+
+# Crawl delay to be respectful to server resources
+Crawl-delay: 1
+
+# Specific directives for major search engines
 User-agent: Googlebot
 Allow: /
+Crawl-delay: 1
 
 User-agent: Bingbot
 Allow: /
+Crawl-delay: 1
 
 User-agent: Twitterbot
 Allow: /
@@ -10,5 +63,23 @@ Allow: /
 User-agent: facebookexternalhit
 Allow: /
 
-User-agent: *
+User-agent: Slurp
 Allow: /
+Crawl-delay: 2
+
+User-agent: DuckDuckBot
+Allow: /
+Crawl-delay: 1
+
+# Block bad bots and scrapers
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /

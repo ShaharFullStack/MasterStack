@@ -8,6 +8,7 @@ import Footer from "@/components/Footer";
 import AccessibilityMenu from "@/components/AccessibilityMenu";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import SEO from "@/components/SEO";
 import { useState } from "react";
 
 const ArticlesPage = () => {
@@ -57,8 +58,43 @@ const ArticlesPage = () => {
     </div>
   );
 
+  const articleStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": article.title,
+    "description": article.description,
+    "author": {
+      "@type": "Organization",
+      "name": article.author
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "MasterStack Web Solutions",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://master-stack.com/assets/images/logo.png"
+      }
+    },
+    "datePublished": "2025-06-26",
+    "dateModified": "2025-06-26",
+    "image": "https://master-stack.com/assets/images/article-ai-landing-og.jpg",
+    "articleSection": "Technology",
+    "keywords": article.tags.join(", "),
+    "inLanguage": "he"
+  };
+
   return (
     <div className="min-h-screen text-white bg-transparent" dir="rtl">
+      <SEO 
+        title={`${article.title} - MasterStack`}
+        description={article.description}
+        keywords={article.tags.join(", ") + ", MasterStack, בניית אתרים, AI, דף נחיתה מכירתי"}
+        type="article"
+        image="/assets/images/article-ai-landing-og.jpg"
+        author={article.author}
+        publishedTime="2025-06-26"
+        structuredData={articleStructuredData}
+      />
       {/* Background Video with same style as Index.tsx */}
       <video 
         className="fixed inset-0 w-full h-full object-cover -z-40 brightness-[0.3]"

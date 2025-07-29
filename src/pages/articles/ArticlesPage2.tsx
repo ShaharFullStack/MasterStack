@@ -8,6 +8,7 @@ import Footer from "@/components/Footer";
 import AccessibilityMenu from "@/components/AccessibilityMenu";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import SEO from "@/components/SEO";
 import { useState } from "react";
 
 const BusinessWebsiteGuide = () => {
@@ -56,8 +57,43 @@ const BusinessWebsiteGuide = () => {
     </div>
   );
 
+  const article2StructuredData = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": article.title,
+    "description": article.description,
+    "author": {
+      "@type": "Organization",
+      "name": article.author
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "MasterStack Web Solutions",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://master-stack.com/assets/images/logo.png"
+      }
+    },
+    "datePublished": "2025-07-02",
+    "dateModified": "2025-07-02",
+    "image": "https://master-stack.com/assets/images/article-business-guide-og.jpg",
+    "articleSection": "Business",
+    "keywords": article.tags.join(", "),
+    "inLanguage": "he"
+  };
+
   return (
     <div className="min-h-screen text-white bg-transparent" dir="rtl">
+      <SEO 
+        title={`${article.title} - MasterStack`}
+        description={article.description}
+        keywords={article.tags.join(", ") + ", MasterStack, בניית אתרים עסקיים, אתר עסקי מנצח"}
+        type="article"
+        image="/assets/images/article-business-guide-og.jpg"
+        author={article.author}
+        publishedTime="2025-07-02"
+        structuredData={article2StructuredData}
+      />
       {/* Background Video with same style as Index.tsx */}
       <video 
         className="fixed inset-0 w-full h-full object-cover -z-40 brightness-[0.3]"

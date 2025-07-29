@@ -7,184 +7,108 @@ import Footer from "@/components/Footer";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import AccessibilityMenu from "@/components/AccessibilityMenu";
-import { useState } from "react";
 import { 
-  Code, 
-  Search, 
+  FileText, 
   Palette, 
-  Target, 
-  Settings, 
-  Lock, 
-  Gauge, 
-  BookOpen, 
-  GraduationCap,
+  Server,
+  MessageCircle,
+  CheckCircle,
+  Star,
+  Clock,
   Shield,
   Zap,
-  Users,
-  TrendingUp,
-  CheckCircle,
-  Phone,
-  MessageCircle
+  AlertTriangle,
+  Check,
+  Package,
+  Users
 } from "lucide-react";
 import { useAuth } from "@/hooks/useAuth";
 
 const ServicesPage = () => {
   const { contactByWhatsApp } = useAuth();
-  const [selectedCategory, setSelectedCategory] = useState<string>("הכל");
 
   const services = [
     {
       id: 1,
-      icon: <Code className="w-8 h-8 text-blue-400" />,
-      title: "🆘 עזרה ראשונה",
-      category: "תיקון אתרים",
-      problem: "אתר שנבנה בעזרת AI לא עובד / לא נראה טוב / לא מביא לקוחות",
-      solution: "תיקון ושדרוג אתרים שנבנו בעזרת AI - כשניסיתם לבד ונתקעתם",
-      uniqueness: "הכרה של כלי ה-AI השונים, שפות תכנות שונות ומבנה הפרויקטים המופקים",
-      targetAudience: "בעלי מקצועות חופשיים שניסו לבנות אתר בעצמם",
-      price: "1,500-3,500₪",
-      priceType: "לבדיקה + דו''ח מפורט + תיקונים"
+      icon: <FileText className="w-12 h-12 text-blue-400" />,
+      title: "עמוד נחיתה מקצועי",
+      category: "Landing Page",
+      badge: "הכי פופולרי",
+      badgeColor: "bg-green-500",
+      problem: "אתה צריך נוכחות מקצועית באינטרנט בזמן הכי קצר ובתקציב נגיש",
+      solution: "עמוד נחיתה יחיד, מרשים ומותאם לעסק שלך - מושלם להתחלה דיגיטלית",
+      features: [
+        "עיצוב מותאם אישית לעסק שלך",
+        "טופס יצירת קשר מתקדם",
+        "אופטימיזציה למובייל",
+        "מהירות טעינה מקסימלית",
+        "SEO בסיסי מובנה",
+        "אינטגרציה עם WhatsApp"
+      ],
+      uniqueness: "פתרון מהיר ואפקטיבי בתקציב נגיש - מושלם לעסקים קטנים ומקצועות חופשיים שרוצים להתחיל נכון",
+      targetAudience: "עסקים קטנים, מקצועות חופשיים, סטארט-אפים, אמנים המתחילים באינטרנט",
+      timeframe: "2-5 ימי עבודה",
+      price: "1,200₪",
+      priceType: "פרויקט חד פעמי כולל הכל",
+      gradient: "from-blue-600 to-cyan-500"
     },
     {
       id: 2,
-      icon: <Search className="w-8 h-8 text-cyan-400" />,
-      title: "🔍 סריקה ופתרונות",
-      category: "ניתוח אתרים",
-      problem: "האתר לא מביא לקוחות ולא יודע למה ומה לתקן",
-      solution: "סריקה מקצועית של האתר + דוח פידבק מפורט עם המלצות לתיקון",
-      uniqueness: "יכולת לזהות בעיות טכניות, עיצוביות ושיווקיות באתר בצורה מקצועית",
-      targetAudience: "בעלי עסקים עם אתר קיים שלא מביא תוצאות",
-      price: "399-499₪",
-      priceType: "לבדיקה + דו''ח מפורט"
+      icon: <Palette className="w-12 h-12 text-purple-400" />,
+      title: "אתר תדמית מלא",
+      category: "Full Website",
+      badge: "הכי מתקדם",
+      badgeColor: "bg-purple-500",
+      problem: "אתה צריך נוכחות דיגיטלית מקצועית ומלאה שמייצגת את העסק שלך בצורה הטובה ביותר",
+      solution: "אתר תדמית מלא עם מספר עמודים, גלריות, ומערכות מתקדמות להצלחה מקסימלית",
+      features: [
+        "עד 8 עמודים מקצועיים",
+        "גלריית תמונות אינטראקטיבית",
+        "מערכת ניהול תוכן (CMS)",
+        "אזור לקוחות עם הזמנות",
+        "אינטגרציה עם רשתות חברתיות",
+        "SEO מתקדם לכל העמודים",
+        "אנליטיקס ומדידות",
+        "חנות מקוונת בסיסית (אופציונלי)"
+      ],
+      uniqueness: "פתרון שלם ומקצועי שמקנה לעסק שלך נוכחות דיגיטלית מושלמת עם כל הכלים הדרושים להצלחה",
+      targetAudience: "עסקים בינוניים, חברות, משרדי שירותים, אמנים מקצועיים, מותגים מבוססים",
+      timeframe: "10-15 ימי עבודה",
+      price: "3,000₪",
+      priceType: "פרויקט מלא כולל כל התכונות",
+      gradient: "from-purple-600 to-pink-500"
     },
     {
       id: 3,
-      icon: <Palette className="w-8 h-8 text-purple-400" />,
-      title: "🎨 אתר תדמית לאמנים וספורטאים",
-      category: "בניית אתרים",
-      problem: "אמנים, ספורטאים ומקצועות חופשיים זקוקים לנוכחות דיגיטלית מקצועית",
-      solution: "אתר תדמית מרשים + גלריה מקצועית + מערכת הזמנות + אופטימיזציה למובייל",
-      uniqueness: "התמחות בעיצוב ויזואלי מותאם לתחום המקצועי + תבניות ייחודיות + SEO מותאם",
-      targetAudience: "אמנים, ספורטאים, צלמים, מעצבים, יועצים, מטפלים",
-      price: "2,500-3,300₪",
-      priceType: "כולל עיצוב מותאם"
-    },
-    {
-      id: 4,
-      icon: <Palette className="w-8 h-8 text-emerald-400" />,
-      title: "🏢 אתר לעסקים קטנים-בינוניים",
-      category: "בניית אתרים",
-      problem: "עסקים קטנים-בינוניים זקוקים לנוכחות דיגיטלית מקצועית",
-      solution: "אתר מרשים + גלריה מקצועית + מערכת הזמנות + אופטימיזציה למובייל",
-      uniqueness: "התמחות בעיצוב ויזואלי מותאם לתחום העסק + תבניות ייחודיות + SEO מותאם",
-      targetAudience: "סלוני יופי, מניקוריסטיות, מסעדות ובתי קפה, קיוסקים, משרדי עו״ד",
-      price: "4,500-8,900₪",
-      priceType: "כולל עיצוב מותאם"
-    },
-    {
-      id: 5,
-      icon: <Target className="w-8 h-8 text-green-400" />,
-      title: "🎯 SEO מקומי לאמנים וספורטאים",
-      category: "קידום אתרים",
-      problem: "אמנים עם אתרים יפים שאף אחד לא מוצא בגוגל כשמחפשים בעיר שלהם",
-      solution: "אופטימיזציה לחיפושים מקומיים, הגדרת Google My Business, קידום על מילות מפתח",
-      uniqueness: "התמחות במילות מפתח של אמנים מקומיים, הבנת התחרות בתחום",
-      targetAudience: "אמנים, מאמנים אישיים, מוזיקאים שרוצים לקוחות מקומיים באזור המגורים",
-      price: "1,300-3,300₪",
-      priceType: "פרויקט + 400₪ תחזוקה חודשית"
-    },
-    {
-      id: 6,
-      icon: <Target className="w-8 h-8 text-blue-500" />,
-      title: "🎯 SEO מקומי לעסקים קטנים-בינוניים",
-      category: "קידום אתרים",
-      problem: "עסקים שאף אחד לא מוצא בגוגל כשמחפשים בעיר שלהם",
-      solution: "אופטימיזציה לחיפושים מקומיים, הגדרת Google My Business, קידום על מילות מפתח",
-      uniqueness: "התמחות במילות מפתח של העסק, הבנת התחרות בתחום",
-      targetAudience: "עסקים וחנויות שרוצים לקוחות מקומיים באזור המגורים",
-      price: "1,800-2,500₪",
-      priceType: "פרויקט + 500₪ תחזוקה חודשית"
-    },
-    {
-      id: 7,
-      icon: <Settings className="w-8 h-8 text-orange-400" />,
-      title: "🔧 חבילת תחזוקה חודשית בסיסית",
-      category: "תחזוקה",
-      problem: "בעלי אתרים קטנים שזקוקים לתחזוקה שוטפת אבל לא יכולים להרשות שירות יקר",
-      solution: "עדכוני מערכת ותוספים, גיבוי חודשי, סריקת קישורים שבורים, בדיקת PageSpeed",
-      uniqueness: "חבילה מקיפה במחיר נגיש, דוח מפורט חודשי, זמינות לשאלות",
-      targetAudience: "בעלי עסקים קטנים, אמנים, מקצועות חופשיים עם אתרים קיימים",
-      price: "149-299₪",
-      priceType: "לחודש (מנוי שנתי)"
-    },
-    {
-      id: 8,
-      icon: <Settings className="w-8 h-8 text-red-400" />,
-      title: "🔧 חבילת תחזוקה חודשית מתקדמת",
-      category: "תחזוקה",
-      problem: "בעלי אתרים עסקיים שזקוקים לתחזוקה מתקדמת יותר ותמיכה צמודה",
-      solution: "עדכוני מערכת ותוספים, גיבוי שבועי, ניטור פרואקטיבי 24/7, שעות תמיכה נוספות, אופטימיזציה בסיסית",
-      uniqueness: "ניטור מתקדם, תמיכה מהירה יותר, דוחות ביצועים חודשיים, יכולת שחזור מהיר",
-      targetAudience: "בעלי עסקים בינוניים, אתרי מסחר אלקטרוני, עורכי דין, רופאים",
-      price: "399-599₪",
-      priceType: "לחודש (מנוי שנתי)"
-    },
-    {
-      id: 9,
-      icon: <Settings className="w-8 h-8 text-yellow-400" />,
-      title: "🔧 חבילת תחזוקה חודשית פרימיום",
-      category: "תחזוקה",
-      problem: "בעלי אתרים גדולים ועסקים שזקוקים לשירות מלא וניהול תוכן",
-      solution: "כל מה שיש במתקדמת + עדכוני תוכן קלים, דוחות ביצועים מפורטים, ייעוץ אסטרטגי חודשי, אופטימיזציה מתקדמת",
-      uniqueness: "שירות כמעט מלא, ניהול חלקי של האתר, יחס אישי, ייעוץ מתמשך, דוחות מקצועיים",
-      targetAudience: "עסקים גדולים, אתרי מסחר מתקדמים, משרדי עורכי דין גדולים, מרפאות פרטיות",
-      price: "699-999₪",
-      priceType: "לחודש (מנוי שנתי)"
-    },
-    {
-      id: 10,
-      icon: <Lock className="w-8 h-8 text-red-500" />,
-      title: "🔒 שירותי אבטחה ובטיחות אתרים",
-      category: "אבטחה",
-      problem: "אתרים נפרצים, וירוסים, התקפות DDoS, ואיבוד מידע שהורס עסקים שלמים",
-      solution: "מערכת אבטחה מתקדמת, גיבוי יומי אוטומטי, מוניטורינג 24/7, שחזור מהיר",
-      uniqueness: "שירות מלא ומקיף, תגובה מהירה לאירועי אבטחה, יכולת שחזור תוך שעות",
-      targetAudience: "בעלי עסקים שהאתר קריטי להצלחתם ולא יכולים להרשות לעצמם השבתה",
-      price: "299-599₪",
-      priceType: "לחודש (לפי רמת האבטחה)"
-    },
-    {
-      id: 11,
-      icon: <Gauge className="w-8 h-8 text-yellow-500" />,
-      title: "🚀 שירותי מהירות ואופטימיזציה",
-      category: "אופטימיזציה",
-      problem: "אתרים איטיים שגורמים ללקוחות לעזוב, ירידה בדירוגי גוגל וחוויית משתמש גרועה",
-      solution: "אופטימיזציה מלאה למהירות, דחיסת תמונות, אופטימיזציה לקוד, CDN ושיפור PageSpeed",
-      uniqueness: "מתמחה באתרים של אמנים עם הרבה תמונות, אופטימיזציה ללא פגיעה באיכות",
-      targetAudience: "בעלי אתרים עם תמונות רבות, אמנים, צלמים, אתרי פורטפוליו כבדים",
-      price: "800-1,500₪",
-      priceType: "פרויקט חד פעמי"
+      icon: <Server className="w-12 h-12 text-green-400" />,
+      title: "אחסון ותחזוקה מלאה",
+      category: "Hosting & Maintenance",
+      badge: "חיוני לאתר",
+      badgeColor: "bg-orange-500",
+      problem: "האתר שלך זקוק לאחסון מהיר ובטוח ותחזוקה שוטפת כדי להישאר מעודכן ומאובטח",
+      solution: "שירות אחסון מקצועי עם תחזוקה מלאה - אתה מתמקד בעסק, אנחנו דואגים לאתר",
+      features: [
+        "אחסון SSD מהיר ובטוח",
+        "גיבוי אוטומטי יומי",
+        "עדכוני אבטחה שוטפים",
+        "מוניטורינג זמינות 24/7",
+        "תמיכה טכנית מהירה",
+        "עדכוני תוכן חודשיים (עד 3 שעות)",
+        "אופטימיזציה מתמשכת למהירות",
+        "דוח ביצועים חודשי"
+      ],
+      uniqueness: "שירות מלא ומקיף שמבטיח שהאתר שלך תמיד יעבוד מהר, יהיה מאובטח ומעודכן - שקט נפשי מלא",
+      targetAudience: "כל בעל אתר שרוצה שקט נפשי ואתר שעובד תמיד בצורה מושלמת",
+      timeframe: "שירות מתמשך",
+      price: "299₪",
+      priceType: "לחודש - ללא התחייבות",
+      gradient: "from-green-600 to-emerald-500"
     }
   ];
 
-  const categories = [
-    { name: "תיקון אתרים", color: "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300", count: 1 },
-    { name: "ניתוח אתרים", color: "bg-cyan-100 text-cyan-800 dark:bg-cyan-900 dark:text-cyan-300", count: 1 },
-    { name: "בניית אתרים", color: "bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-300", count: 2 },
-    { name: "קידום אתרים", color: "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300", count: 2 },
-    { name: "תחזוקה", color: "bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-300", count: 3 },
-    { name: "אבטחה", color: "bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-300", count: 1 },
-    { name: "אופטימיזציה", color: "bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-300", count: 1 }
-  ];
-
-  // סינון השירותים לפי הקטגוריה הנבחרת
-  const filteredServices = selectedCategory === "הכל" 
-    ? services 
-    : services.filter(service => service.category === selectedCategory);
-
   return (
     <div className="min-h-screen text-white bg-transparent" dir="rtl">
-      {/* Background Video with same style as Index.tsx */}
+      {/* Background Video */}
       <video 
         className="fixed inset-0 w-full h-full object-cover -z-40 brightness-[0.3]"
         autoPlay 
@@ -206,7 +130,7 @@ const ServicesPage = () => {
           backgroundRepeat: 'no-repeat',
         }}
         aria-hidden="true"
-      >      </div>
+      />
       
       {/* Skip to main content link */}
       <a 
@@ -225,10 +149,9 @@ const ServicesPage = () => {
         עבור לתוכן הראשי
       </a>
       
-      {/* Accessibility Menu */}
       <AccessibilityMenu />
-      
       <Header />
+      
       <div className="relative z-10">
         <Breadcrumbs 
           items={[
@@ -236,261 +159,306 @@ const ServicesPage = () => {
           ]} 
         />
         
-        {/* Header Section */}
-      <section className="pt-32 pb-20 bg-gradient-to-br from-slate-900 via-blue-900/20 to-purple-900/20">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
-              השירותים שלנו
-            </h1>
-            <p className="text-xl text-slate-300 max-w-4xl mx-auto leading-relaxed">
-              פתרונות דיגיטליים מקצועיים ומותאמים לכל סוג של עסק ותקציב - 
-              מתיקון אתרים קיימים ועד פתרונות דיגיטליים מתקדמים
-            </p>
-          </div>
+        {/* Hero Section */}
+        <section className="pt-32 pb-24 relative overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-b from-slate-900/80 via-slate-900/60 to-slate-900/40"></div>
+          
+          <div className="container mx-auto px-4 relative z-10">
+            <div className="max-w-5xl mx-auto">
+              {/* Main Content */}
+              <div className="text-center mb-20">
+                <div className="flex justify-center mb-8">
+                  <div className="flex space-x-4 rtl:space-x-reverse">
+                    <div className="p-4 bg-blue-600/20 rounded-2xl backdrop-blur-sm border border-blue-500/30">
+                      <FileText className="w-8 h-8 text-blue-400" />
+                    </div>
+                    <div className="p-4 bg-purple-600/20 rounded-2xl backdrop-blur-sm border border-purple-500/30">
+                      <Palette className="w-8 h-8 text-purple-400" />
+                    </div>
+                    <div className="p-4 bg-green-600/20 rounded-2xl backdrop-blur-sm border border-green-500/30">
+                      <Server className="w-8 h-8 text-green-400" />
+                    </div>
+                  </div>
+                </div>
+                
+                <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-white mb-8 leading-tight">
+                  <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-green-400 bg-clip-text text-transparent">
+                    שלושה פתרונות
+                  </span>
+                  <br />
+                  <span className="text-white">שיגרמו לעסק שלך להמריא</span>
+                </h1>
+                
+                <p className="text-xl md:text-2xl text-slate-300 max-w-4xl mx-auto leading-relaxed mb-12">
+                  מעמוד נחיתה פשוט ואפקטיבי ועד אתר תדמית מלא עם תחזוקה מקצועית - 
+                  <br className="hidden md:block" />
+                  <span className="text-cyan-400 font-semibold">הכל במקום אחד, הכל בטיפול המיטבי</span>
+                </p>
 
-          {/* Category Filter */}
-          <div className="mb-16">
-            <h3 className="text-2xl font-bold text-white mb-6 text-center">סנן לפי קטגוריה</h3>
-            <div className="flex flex-wrap justify-center gap-3 mb-8">
-              {/* הכל */}
-              <button
-                onClick={() => setSelectedCategory("הכל")}
-                className={`px-6 py-3 rounded-full font-medium transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-blue-500 ${
-                  selectedCategory === "הכל"
-                    ? "bg-blue-600 text-white shadow-lg scale-105"
-                    : "bg-slate-700 text-slate-300 hover:bg-slate-600 hover:text-white"
-                }`}
-                aria-pressed={selectedCategory === "הכל"}
-                tabIndex={0}
-              >
-                הכל ({services.length})
-              </button>
-              
-              {/* Category buttons */}
-              {categories.map((category, index) => (
-                <button
-                  key={index}
-                  onClick={() => setSelectedCategory(category.name)}
-                  className={`px-6 py-3 rounded-full font-medium transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-blue-500 ${
-                    selectedCategory === category.name
-                      ? "bg-blue-600 text-white shadow-lg scale-105"
-                      : "bg-slate-700 text-slate-300 hover:bg-slate-600 hover:text-white"
-                  }`}
-                  aria-pressed={selectedCategory === category.name}
-                  tabIndex={0}
-                >
-                  {category.name} ({category.count})
-                </button>
-              ))}
-            </div>
-            
-            {/* Active filter indicator */}
-            {selectedCategory !== "הכל" && (
-              <div className="text-center space-y-4">
-                <Badge variant="outline" className="bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300 text-lg px-4 py-2">
-                  מציג: {selectedCategory}
-                </Badge>
-                <div>
-                  <button
-                    onClick={() => setSelectedCategory("הכל")}
-                    className="text-slate-400 hover:text-white underline text-sm transition-colors"
-                    aria-label="נקה סינון וחזור לתצוגת כל השירותים"
-                  >
-                    נקה סינון
-                  </button>
+                {/* Quick Nav */}
+                <div className="flex flex-wrap justify-center gap-4">
+                  <div className="bg-slate-800/60 backdrop-blur-sm rounded-full px-6 py-3 border border-slate-700">
+                    <div className="flex items-center">
+                      <FileText className="w-5 h-5 text-blue-400 ml-2" />
+                      <span className="text-white font-medium">עמוד נחיתה - 1,200₪</span>
+                    </div>
+                  </div>
+                  <div className="bg-slate-800/60 backdrop-blur-sm rounded-full px-6 py-3 border border-slate-700">
+                    <div className="flex items-center">
+                      <Palette className="w-5 h-5 text-purple-400 ml-2" />
+                      <span className="text-white font-medium">אתר תדמית - 3,000₪</span>
+                    </div>
+                  </div>
+                  <div className="bg-slate-800/60 backdrop-blur-sm rounded-full px-6 py-3 border border-slate-700">
+                    <div className="flex items-center">
+                      <Server className="w-5 h-5 text-green-400 ml-2" />
+                      <span className="text-white font-medium">תחזוקה - 299₪/חודש</span>
+                    </div>
+                  </div>
                 </div>
               </div>
-            )}
-          </div>
 
-          {/* Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
-            <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-blue-400 mb-2">
-                {selectedCategory === "הכל" ? services.length : filteredServices.length}
+              {/* Value Props */}
+              <div className="grid md:grid-cols-3 gap-8 text-center">
+                <div className="group">
+                  <div className="p-6 bg-slate-800/40 backdrop-blur-sm rounded-2xl border border-slate-700/50 group-hover:border-blue-500/50 transition-all duration-300">
+                    <Zap className="w-12 h-12 text-yellow-400 mx-auto mb-4" />
+                    <h3 className="text-xl font-bold text-white mb-2">מהיר ויעיל</h3>
+                    <p className="text-slate-300 text-sm">אספקה מהירה ללא פשרות על איכות</p>
+                  </div>
+                </div>
+                <div className="group">
+                  <div className="p-6 bg-slate-800/40 backdrop-blur-sm rounded-2xl border border-slate-700/50 group-hover:border-purple-500/50 transition-all duration-300">
+                    <Shield className="w-12 h-12 text-blue-400 mx-auto mb-4" />
+                    <h3 className="text-xl font-bold text-white mb-2">מקצועי ובטוח</h3>
+                    <p className="text-slate-300 text-sm">טכנולוגיות מתקדמות ואבטחה מקסימלית</p>
+                  </div>
+                </div>
+                <div className="group">
+                  <div className="p-6 bg-slate-800/40 backdrop-blur-sm rounded-2xl border border-slate-700/50 group-hover:border-green-500/50 transition-all duration-300">
+                    <MessageCircle className="w-12 h-12 text-green-400 mx-auto mb-4" />
+                    <h3 className="text-xl font-bold text-white mb-2">תמיכה אישית</h3>
+                    <p className="text-slate-300 text-sm">ליווי מלא לפני, במהלך ואחרי הפרויקט</p>
+                  </div>
+                </div>
               </div>
-              <div className="text-slate-400 text-sm">
-                {selectedCategory === "הכל" ? "שירותים מקצועיים" : `שירותים ב${selectedCategory}`}
-              </div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-purple-400 mb-2">8</div>
-              <div className="text-slate-400 text-sm">קטגוריות שירות</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-green-400 mb-2">500+</div>
-              <div className="text-slate-400 text-sm">לקוחות מרוצים</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-cyan-400 mb-2">24/7</div>
-              <div className="text-slate-400 text-sm">תמיכה טכנית</div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Services Grid */}
-      <main id="main-content" className="py-20 bg-slate-800/30">
-        <div className="container mx-auto px-4">
-          <h2 className="sr-only">רשימת השירותים שלנו</h2>
-          <div 
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-            role="list"
-            aria-label="רשימת השירותים הזמינים"
-          >
-            {filteredServices.length > 0 ? (
-              filteredServices.map((service) => (
-              <article 
-                key={service.id} 
-                role="listitem"
-                className="bg-slate-800/80 border-slate-700 hover:bg-slate-700/80 transition-all duration-300 hover:scale-105 hover:shadow-2xl group backdrop-blur-sm rounded-lg border focus-within:ring-4 focus-within:ring-blue-500"
-                tabIndex={0}
-                aria-labelledby={`service-title-${service.id}`}
-                aria-describedby={`service-description-${service.id}`}
-              >
-                <Card className="bg-transparent border-none shadow-none h-full">
-                  <CardHeader className="pb-4">
-                    <div className="flex justify-center items-center mb-4">
+        {/* Services Grid */}
+        <main id="main-content" className="py-20 bg-slate-900/50">
+          <div className="container mx-auto px-4">
+            <h2 className="sr-only">רשימת השירותים שלנו</h2>
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+              {services.map((service, index) => (
+                <article 
+                  key={service.id} 
+                  className={`bg-slate-800/90 backdrop-blur-sm border border-slate-700 hover:border-slate-600 rounded-2xl overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl group relative ${
+                    index === 1 ? 'lg:scale-105 lg:shadow-2xl border-blue-500/50' : ''
+                  }`}
+                  tabIndex={0}
+                  aria-labelledby={`service-title-${service.id}`}
+                  aria-describedby={`service-description-${service.id}`}
+                >
+                  {/* Popular badge */}
+                  {service.badge && (
+                    <div className={`absolute top-4 right-4 ${service.badgeColor} text-white px-3 py-1 rounded-full text-xs font-bold z-10 shadow-lg`}>
+                      <Star className="w-3 h-3 inline mr-1" />
+                      {service.badge}
+                    </div>
+                  )}
+                  
+                  <div className="p-8">
+                    {/* Icon and Title */}
+                    <div className="text-center mb-8">
                       <div 
-                        className="p-4 bg-slate-700/50 rounded-2xl group-hover:bg-slate-600/50 transition-all duration-300"
+                        className={`inline-flex p-6 bg-gradient-to-br ${service.gradient} rounded-2xl mb-6 group-hover:scale-110 transition-transform duration-300`}
                         role="img"
                         aria-label={`אייקון עבור ${service.title}`}
                       >
                         {service.icon}
                       </div>
-                    </div>
-                    <CardTitle 
-                      id={`service-title-${service.id}`}
-                      className="text-xl font-bold text-white text-center mb-3"
-                    >
-                      {service.title}
-                    </CardTitle>
-                    <div className="flex justify-center mb-4">
+                      <h3 
+                        id={`service-title-${service.id}`}
+                        className="text-2xl font-bold text-white mb-3"
+                      >
+                        {service.title}
+                      </h3>
                       <Badge 
                         variant="secondary" 
-                        className={
-                          categories.find(cat => cat.name === service.category)?.color || 
-                          "bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-300"
-                        }
+                        className="bg-slate-700 text-slate-200 px-3 py-1 text-xs"
                         role="note"
                         aria-label={`קטגוריה: ${service.category}`}
                       >
                         {service.category}
                       </Badge>
                     </div>
-                  </CardHeader>
-                  <CardContent id={`service-description-${service.id}`}>
-                    <div className="space-y-4">
+
+                    <div id={`service-description-${service.id}`} className="space-y-6">
+                      {/* Problem */}
                       <div>
-                        <h4 className="font-semibold text-red-400 mb-2">הבעיה:</h4>
-                        <p className="text-sm text-slate-300 leading-relaxed">
+                        <h4 className="font-semibold text-red-400 mb-3 flex items-center text-sm">
+                          <AlertTriangle className="w-4 h-4 ml-2" />
+                          הבעיה
+                        </h4>
+                        <p className="text-slate-300 text-sm leading-relaxed">
                           {service.problem}
                         </p>
                       </div>
                       
-                      <Separator className="bg-slate-600" role="separator" />
+                      <Separator className="bg-slate-600" />
                       
+                      {/* Solution */}
                       <div>
-                        <h4 className="font-semibold text-green-400 mb-2">הפתרון:</h4>
-                        <p className="text-sm text-slate-300 leading-relaxed">
+                        <h4 className="font-semibold text-green-400 mb-3 flex items-center text-sm">
+                          <CheckCircle className="w-4 h-4 ml-2" />
+                          הפתרון שלנו
+                        </h4>
+                        <p className="text-slate-300 text-sm leading-relaxed mb-4">
                           {service.solution}
                         </p>
                       </div>
                       
-                      <Separator className="bg-slate-600" role="separator" />
-                      
+                      {/* Features */}
                       <div>
-                        <h4 className="font-semibold text-blue-400 mb-2">למה אנחנו:</h4>
-                        <p className="text-sm text-slate-300 leading-relaxed">
-                          {service.uniqueness}
-                        </p>
+                        <h4 className="font-semibold text-blue-400 mb-3 flex items-center text-sm">
+                          <Package className="w-4 h-4 ml-2" />
+                          מה כלול
+                        </h4>
+                        <div className="space-y-2">
+                          {service.features.slice(0, 4).map((feature, idx) => (
+                            <div key={idx} className="flex items-start">
+                              <Check className="w-3 h-3 text-green-400 mt-1 ml-2 flex-shrink-0" />
+                              <span className="text-slate-300 text-xs">{feature}</span>
+                            </div>
+                          ))}
+                          {service.features.length > 4 && (
+                            <div className="text-slate-400 text-xs">
+                              + {service.features.length - 4} תכונות נוספות
+                            </div>
+                          )}
+                        </div>
                       </div>
                       
-                      <Separator className="bg-slate-600" role="separator" />
+                      <Separator className="bg-slate-600" />
                       
-                      <div>
-                        <h4 className="font-semibold text-purple-400 mb-2">מתאים עבור:</h4>
-                        <p className="text-sm text-slate-300 leading-relaxed">
-                          {service.targetAudience}
-                        </p>
+                      {/* Target & Time */}
+                      <div className="space-y-3">
+                        <div className="flex items-center text-slate-300 text-xs">
+                          <Users className="w-3 h-3 ml-2 text-purple-400" />
+                          {service.targetAudience.split(',')[0]}...
+                        </div>
+                        <div className="flex items-center text-slate-300 text-xs">
+                          <Clock className="w-3 h-3 ml-2 text-blue-400" />
+                          {service.timeframe}
+                        </div>
                       </div>
                       
+                      {/* Price */}
                       <div 
-                        className="bg-slate-700/50 rounded-lg p-4 text-center"
+                        className={`bg-gradient-to-r ${service.gradient} rounded-xl p-6 text-center relative overflow-hidden`}
                         role="region"
                         aria-label="מידע על מחיר השירות"
                       >
-                        <div className="text-2xl font-bold text-cyan-400 mb-1">
-                          {service.price}
-                        </div>
-                        <div className="text-xs text-slate-400">
-                          {service.priceType}
+                        <div className="relative z-10">
+                          <div className="text-3xl font-bold text-white mb-1">
+                            {service.price}
+                          </div>
+                          <div className="text-white/80 text-xs">
+                            {service.priceType}
+                          </div>
                         </div>
                       </div>
                       
+                      {/* CTA Button */}
                       <Button 
-                        className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl"
+                        className={`w-full bg-gradient-to-r ${service.gradient} hover:shadow-xl text-white rounded-xl py-4 text-sm font-semibold transition-all duration-300 transform hover:scale-105`}
                         aria-label={`צור קשר בווצאפ עבור השירות ${service.title}`}
                         onClick={() => contactByWhatsApp()}
                       >
                         <MessageCircle className="w-4 h-4 ml-2" aria-hidden="true" />
-                        פנו אלינו בווצאפ
+                        בואו נתחיל לעבוד
                       </Button>
                     </div>
-                  </CardContent>
-                </Card>
-              </article>
-              ))
-            ) : (
-              <div className="col-span-full text-center py-16">
-                <div className="bg-slate-800/80 rounded-lg p-8 max-w-md mx-auto">
-                  <div className="text-6xl mb-4">🔍</div>
-                  <h3 className="text-2xl font-bold text-white mb-4">אין שירותים בקטגוריה זו</h3>
-                  <p className="text-slate-300 mb-6">
-                    לא נמצאו שירותים בקטגוריה "{selectedCategory}". 
-                    נסו לבחור קטגוריה אחרת או לחזור לתצוגת "הכל".
-                  </p>
-                  <Button 
-                    onClick={() => setSelectedCategory("הכל")}
-                    className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg transition-all duration-300"
-                  >
-                    הצג את כל השירותים
-                  </Button>
-                </div>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </main>
+
+        {/* Why Choose Us Section */}
+        <section className="py-20 bg-gradient-to-r from-slate-900/80 to-blue-900/40">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+                למה לבחור בנו?
+              </h2>
+              <p className="text-xl text-slate-300 max-w-3xl mx-auto">
+                אנחנו לא סתם עוד חברת פיתוח - אנחנו השותפים הדיגיטליים שלכם להצלחה
+              </p>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+              <div className="text-center p-6 bg-slate-800/50 rounded-2xl backdrop-blur-sm">
+                <Zap className="w-12 h-12 text-yellow-400 mx-auto mb-4" />
+                <h3 className="text-xl font-bold text-white mb-3">מהיר ויעיל</h3>
+                <p className="text-slate-300">
+                  אנחנו מספקים פרויקטים איכותיים בזמן הכי קצר - ללא פשרות על איכות
+                </p>
               </div>
-            )}
+              
+              <div className="text-center p-6 bg-slate-800/50 rounded-2xl backdrop-blur-sm">
+                <Star className="w-12 h-12 text-yellow-400 mx-auto mb-4" />
+                <h3 className="text-xl font-bold text-white mb-3">איכות מקצועית</h3>
+                <p className="text-slate-300">
+                  כל פרויקט מתוכנן ומבוצע ברמה הגבוהה ביותר עם תשומת לב לכל פרט
+                </p>
+              </div>
+              
+              <div className="text-center p-6 bg-slate-800/50 rounded-2xl backdrop-blur-sm">
+                <MessageCircle className="w-12 h-12 text-green-400 mx-auto mb-4" />
+                <h3 className="text-xl font-bold text-white mb-3">תמיכה אישית</h3>
+                <p className="text-slate-300">
+                  אנחנו כאן בשבילכם לפני, במהלך ואחרי הפרויקט - תמיכה מלאה ואישית
+                </p>
+              </div>
+            </div>
           </div>
-        </div>
-      </main>
+        </section>
 
-      {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-blue-900/50 to-purple-900/50">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            לא מצאתם מה שחיפשתם?
-          </h2>
-          <p className="text-xl text-slate-300 mb-12 max-w-3xl mx-auto leading-relaxed">
-            אנחנו מומחים בפתרונות מותאמים אישית. ספרו לנו על הצרכים שלכם ונמצא פתרון מושלם עבורכם.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-            <Button 
-              size="lg" 
-              className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-10 py-4 text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
-              onClick={contactByWhatsApp}
-            >
-              <MessageCircle className="w-5 h-5 ml-2" />
-              התייעצו איתנו בווצאפ
-            </Button>
-            <Button size="lg" variant="outline" className="border-2 border-cyan-400 text-cyan-400 hover:bg-cyan-400/10 px-10 py-4 text-lg rounded-xl transition-all duration-300 bg-transparent">
-              <CheckCircle className="w-5 h-5 mr-2" />
-              קבלו הצעת מחיר
-            </Button>
+        {/* CTA Section */}
+        <section className="py-20 bg-gradient-to-r from-blue-900/50 to-purple-900/50">
+          <div className="container mx-auto px-4 text-center">
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+              מוכנים להתחיל?
+            </h2>
+            <p className="text-xl text-slate-300 mb-12 max-w-3xl mx-auto leading-relaxed">
+              בואו נדבר על הפרויקט שלכם! אנחנו כאן כדי להפוך את החזון הדיגיטלי שלכם למציאות.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+              <Button 
+                size="lg" 
+                className="bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white px-12 py-6 text-xl rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+                onClick={contactByWhatsApp}
+              >
+                <MessageCircle className="w-6 h-6 ml-3" />
+                בואו נתחיל בווצאפ!
+              </Button>
+              <Button 
+                size="lg" 
+                variant="outline" 
+                className="border-2 border-cyan-400 text-cyan-400 hover:bg-cyan-400/10 px-12 py-6 text-xl rounded-2xl transition-all duration-300 bg-transparent hover:scale-105"
+              >
+                <CheckCircle className="w-6 h-6 mr-3" />
+                קבלו הצעת מחיר
+              </Button>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <FloatingWhatsApp />
+        <FloatingWhatsApp />
       </div>
     </div>
   );
