@@ -93,7 +93,7 @@ const ServiceCard3D = ({ service }) => {
       
       if (service.type === 'iframe') {
         camera = new window.THREE.PerspectiveCamera(75, width / height, 1, 5000);
-        camera.position.set(0, 0, 850);
+        camera.position.set(0, 0, 1000);
 
         // Create smartphone container - קטן ב-20%
         const phoneContainer = document.createElement('div');
@@ -104,8 +104,8 @@ const ServiceCard3D = ({ service }) => {
         phoneContainer.style.borderRadius = '35px';
         phoneContainer.style.padding = '10px 6px 15px 4px';
         phoneContainer.style.boxShadow = '0 25px 50px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1)';
-        phoneContainer.style.transform = 'translate(-25%, -25%)';
-        phoneContainer.style.right = '0%';
+        phoneContainer.style.transform = 'translate(-15%, -15%)';
+        phoneContainer.style.right = '-20%';
         phoneContainer.style.top = '3%';
 
         // Create notch
@@ -442,7 +442,7 @@ const ServicesPage = () => {
 
         <main id="main-content" className="pb-12 sm:pb-16 lg:pb-20">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 items-stretch">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 items-stretch">
               {services.map((service) => (
                 <ServiceCard3D key={service.id} service={service} />
               ))}
