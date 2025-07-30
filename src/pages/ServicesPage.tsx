@@ -105,7 +105,7 @@ const ServiceCard3D = ({ service }) => {
         phoneContainer.style.padding = '10px 6px 15px 4px';
         phoneContainer.style.boxShadow = '0 25px 50px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1)';
         phoneContainer.style.transform = 'translate(-15%, -15%)';
-        phoneContainer.style.right = '-20%';
+        phoneContainer.style.right = '-10%';
         phoneContainer.style.top = '3%';
 
         // Create notch
@@ -167,7 +167,7 @@ const ServiceCard3D = ({ service }) => {
         renderer = new window.THREE.CSS3DRenderer();
       
       } else {
-        camera = new window.THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
+        camera = new window.THREE.PerspectiveCamera(100, width / height, 0.1, 1000);
         camera.position.z = 5;
         
         const mainGeometry = new window.THREE.BoxGeometry(2.5, 2.5, 2.5);
