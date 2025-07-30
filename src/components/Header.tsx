@@ -28,6 +28,7 @@ const Header = () => {
 
   const navigationItems = [
     { href: "/", label: "בית" },
+    { href: "/about", label: "אודות" },
     { href: "/services", label: "שירותים" },
     { href: "/news", label: "חדשות" },
     // { href: "/calculator", label: "מחשבון מחיר" },

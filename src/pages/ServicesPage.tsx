@@ -58,20 +58,57 @@ const loadScript = (src: string): Promise<void> => {
   });
 };
 
-const ServiceCard3D = ({ service }) => {
+const ServiceCard3D = ({ service, index = 0 }) => {
   const mountRef = useRef<HTMLDivElement>(null);
   const [scriptsLoaded, setScriptsLoaded] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
+  const [hasLoaded, setHasLoaded] = useState(false);
 
+  // Intersection Observer for lazy loading
   useEffect(() => {
-    loadScript('https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js')
-      .then(() => {
-        if (service.type === 'iframe') {
-          return loadScript('https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/renderers/CSS3DRenderer.js');
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !hasLoaded) {
+          setIsVisible(true);
+          setHasLoaded(true);
         }
-      })
-      .then(() => setScriptsLoaded(true))
-      .catch(error => console.error(error));
-  }, [service.type]);
+      },
+      {
+        threshold: 0.1, // Trigger when 10% of the element is visible
+        rootMargin: '50px' // Start loading 50px before it comes into view
+      }
+    );
+
+    const currentMount = mountRef.current;
+    if (currentMount) {
+      observer.observe(currentMount);
+    }
+
+    return () => {
+      if (currentMount) {
+        observer.unobserve(currentMount);
+      }
+    };
+  }, [hasLoaded]);
+
+  // Load scripts only when component becomes visible with a staggered delay
+  useEffect(() => {
+    if (!isVisible) return;
+
+    const loadDelay = index * 200; // 200ms delay between each card
+    const timeoutId = setTimeout(() => {
+      loadScript('https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js')
+        .then(() => {
+          if (service.type === 'iframe') {
+            return loadScript('https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/renderers/CSS3DRenderer.js');
+          }
+        })
+        .then(() => setScriptsLoaded(true))
+        .catch(error => console.error(error));
+    }, loadDelay);
+
+    return () => clearTimeout(timeoutId);
+  }, [isVisible, service.type, index]);
 
   useEffect(() => {
     if (!scriptsLoaded || !mountRef.current) return;
@@ -131,8 +168,9 @@ const ServiceCard3D = ({ service }) => {
         screenContainer.style.overflow = 'hidden';
         screenContainer.style.marginTop = '30px';
 
-        // Create iframe (the actual screen content)
+        // Create iframe (the actual screen content) with lazy loading
         const element = document.createElement('iframe');
+        element.loading = 'lazy'; // Native lazy loading
         element.src = service.demoUrl;
         element.style.width = '100%';
         element.style.height = '100%';
@@ -143,6 +181,25 @@ const ServiceCard3D = ({ service }) => {
         element.style.left = '0';
         element.style.pointerEvents = 'none';
         element.style.userSelect = 'none';
+        
+        // Add loading placeholder
+        const loadingDiv = document.createElement('div');
+        loadingDiv.style.position = 'absolute';
+        loadingDiv.style.top = '50%';
+        loadingDiv.style.left = '50%';
+        loadingDiv.style.transform = 'translate(-50%, -50%)';
+        loadingDiv.style.color = 'white';
+        loadingDiv.style.fontSize = '14px';
+        loadingDiv.innerHTML = 'טוען אתר...';
+        
+        // Hide loading indicator when iframe loads
+        element.onload = () => {
+          if (loadingDiv.parentNode) {
+            loadingDiv.parentNode.removeChild(loadingDiv);
+          }
+        };
+        
+        screenContainer.appendChild(loadingDiv);
         iframeElement = element;
 
         // Create home indicator
@@ -343,7 +400,22 @@ const ServiceCard3D = ({ service }) => {
       <div className="absolute inset-0 bg-slate-800 transition-opacity duration-500 group-hover:opacity-0 z-0"></div>
       
       <div className="absolute inset-0 z-5" ref={mountRef}>
-        {!scriptsLoaded && <div className="text-white text-center pt-20">טוען תצוגה תלת-ממדית...</div>}
+        {!isVisible && (
+          <div className="flex items-center justify-center h-full">
+            <div className="text-center text-white">
+              <div className="animate-pulse bg-slate-700 rounded-lg w-32 h-32 mx-auto mb-4"></div>
+              <p className="text-slate-400">מכין תצוגה...</p>
+            </div>
+          </div>
+        )}
+        {isVisible && !scriptsLoaded && (
+          <div className="flex items-center justify-center h-full">
+            <div className="text-center text-white">
+              <div className="animate-spin w-8 h-8 border-2 border-blue-400 border-t-transparent rounded-full mx-auto mb-4"></div>
+              <p className="text-slate-400">טוען תצוגה תלת-ממדית...</p>
+            </div>
+          </div>
+        )}
       </div>
       
       <div className="relative z-10 flex flex-col h-full p-3 sm:p-4 lg:p-6 rounded-xl pointer-events-none">
@@ -443,8 +515,8 @@ const ServicesPage = () => {
         <main id="main-content" className="pb-12 sm:pb-16 lg:pb-20">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 items-stretch">
-              {services.map((service) => (
-                <ServiceCard3D key={service.id} service={service} />
+              {services.map((service, index) => (
+                <ServiceCard3D key={service.id} service={service} index={index} />
               ))}
             </div>
           </div>

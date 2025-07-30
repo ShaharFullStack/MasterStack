@@ -1,6 +1,5 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { useAuth } from "@/hooks/useAuth";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
@@ -35,13 +34,20 @@ import {
   Heart,
   Target,
   Briefcase,
-  MessageCircle
+  MessageCircle,
+  User2Icon,
+  CircleUser,
+  CodeXmlIcon,
+  ServerOff,
+  Server
 } from "lucide-react";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import "../index.css"; // Import your global styles
 
 const Index = () => {
   const { contactByWhatsApp, contactByEmail } = useAuth();
+  const navigate = useNavigate();
   const [videoLoaded, setVideoLoaded] = useState(false);
   const [showContent, setShowContent] = useState(false);
   const [videoError, setVideoError] = useState(false);
@@ -218,7 +224,7 @@ const Index = () => {
         {/* Background Video */}
         {!videoError && (
           <video
-            className={`fixed inset-0 w-full h-full object-cover -z-40 transition-all duration-[4000ms] ease-out ${showContent ? 'brightness-50 scale-105' : 'brightness-100 scale-100'
+            className={`fixed inset-0 w-full h-full object-cover -z-40 transition-all duration-[4s] ease-out ${showContent ? 'brightness-50 scale-105' : 'brightness-100 scale-100'
               }`}
             autoPlay
             muted
@@ -249,7 +255,7 @@ const Index = () => {
 
         {/* Gradual fadeout overlay - starts transparent and gradually darkens */}
         <div
-          className={`fixed inset-0 w-full h-full -z-30 transition-all duration-[4000ms] ease-out ${showContent ? 'bg-gradient-to-b from-slate-900/40 via-slate-900/60 to-slate-900/80' : 'bg-slate-900/10'
+          className={`fixed inset-0 w-full h-full -z-30 transition-all duration-[4s] ease-out ${showContent ? 'bg-gradient-to-b from-slate-900/40 via-slate-900/60 to-slate-900/80' : 'bg-slate-900/10'
             }`}
           aria-hidden="true"
         ></div>
@@ -257,7 +263,7 @@ const Index = () => {
         {/* Additional readability overlay */}
         <div className="absolute inset-0 bg-slate-900/20" aria-hidden="true"></div>
 
-        <div className={`container mx-auto text-center relative z-10 transition-all duration-[3000ms] ease-out ${showContent ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+        <div className={`container mx-auto text-center relative z-10 transition-all duration-[3s] ease-out ${showContent ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}>
 
           {/* Video Loading Indicator - very subtle */}
@@ -301,23 +307,13 @@ const Index = () => {
 
           {/* Enhanced CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
-            <Button
-              size="lg"
-              className="group relative bg-gradient-to-r from-blue-600 via-cyan-600 to-blue-600 hover:from-blue-700 hover:via-cyan-700 hover:to-blue-700 text-white px-12 py-6 text-xl font-bold rounded-2xl shadow-2xl hover:shadow-cyan-500/25 transition-all duration-500 transform hover:scale-105 hover:-translate-y-2"
-              aria-label="עבור לעמוד השירותים שלנו"
-            >
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-600/50 to-cyan-600/50 rounded-2xl blur opacity-75 group-hover:opacity-100 transition-opacity duration-500 -z-10"></div>
-              <a href="/services" className="flex items-center text-white relative z-10" aria-label="צפה בכל השירותים שאנו מציעים">
-                <Zap className="w-6 h-6 ml-3 group-hover:animate-slow-float" aria-hidden="true" />
-                השירותים שלנו
-              </a>
-            </Button>
+
 
             <Button
               variant="outline"
               size="lg"
-              className="group relative border-3 border-cyan-400 text-cyan-400 hover:text-white hover:bg-cyan-500 px-12 py-6 text-xl font-bold rounded-2xl transition-all duration-500 bg-transparent backdrop-blur-sm hover:shadow-2xl hover:shadow-cyan-500/25 transform hover:scale-105 hover:-translate-y-2"
-              aria-label="פתח ווצאפ ליצירת קשר מיידי"
+              className="group relative bg-gradient-to-r from-blue-600 via-cyan-600 to-blue-600 hover:from-blue-700 hover:via-cyan-700 hover:to-blue-700 text-white px-12 py-6 text-xl font-bold rounded-2xl shadow-2xl hover:shadow-cyan-500/25 transition-all duration-500 transform hover:scale-105 hover:-translate-y-2"
+              aria-label=" ווצאפ ליצירת קשר מיידי"
               onClick={contactByWhatsApp}
             >
               <div className="absolute inset-0 bg-gradient-to-r from-cyan-600/20 to-blue-600/20 rounded-2xl blur opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10"></div>
@@ -389,11 +385,10 @@ const Index = () => {
             ))}
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
             {[
               { icon: <Zap className="w-10 h-10" />, title: "מהירות ביצוע", desc: "פרויקטים מושלמים בזמן קצר", color: "from-yellow-400 to-orange-400", bgColor: "from-yellow-500/20 to-orange-500/20" },
-              { icon: <Shield className="w-10 h-10" />, title: "אמינות מוכחת", desc: "מאות לקוחות מרוצים ופרויקטים מוצלחים", color: "from-green-400 to-emerald-400", bgColor: "from-green-500/20 to-emerald-500/20" },
-              { icon: <Users className="w-10 h-10" />, title: "שירות אישי", desc: "ליווי צמוד וזמינות גבוהה", color: "from-blue-400 to-cyan-400", bgColor: "from-blue-500/20 to-cyan-500/20" },
+              { icon: <User2Icon className="w-10 h-10" />, title: "שירות אישי", desc: "ליווי צמוד וזמינות גבוהה", color: "from-blue-400 to-cyan-400", bgColor: "from-blue-500/20 to-cyan-500/20" },
               { icon: <TrendingUp className="w-10 h-10" />, title: "תוצאות מדידות", desc: "שיפור ברור בביצועים ובהכנסות", color: "from-purple-400 to-pink-400", bgColor: "from-purple-500/20 to-pink-500/20" }
             ].map((item, index) => (
               <div key={index} className="group text-center relative">
@@ -423,52 +418,50 @@ const Index = () => {
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-20 px-4 relative overflow-hidden">
+      <section className="py-32 px-4 relative overflow-hidden">
         {/* Dark overlay */}
         <div className="absolute inset-0 bg-slate-900/50" aria-hidden="true"></div>
         <div className="container mx-auto relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-                מי אנחנו ב-MasterStack?
+                למה MasterStack?
               </h2>
               <p className="text-lg text-gray-300 mb-6 leading-relaxed">
-                אנחנו צוות של מפתחים ומעצבים מנוסים מומחים בבניית פתרונות דיגיטליים מותאמת אישית.
-                עם למעלה מ-5 שנות ניסיון בתחום, אנו מבינים בדיוק מה העסק שלכם צריך כדי להצליח באינטרנט.
+                אני מפתח ומעצב מנוסה מומחה בבניית פתרונות דיגיטליים מותאמת אישית.
+                עם למעלה מ-15 שנות ניסיון בתחום, אני מבין בדיוק מה העסק שלכם צריך כדי להצליח באינטרנט.
               </p>
               <p className="text-lg text-gray-300 mb-8 leading-relaxed">
-                המומחיות שלנו משתרעת מתיקון אתרים שנבנו בעזרת AI ועד פיתוח מערכות מתקדמות עם אבטחה ברמה הגבוהה ביותר.
-                אנחנו מאמינים שכל עסק, גדול או קטן, ראוי לנוכחות דיגיטלית מקצועית ומרשימה.
+                המומחיות שלי משתרעת מתיקון אתרים שנבנו בעזרת AI ועד פיתוח מערכות מתקדמות עם אבטחה ברמה הגבוהה ביותר.
+                אני מאמין שכל עסק, גדול או קטן, ראוי לנוכחות דיגיטלית מקצועית ומרשימה שמביאה לקוחות.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button className="bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <Button onClick={() => navigate('/services')} className="bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white">
                   <Award className="w-5 h-5 ml-2" />
-                  הפרויקטים שלנו
-                </Button>
-                <Button className="bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white">
-                  <Users className="w-5 h-5 ml-2" />
-                  הכירו את הצוות
+                  לדף השירותים
                 </Button>
               </div>
             </div>
-            <div className="relative">
+            <div className="flex justify-center">
               <div className="bg-gradient-to-br from-blue-600/20 to-cyan-600/20 rounded-3xl p-8 backdrop-blur-sm border border-slate-700/50">
-                <div className="grid grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 gap-6">
                   <div className="text-center">
-                    <div className="text-3xl font-bold text-blue-400 mb-2">11</div>
-                    <div className="text-gray-400 text-sm">שירותים מובילים להתאמה אישית</div>
+                    <div className="text-3xl font-bold text-blue-400 mb-2">
+                      <CircleUser className="w-10 h-10 mx-auto" />
+                    </div>
+                    <div className="text-secondary text-lg">שירותים מובילים להתאמה אישית</div>
                   </div>
                   <div className="text-center">
-                    <div className="text-3xl font-bold text-cyan-400 mb-2">7</div>
-                    <div className="text-gray-400 text-sm">קטגוריות הכוללות בניית אתר, תחזוקה, SEO </div>
+                    <div className="text-3xl font-bold text-cyan-400 mb-2">
+                      <Server className="w-10 h-10 mx-auto" />
+                    </div>
+                    <div className="text-secondary text-lg">קטגוריות הכוללות בניית אתר, תחזוקה, SEO </div>
                   </div>
                   <div className="text-center">
-                    <div className="text-3xl font-bold text-green-400 mb-2">24/7</div>
-                    <div className="text-gray-400 text-sm">תמיכה טכנית</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-3xl font-bold text-purple-400 mb-2">5+</div>
-                    <div className="text-gray-400 text-sm">שנות ניסיון</div>
+                    <div className="text-3xl font-bold text-green-400 mb-2">
+                      <Shield className="w-10 h-10 mx-auto" />
+                    </div>
+                    <div className="text-secondary text-lg">תמיכה טכנית</div>
                   </div>
                 </div>
               </div>
@@ -524,157 +517,147 @@ const Index = () => {
         {/* Dark overlay */}
         <div className="absolute inset-0 bg-slate-900/45" aria-hidden="true"></div>
         <div className="container mx-auto text-center relative z-10">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">מוכנים להתחיל?</h2>
-          <p className="text-xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-8">מוכנים להתחיל?</h2>
+          <p className="text-xl text-gray-300 mb-2 max-w-3xl mx-auto leading-relaxed">
             בואו נבנה יחד את הנוכחות הדיגיטלית המושלמת לעסק שלכם.
             קבלו ייעוץ חינם ותצטרפו למעגל הלקוחות המרוצים שלנו.
           </p>
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-            <Button size="lg" className="bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white px-10 py-4 text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105" onClick={contactByWhatsApp}>
-              <MessageCircle className="w-5 h-5 ml-2" />
-              ווצאפ
-            </Button>
-            <Button size="lg" variant="outline" className="border-2 border-cyan-400 text-cyan-400 hover:bg-cyan-400/10 px-10 py-4 text-lg rounded-xl transition-all duration-300 bg-transparent" onClick={contactByEmail}>
-              <Mail className="w-5 h-5 ml-2" />
-              מייל
-            </Button>
-          </div>
         </div>
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 px-4 relative overflow-hidden">
+      <section id="contact" className="py-1 -mt-12 px-4 relative overflow-hidden">
         {/* Dark overlay */}
-        <div className="absolute inset-0 bg-slate-900/50" aria-hidden="true"></div>
-        <div className="container mx-auto relative z-10">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">צרו קשר</h2>
-            <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-              אנחנו כאן כדי לעזור לכם להצליח. בואו נדבר על הפרויקט הבא שלכם
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-            <div className="text-center p-6 bg-slate-700/50 rounded-2xl border border-slate-600/50">
-              <div className="flex justify-center mb-4">
-                <div className="p-4 bg-blue-600/20 rounded-2xl">
-                  <MessageCircle className="w-6 h-6 text-blue-400" />
-                </div>
-              </div>
-              <h3 className="text-lg font-bold text-white mb-2">ווצאפ</h3>
-              <button onClick={contactByWhatsApp} className="text-gray-400 hover:text-blue-400 transition-colors">
-                972-52-5347-274+
-              </button>
-              <p className="text-gray-500 text-sm mt-1">א'-ה' מ 08:00 עד 21:00</p>
-            </div>
+        <div className="container mx-auto px-6 text-center relative z-10">
+          <div className="max-w-xl mx-auto bg-brand-purple p-6 md:p-8 rounded-2xl shadow-2xl">
+            <form action="https://formspree.io/f/mvgqqkqq" method="POST" className="space-y-6">
+              <div className="text-right">
 
-            <div className="text-center p-6 bg-slate-700/50 rounded-2xl border border-slate-600/50">
-              <div className="flex justify-center mb-4">
-                <div className="p-4 bg-cyan-600/20 rounded-2xl">
-                  <Mail className="w-6 h-6 text-cyan-400" />
-                </div>
+              <div className="mb-4">
+                <label htmlFor="name" className="block text-white text-lg mb-2">שם מלא</label>
+                <input type="text" id="name" name="name" placeholder="ישראל ישראלי" required
+                  className="w-full p-3 rounded-md bg-gray-100 text-gray-800 focus:outline-none focus:ring-2 focus:ring-[#a3b18a]" />
               </div>
-              <h3 className="text-lg font-bold text-white mb-2">אימייל</h3>
-              <button onClick={contactByEmail} className="text-gray-400 hover:text-blue-400 transition-colors">
-                admin@master-stack.com
-              </button>
-              <p className="text-gray-500 text-sm mt-1">מענה מהיר</p>
-            </div>
 
-            <div className="text-center p-6 bg-slate-700/50 rounded-2xl border border-slate-600/50">
-              <div className="flex justify-center mb-4">
-                <div className="p-4 bg-green-600/20 rounded-2xl">
-                  <MapPin className="w-6 h-6 text-green-400" />
-                </div>
+              <div className="mb-4">
+                <label htmlFor="email" className="block text-white text-lg mb-2">כתובת מייל</label>
+                <input type="email" id="email" name="email" placeholder="israel@example.com" required
+                  className="w-full p-3 rounded-md bg-gray-100 text-gray-800 focus:outline-none focus:ring-2 focus:ring-[#a3b18a]" />
               </div>
-              <h3 className="text-lg font-bold text-white mb-2">מיקום</h3>
-              <p className="text-gray-400">הרצליה, ישראל</p>
-              <p className="text-gray-500 text-sm mt-1">שירות בכל הארץ</p>
-            </div>
+              <div className="mb-4">
+                <label htmlFor="phone" className="block text-white text-lg mb-2">מספר טלפון</label>
+                <input type="tel" id="phone" name="phone" placeholder="050-1234567" required
+                  className="w-full p-3 rounded-md bg-gray-100 text-gray-800 focus:outline-none focus:ring-2 focus:ring-[#a3b18a]" />
+              </div>
           </div>
+
+          <div className="mb-4">
+            <label htmlFor="subject" className="block text-white text-lg mb-2">נושא הפנייה</label>
+            <select id="subject" name="subject" required
+              className="w-full p-3 rounded-md bg-gray-100 text-gray-800 focus:outline-none focus:ring-2 focus:ring-[#a3b18a]">
+              <option value="עמוד נחיתה">עמוד נחיתה</option>
+              <option value="אתר תדמית">אתר תדמית</option>
+              <option value="אחסון ותחזוקה">אחסון ותחזוקה</option>
+              <option value="שאלה כללית">שאלה כללית</option>
+            </select>
+          </div>
+
+          <div className="mb-6">
+            <label htmlFor="message" className="block text-white text-lg mb-2">הודעה</label>
+            <textarea id="message" name="message" placeholder="אשמח לקבל פרטים נוספים על..." required
+              className="w-full p-3 rounded-md bg-gray-100 text-gray-800 focus:outline-none focus:ring-2 focus:ring-[#a3b18a]"></textarea>
+          </div>
+
+          <div className="text-center">
+            <button type="submit"
+              className="bg-primary-foreground text-[#2d5a4a] py-3 px-12 rounded-full text-lg font-bold hover:bg-white transition-all duration-300 shadow-lg transform hover:-translate-y-1 w-full sm:w-auto">
+              שליחת פנייה
+            </button>
+          </div>
+        </form>
+    </div>
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-slate-950/80 text-white py-2 px-4 border-t border-slate-800/40 backdrop:blur-md">
-        <div className="container mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-            <div>
-              <h3 className="text-2xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
-                MasterStack
-              </h3>
-              <p className="text-gray-400 mb-4 leading-relaxed">
-                הפתרון המקצועי לכל הצרכים הדיגיטליים שלכם.
-              </p>
-              <div className="flex gap-4">
-                <div className="w-10 h-10 bg-blue-600/20 rounded-lg flex items-center justify-center">
-                  <Heart className="w-5 h-5 text-blue-400" />
-                </div>
-                <div className="w-10 h-10 bg-cyan-600/20 rounded-lg flex items-center justify-center">
-                  <Award className="w-5 h-5 text-cyan-400" />
-                </div>
-              </div>
+  <footer className="bg-slate-950/80 text-white py-2 px-4 border-t border-slate-800/40 backdrop:blur-md">
+    <div className="container mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+        <div>
+          <h3 className="text-2xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
+            MasterStack
+          </h3>
+          <p className="text-gray-400 mb-4 leading-relaxed">
+            הפתרון המקצועי לכל הצרכים הדיגיטליים שלכם.
+          </p>
+          <div className="flex gap-4">
+            <div className="w-10 h-10 bg-blue-600/20 rounded-lg flex items-center justify-center">
+              <Heart className="w-5 h-5 text-blue-400" />
             </div>
-
-            <div>
-              <h4 className="text-lg font-bold mb-4 text-white">שירותים</h4>
-              <ul className="space-y-2 text-gray-400">
-                <li><a href="#" className="hover:text-blue-400 transition-colors">בניית אתרים</a></li>
-                <li><a href="#" className="hover:text-blue-400 transition-colors">תיקון אתרים</a></li>
-                <li><a href="#" className="hover:text-blue-400 transition-colors">SEO וקידום</a></li>
-                <li><a href="#" className="hover:text-blue-400 transition-colors">תחזוקה ואבטחה</a></li>
-              </ul>
+            <div className="w-10 h-10 bg-cyan-600/20 rounded-lg flex items-center justify-center">
+              <Award className="w-5 h-5 text-cyan-400" />
             </div>
-
-            <div>
-              <h4 className="text-lg font-bold mb-4 text-white">החברה</h4>
-              <ul className="space-y-2 text-gray-400">
-                <li><a href="#" className="hover:text-blue-400 transition-colors">אודות</a></li>
-                <li><a href="#" className="hover:text-blue-400 transition-colors">הצוות</a></li>
-                <li><a href="#" className="hover:text-blue-400 transition-colors">פרויקטים</a></li>
-                <li><a href="#" className="hover:text-blue-400 transition-colors">קריירה</a></li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="text-lg font-bold mb-4 text-white">צור קשר</h4>
-              <div className="space-y-3 text-gray-400">
-                <div className="flex items-center gap-3">
-                  <MessageCircle className="w-4 h-4 text-blue-400" />
-                  <button onClick={contactByWhatsApp} className="text-gray-400 hover:text-blue-400 transition-colors">
-                    972525347274+
-                  </button>
-                </div>
-                <div className="flex items-center gap-3">
-                  <Mail className="w-4 h-4 text-cyan-400" />
-                  <button onClick={contactByEmail} className="text-gray-400 hover:text-blue-400 transition-colors">
-                    admin@master-stack.com
-                  </button>
-                </div>
-                <div className="flex items-start gap-3">
-                  <MapPin className="w-4 h-4 text-green-400 mt-1" />
-                  <span>הרצליה, ישראל</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <Separator className="my-8 bg-slate-800" />
-
-          <div className="flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
-            <p>©MasterStack כל הזכויות שמורות {year}.</p>
-            <div className="flex gap-6 mt-4 md:mt-0">
-              <a href="#" className="hover:text-blue-400 transition-colors">תנאי שימוש</a>
-              <a href="#" className="hover:text-blue-400 transition-colors">מדיניות פרטיות</a>
-              <a href="#" className="hover:text-blue-400 transition-colors">עזרה</a>
-            </div>
-            <p className="mt-4 md:mt-0">עודכן לאחרונה ב{month} {year}</p>
           </div>
         </div>
-      </footer>
 
-      {/* Floating WhatsApp Button */}
-      <FloatingWhatsApp />
+        <div>
+          <h4 className="text-lg font-bold mb-4 text-white">שירותים</h4>
+          <ul className="space-y-2 text-gray-400">
+            <li><a href="#" className="hover:text-blue-400 transition-colors">בניית אתרים</a></li>
+            <li><a href="#" className="hover:text-blue-400 transition-colors">תיקון אתרים</a></li>
+            <li><a href="#" className="hover:text-blue-400 transition-colors">SEO וקידום</a></li>
+            <li><a href="#" className="hover:text-blue-400 transition-colors">תחזוקה ואבטחה</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 className="text-lg font-bold mb-4 text-white">החברה</h4>
+          <ul className="space-y-2 text-gray-400">
+            <li><a href="#" className="hover:text-blue-400 transition-colors">אודות</a></li>
+            <li><a href="#" className="hover:text-blue-400 transition-colors">פרויקטים</a></li>
+            <li><a href="#" className="hover:text-blue-400 transition-colors">קריירה</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 className="text-lg font-bold mb-4 text-white">צור קשר</h4>
+          <div className="space-y-3 text-gray-400">
+            <div className="flex items-center gap-3">
+              <MessageCircle className="w-4 h-4 text-blue-400" />
+              <button onClick={contactByWhatsApp} className="text-gray-400 hover:text-blue-400 transition-colors">
+                972525347274+
+              </button>
+            </div>
+            <div className="flex items-center gap-3">
+              <Mail className="w-4 h-4 text-cyan-400" />
+              <button onClick={contactByEmail} className="text-gray-400 hover:text-blue-400 transition-colors">
+                admin@master-stack.com
+              </button>
+            </div>
+            <div className="flex items-start gap-3">
+              <MapPin className="w-4 h-4 text-green-400 mt-1" />
+              <span>הרצליה, ישראל</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <Separator className="my-8 bg-slate-800" />
+
+      <div className="flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
+        <p>©MasterStack כל הזכויות שמורות {year}.</p>
+        <div className="flex gap-6 mt-4 md:mt-0">
+          <a href="#" className="hover:text-blue-400 transition-colors">תנאי שימוש</a>
+          <a href="#" className="hover:text-blue-400 transition-colors">מדיניות פרטיות</a>
+          <a href="#" className="hover:text-blue-400 transition-colors">עזרה</a>
+        </div>
+        <p className="mt-4 md:mt-0">עודכן לאחרונה ב{month} {year}</p>
+      </div>
     </div>
+      </footer >
+
+  {/* Floating WhatsApp Button */ }
+  < FloatingWhatsApp />
+    </div >
   );
 };
 

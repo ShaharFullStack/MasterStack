@@ -23,7 +23,7 @@ const PageBackground: React.FC<PageBackgroundProps> = ({
           {/* Video Background - Only for hero sections */}
           {!videoError && (
             <video
-              className={`fixed inset-0 w-full h-full object-cover -z-40 transition-all duration-[4000ms] ease-out ${
+              className={`fixed inset-0 w-full h-full object-cover -z-40 transition-all duration-[4s] ease-out ${
                 showContent ? 'brightness-50 scale-105' : 'brightness-100 scale-100'
               }`}
               autoPlay
@@ -50,7 +50,7 @@ const PageBackground: React.FC<PageBackgroundProps> = ({
           )}
           {/* Video overlay */}
           <div
-            className={`fixed inset-0 w-full h-full -z-30 transition-all duration-[4000ms] ease-out ${
+            className={`fixed inset-0 w-full h-full -z-30 transition-all duration-[4s] ease-out ${
               showContent ? 'bg-gradient-to-b from-slate-900/40 via-slate-900/60 to-slate-900/80' : 'bg-slate-900/10'
             }`}
             aria-hidden="true"
