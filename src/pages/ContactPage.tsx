@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import AccessibilityMenu from "@/components/AccessibilityMenu";
+import PageBackground from "@/components/PageBackground";
 import SEO from "@/components/SEO";
 
 const ContactPage = () => {
@@ -32,7 +33,7 @@ const ContactPage = () => {
   };
 
   return (
-    <div className="min-h-screen text-white bg-transparent" dir="rtl">
+    <PageBackground showVideo={false}>
       <SEO 
         title="צור קשר - MasterStack Web Solutions | ייעוץ חינם ופתרונות דיגיטליים"
         description="צור קשר עם MasterStack לקבלת ייעוץ חינם ופתרונות דיגיטליים מקצועיים. WhatsApp: 052-534-7274, מייל: admin@master-stack.com. תמיכה 24/7 ומענה מהיר לכל פניותיכם."
@@ -41,29 +42,6 @@ const ContactPage = () => {
         image="/assets/images/contact-og-image.jpg"
         structuredData={contactStructuredData}
       />
-      {/* Background Video with same style as Index.tsx */}
-      <video 
-        className="fixed inset-0 w-full h-full object-cover -z-40 brightness-[0.3]"
-        autoPlay 
-        muted 
-        loop 
-        playsInline
-        aria-hidden="true"
-      >
-        <source src="/assets/videos/background.mp4" type="video/mp4" />
-      </video>
-      
-      {/* Fallback background image */}
-      <div 
-        className="fixed inset-0 w-full h-full -z-50"
-        style={{
-          backgroundImage: 'url(/assets/images/image.png)',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
-        }}
-        aria-hidden="true"
-      ></div>
       
       <Header />
       <AccessibilityMenu />
@@ -77,7 +55,7 @@ const ContactPage = () => {
       </div>
       <Footer />
       <FloatingWhatsApp />
-    </div>
+    </PageBackground>
   );
 };
 

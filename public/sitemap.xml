@@ -31,15 +31,6 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://master-stack.com/en/contact" />
   </url>
 
-  <!-- Price Calculator -->
-  <url>
-    <loc>https://master-stack.com/calculator</loc>
-    <lastmod>2025-07-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="he" href="https://master-stack.com/calculator" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://master-stack.com/en/calculator" />
-  </url>
 
   <!-- News Page -->
   <url>

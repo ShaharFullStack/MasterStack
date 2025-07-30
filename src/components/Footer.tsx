@@ -33,7 +33,7 @@ const Footer = () => {
             <h4 className="text-lg font-bold mb-4 text-white">שירותים</h4>
             <ul className="space-y-2 text-gray-400">
               <li><Link to="/services" className="hover:text-blue-400 transition-colors">כל השירותים</Link></li>
-              <li><Link to="/calculator" className="hover:text-blue-400 transition-colors">בניית אתרים</Link></li>
+              <li><Link to="/services" className="hover:text-blue-400 transition-colors">בניית אתרים</Link></li>
               <li><Link to="/services" className="hover:text-blue-400 transition-colors">SEO ושיווק דיגיטלי</Link></li>
               <li><Link to="/services" className="hover:text-blue-400 transition-colors">אבטחת אתרים</Link></li>
               <li><Link to="/services" className="hover:text-blue-400 transition-colors">תחזוקה ותמיכה</Link></li>

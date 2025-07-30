@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import AccessibilityMenu from "@/components/AccessibilityMenu";
+import PageBackground from "@/components/PageBackground";
 import SEO from "@/components/SEO";
 
 const NewsPage = () => {
@@ -20,7 +21,7 @@ const NewsPage = () => {
   };
 
   return (
-    <div className="min-h-screen text-white bg-transparent" dir="rtl">
+    <PageBackground showVideo={false}>
       <SEO 
         title="חדשות וטרנדים דיגיטליים - MasterStack | עדכונים מעולם הטכנולוגיה"
         description="עקבו אחר החדשות והטרנדים האחרונים בעולם הטכנולוגיה והאינטרנט. מדריכים מקצועיים, טיפים לבניית אתרים ועדכונים על SEO ושיווק דיגיטלי מ-MasterStack."
@@ -29,30 +30,6 @@ const NewsPage = () => {
         image="/assets/images/news-og-image.jpg"
         structuredData={newsStructuredData}
       />
-      {/* Background Video with same style as Index.tsx */}
-      <video 
-        className="fixed inset-0 w-full h-full object-cover -z-40 brightness-[0.3]"
-        autoPlay 
-        muted 
-        loop 
-        playsInline
-        aria-hidden="true"
-      >
-        <source src="/assets/videos/background.mp4" type="video/mp4" />
-      </video>
-      
-      {/* Fallback background image */}
-      <div 
-        className="fixed inset-0 w-full h-full -z-50"
-        style={{
-          backgroundImage: 'url(/assets/images/image.png)',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
-        }}
-        aria-hidden="true"
-      ></div>
-      
       <Header />
       <AccessibilityMenu />
       <div className="relative z-10">
@@ -65,7 +42,7 @@ const NewsPage = () => {
       </div>
       <Footer />
       <FloatingWhatsApp />
-    </div>
+    </PageBackground>
   );
 };
 

@@ -96,16 +96,12 @@ const Index = () => {
   ];
 
   const stats = [
-    { number: "11", label: "שירותים מובילים" },
-    { number: "7", label: "קטגוריות, מבניית האתר ועד הדרכה לתחזוקה עצמאית" },
-    { number: "24/7", label: "תמיכה טכנית" },
-    { number: "5+", label: "שנות ניסיון" }
-  ];
-
-  const features = [
     { icon: <Monitor className="w-6 h-6" />, title: "עיצוב רספונסיבי", desc: "מותאם לכל המכשירים" },
     { icon: <Zap className="w-6 h-6" />, title: "ביצועים מהירים", desc: "זמני טעינה מהירים" },
     { icon: <Shield className="w-6 h-6" />, title: "אבטחה מתקדמת", desc: "הגנה מלאה על הנתונים" },
+  ];
+
+  const features = [
     { icon: <Target className="w-6 h-6" />, title: "SEO מותאם", desc: "מיטוב למנועי חיפוש" },
     { icon: <Users className="w-6 h-6" />, title: "ניהול לקוחות", desc: "מערכת CRM מובנית" },
     { icon: <Globe className="w-6 h-6" />, title: "נגישות גלובלית", desc: "תמיכה בשפות מרובות" }
@@ -185,7 +181,7 @@ const Index = () => {
 
   return (
     <div className="min-h-screen text-white bg-transparent" dir="rtl">
-      <SEO 
+      <SEO
         title="MasterStack Web Solutions - פתרונות דיגיטליים מקצועיים | בניית אתרים ו-SEO"
         description="MasterStack מספקת שירותי בניית אתרים, תיקון אתרים, SEO ושיווק דיגיטלי מתקדם. פתרונות מותאמים אישית לעסקים בישראל עם ניסיון של 5+ שנים ותמיכה 24/7. התקשרו עכשיו לייעוץ חינם!"
         keywords="בניית אתרים, תיקון אתרים, SEO, שיווק דיגיטלי, עיצוב אתרים, פיתוח אתרים, ישראל, הרצליה, MasterStack, אבטחת אתרים, תחזוקת אתרים, קידום אתרים, עסקים דיגיטליים"
@@ -331,27 +327,22 @@ const Index = () => {
           </div>
 
           {/* Enhanced Stats */}
-          <div
-            className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-6xl mx-auto"
-            role="region"
-            aria-label="נתונים סטטיסטיים על החברה"
-          >
-            {stats.map((stat, index) => (
-              <div
-                key={index}
-                className="group text-center p-6 bg-slate-800/30 backdrop-blur-sm rounded-2xl border border-slate-700/50 hover:bg-slate-700/40 hover:border-cyan-400/50 transition-all duration-500 transform hover:scale-105 hover:-translate-y-3 relative"
-                role="group"
-                aria-label={`${stat.label}: ${stat.number}`}
-              >
-                <div className="text-4xl md:text-6xl lg:text-7xl font-black text-transparent bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text mb-4 drop-shadow-lg" aria-hidden="true">
-                  {stat.number}
-                </div>
-                <div className="text-gray-300 text-sm md:text-base font-semibold group-hover:text-white transition-colors duration-300">
-                  {stat.label}
-                </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mb-20">
+            {stats.map((stats, index) => (
+              <div key={index} className="group text-center p-8 bg-slate-800/60 backdrop-blur-sm rounded-3xl border border-slate-700/50 hover:bg-slate-700/60 hover:border-cyan-400/50 transition-all duration-700 hover:scale-105 hover:-translate-y-4 shadow-lg hover:shadow-2xl hover:shadow-cyan-500/20 relative overflow-hidden">
+                {/* Glowing background effect */}
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 to-cyan-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-3xl"></div>
 
-                {/* Glowing effect on hover */}
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-cyan-600/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10 blur"></div>
+                <div className="flex justify-center mb-6 relative z-10">
+                  <div className="p-6 bg-gradient-to-br from-blue-600/30 to-cyan-600/30 rounded-3xl text-blue-400 group-hover:text-cyan-300 transition-all duration-700 group-hover:scale-110 shadow-lg group-hover:shadow-cyan-500/30">
+                    {stats.icon}
+                  </div>
+                </div>
+                <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-cyan-300 transition-colors duration-700 relative z-10">{stats.title}</h3>
+                <p className="text-gray-400 group-hover:text-gray-300 transition-colors duration-700 text-lg leading-relaxed relative z-10">{stats.desc}</p>
+
+                {/* Static border - no animation */}
+                <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-blue-500/10 to-cyan-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
               </div>
             ))}
           </div>
