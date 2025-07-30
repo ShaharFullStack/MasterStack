@@ -33,11 +33,7 @@ const NewsPage = () => {
       <Header />
       <AccessibilityMenu />
       <div className="relative z-10">
-        <Breadcrumbs 
-          items={[
-            { label: "חדשות ועדכונים", current: true }
-          ]} 
-        />
+
         <NewsUpdates />
       </div>
       <Footer />

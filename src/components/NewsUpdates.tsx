@@ -7,58 +7,58 @@ import { link } from "fs";
 
 const NewsUpdates = () => {
   const articles = [
-    {
-      id: 1,
-      title: "מדריך מקיף: בניית דף נחיתה עם AI בשעה אחת",
-      description: "גלו כיצד להשתמש בכלי AI מתקדמים כמו Claude ו-ChatGPT לבניית דף נחיתה מקצועי ומכירתי שממיר מבקרים ללקוחות. כולל קוד מוכן, טיפים מעשיים ודוגמאות עבודה.",
-      date: "2 ביולי 2025",
-      category: "כלי AI",
-      icon: <Zap className="w-5 h-5" />,
-      readTime: "8 דקות קריאה",
-      featured: true,
-      link: "/articles/landing-page-with-ai"
-    },
-    {
-      id: 2,
-      title: "מדריך מקיף: איך לבנות אתר עסקי ",
-      description: "כל מה שאתם צריכים לדעת על בניית אתר עסקי מנצח - מהדף הבית המושלם ועד לעמודי הבידול שיפרידו אתכם מהמתחרים. כולל טיפים מעשיים ודוגמאות עבודה.",
-      date: "29 ביוני 2025",
-      category: "עסקים דיגיטליים",
-      icon: <Building className="w-5 h-5" />,
-      readTime: "12 דקות קריאה",
-      featured: true,
-      link: "/articles/business-website-guide"
-    },
-    {
-      id: 3,
-      title: "5 טרנדים בעיצוב אתרים שחייבים לדעת ב-2025",
-      description: "מגלסמורפיזם ועד אנימציות מיקרו - כל מה שצריך לדעת על הטרנדים החמים ביותר בעיצוב אתרים השנה.",
-      date: "25 ביוני 2025",
-      category: "עיצוב",
-      icon: <Palette className="w-5 h-5" />,
-      readTime: "6 דקות קריאה",
-      featured: false
-    },
-    {
-      id: 4,
-      title: "React vs Vue vs Svelte - מה לבחור ב-2025?",
-      description: "השוואה מעמיקה של שלושת הפריימוורקס הפופולאריים ביותר, כולל ביצועים, קהילה ומתי להשתמש בכל אחד.",
-      date: "20 ביוני 2025",
-      category: "פיתוח",
-      icon: <Code className="w-5 h-5" />,
-      readTime: "12 דקות קריאה",
-      featured: false
-    },
-    {
-      id: 5,
-      title: "טיפ מהיר: CSS Grid במקום Flexbox?",
-      description: "מתי להשתמש ב-CSS Grid ומתי ב-Flexbox? טיפים מעשיים שיחסכו לכם שעות של עבודה ויהפכו את הקוד ליותר נקי.",
-      date: "15 ביוני 2025",
-      category: "טיפים",
-      icon: <Lightbulb className="w-5 h-5" />,
-      readTime: "3 דקות קריאה",
-      featured: false
-    }
+    // {
+    //   id: 1,
+    //   title: "מדריך מקיף: בניית דף נחיתה עם AI בשעה אחת",
+    //   description: "גלו כיצד להשתמש בכלי AI מתקדמים כמו Claude ו-ChatGPT לבניית דף נחיתה מקצועי ומכירתי שממיר מבקרים ללקוחות. כולל קוד מוכן, טיפים מעשיים ודוגמאות עבודה.",
+    //   date: "2 ביולי 2025",
+    //   category: "כלי AI",
+    //   icon: <Zap className="w-5 h-5" />,
+    //   readTime: "8 דקות קריאה",
+    //   featured: true,
+    //   link: "/articles/landing-page-with-ai"
+    // },
+    // {
+    //   id: 2,
+    //   title: "מדריך מקיף: איך לבנות אתר עסקי ",
+    //   description: "כל מה שאתם צריכים לדעת על בניית אתר עסקי מנצח - מהדף הבית המושלם ועד לעמודי הבידול שיפרידו אתכם מהמתחרים. כולל טיפים מעשיים ודוגמאות עבודה.",
+    //   date: "29 ביוני 2025",
+    //   category: "עסקים דיגיטליים",
+    //   icon: <Building className="w-5 h-5" />,
+    //   readTime: "12 דקות קריאה",
+    //   featured: true,
+    //   link: "/articles/business-website-guide"
+    // },
+    // {
+    //   id: 3,
+    //   title: "5 טרנדים בעיצוב אתרים שחייבים לדעת ב-2025",
+    //   description: "מגלסמורפיזם ועד אנימציות מיקרו - כל מה שצריך לדעת על הטרנדים החמים ביותר בעיצוב אתרים השנה.",
+    //   date: "25 ביוני 2025",
+    //   category: "עיצוב",
+    //   icon: <Palette className="w-5 h-5" />,
+    //   readTime: "6 דקות קריאה",
+    //   featured: false
+    // },
+    // {
+    //   id: 4,
+    //   title: "React vs Vue vs Svelte - מה לבחור ב-2025?",
+    //   description: "השוואה מעמיקה של שלושת הפריימוורקס הפופולאריים ביותר, כולל ביצועים, קהילה ומתי להשתמש בכל אחד.",
+    //   date: "20 ביוני 2025",
+    //   category: "פיתוח",
+    //   icon: <Code className="w-5 h-5" />,
+    //   readTime: "12 דקות קריאה",
+    //   featured: false
+    // },
+    // {
+    //   id: 5,
+    //   title: "טיפ מהיר: CSS Grid במקום Flexbox?",
+    //   description: "מתי להשתמש ב-CSS Grid ומתי ב-Flexbox? טיפים מעשיים שיחסכו לכם שעות של עבודה ויהפכו את הקוד ליותר נקי.",
+    //   date: "15 ביוני 2025",
+    //   category: "טיפים",
+    //   icon: <Lightbulb className="w-5 h-5" />,
+    //   readTime: "3 דקות קריאה",
+    //   featured: false
+    // }
   ];
 
   const getCategoryColor = (category: string) => {
@@ -79,12 +79,12 @@ const NewsUpdates = () => {
   };
 
   return (
-    <section className="py-16 md:py-32 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+    <section className="py-16 md:py-6 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
       {/* Background matching Index.tsx */}
-      <div className="absolute inset-0 bg-slate-900/50" aria-hidden="true"></div>
+      <div className="absolute inset-0 " aria-hidden="true"></div>
 
       <div className="container mx-auto relative z-10 max-w-7xl">
-        <div className="text-center mb-12 md:mb-20">
+        <div className="text-center mb-2 md:mb-20">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 md:mb-6 bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
             ניוזלטר ומאמרים
           </h2>
@@ -99,7 +99,7 @@ const NewsUpdates = () => {
             {articles
               .filter(item => item.featured)
               .map(item => (
-                <div key={item.id} className="bg-slate-800/60 mb-8 backdrop-blur-sm rounded-2xl lg:rounded-3xl border border-slate-700/50 overflow-hidden shadow-2xl hover:shadow-cyan-500/10 transition-all duration-500 hover:scale-105">
+                <div key={item.id} className="bg-slate-800/60 mb-8 sm:mb-12 backdrop-blur-sm rounded-2xl lg:rounded-3xl border border-slate-700/50 overflow-hidden shadow-2xl hover:shadow-cyan-500/10 transition-all duration-500 hover:scale-105">
                   <div className="bg-gradient-to-r from-slate-700/10/20 to-cyan-600/20 backdrop-blur-sm p-6 sm:p-8 border-b border-slate-600/30">
                     <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-6">
                       <div className="bg-cyan-400/20 p-3 rounded-2xl border border-cyan-400/30 w-fit">

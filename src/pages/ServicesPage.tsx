@@ -426,19 +426,15 @@ const ServicesPage = () => {
       <Header />
       
       <div className="relative z-10">
-        <Breadcrumbs 
-          items={[
-            { label: "השירותים שלנו", current: true }
-          ]} 
-        />
+
         
-        <section className="pt-16 sm:pt-20 lg:pt-24 pb-12 sm:pb-16 lg:pb-20 text-center">
+        <section className="pt-16 mb-3 rounded-sm backdrop-blur-sm bg-black/70 sm:pt-20 lg:pt-24 pb-12 sm:pb-16 lg:pb-20 text-center">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <Badge className="bg-blue-500/10 text-blue-300 border border-blue-500/30 mb-4">השירותים שלנו</Badge>
             <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black text-white mb-4 sm:mb-6 leading-tight">
-              הופכים רעיונות לנוכחות דיגיטלית <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">שמביאה תוצאות</span>
+              הופכים רעיונות לנוכחות דיגיטלית <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-xl sm:text-2xl md:text-3xl lg:text-4xl text-transparent">שמביאה תוצאות</span>
             </h1>
-            <p className="text-base sm:text-lg lg:text-xl text-slate-300 max-w-3xl mx-auto px-4">
+            <p className="text-base  sm:text-lg lg:text-xl text-slate-300 max-w-3xl mx-auto px-4">
               בין אם אתם צריכים כרטיס ביקור דיגיטלי מרשים או אתר תדמית מלא, יש לנו את הפתרון המדויק עבורכם. אנחנו בונים אתרים מהירים, מאובטחים ומעוצבים אישית כדי שהעסק שלכם יבלוט.
             </p>
           </div>
