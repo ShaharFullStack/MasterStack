@@ -336,7 +336,7 @@ const ServiceCard3D = ({ service }) => {
 
   return (
     <article 
-      className={`bg-slate-800/50 border border-slate-700 rounded-xl sm:rounded-2xl p-2 sm:p-4 md:p-6 lg:p-8 flex flex-col h-full transition-all duration-300 hover:border-blue-500/50 hover:shadow-2xl relative overflow-hidden group`}
+      className={`bg-slate-800/50 border border-slate-700 rounded-2xl p-4 sm:p-6 lg:p-8 flex flex-col h-full transition-all duration-300 hover:border-blue-500/50 hover:shadow-2xl relative overflow-hidden group`}
       aria-labelledby={`service-title-${service.id}`}
     >
       {/* Solid background overlay that hides on hover */}
@@ -346,27 +346,27 @@ const ServiceCard3D = ({ service }) => {
         {!scriptsLoaded && <div className="text-white text-center pt-20">טוען תצוגה תלת-ממדית...</div>}
       </div>
       
-      <div className="relative z-10 flex flex-col h-full p-1 sm:p-3 md:p-4 lg:p-6 rounded-xl pointer-events-none">
-          <div className="text-center mb-2 sm:mb-4 md:mb-6">
+      <div className="relative z-10 flex flex-col h-full p-3 sm:p-4 lg:p-6 rounded-xl pointer-events-none">
+          <div className="text-center mb-6">
             {service.badge && (
-              <Badge className={`${service.badgeColor} text-white mb-1 sm:mb-2 md:mb-4 shadow-lg text-xs`}>
-                <Star className="w-2 h-2 sm:w-3 sm:h-3 inline-block ml-1" />
+              <Badge className={`${service.badgeColor} text-white mb-4 shadow-lg`}>
+                <Star className="w-3 h-3 inline-block ml-1" />
                 {service.badge}
               </Badge>
             )}
-            <h3 id={`service-title-${service.id}`} className="text-sm sm:text-lg md:text-xl lg:text-2xl font-bold text-white leading-tight">{service.title}</h3>
-            <p className="text-xs sm:text-xs md:text-sm text-slate-400">{service.category}</p>
+            <h3 id={`service-title-${service.id}`} className="text-lg sm:text-xl lg:text-2xl font-bold text-white">{service.title}</h3>
+            <p className="text-xs sm:text-sm text-slate-400">{service.category}</p>
           </div>
           
-          <div className="flex-grow min-h-[300px] sm:min-h-[450px] md:min-h-[500px] lg:min-h-[550px]"></div>
+          <div className="flex-grow min-h-[350px] sm:min-h-[400px] lg:min-h-[450px]"></div>
 
-          <div className="text-center my-2 sm:my-4">
-            <span className="text-lg sm:text-2xl md:text-3xl lg:text-4xl font-bold text-white">{service.price}</span>
-            <span className="text-slate-400 block text-xs sm:text-xs md:text-sm">{service.priceType}</span>
+          <div className="text-center my-4">
+            <span className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white">{service.price}</span>
+            <span className="text-slate-400 block text-xs sm:text-sm">{service.priceType}</span>
           </div>
           
           <Button 
-            className={`w-full mt-2 sm:mt-4 py-1 sm:py-2 md:py-3 px-2 sm:px-4 md:px-6 text-xs sm:text-sm md:text-base bg-gradient-to-r ${service.gradient} text-white hover:shadow-xl transition-all duration-300 transform hover:scale-105 pointer-events-auto`}
+            className={`w-full mt-4 py-2 sm:py-3 px-4 sm:px-6 text-sm sm:text-base bg-gradient-to-r ${service.gradient} text-white hover:shadow-xl transition-all duration-300 transform hover:scale-105 pointer-events-auto`}
             onClick={() => {
               const phoneNumber = '972525347274'; 
               const message = `שלום, אני מתעניין/ת בחבילה: "${service.title}"`;
@@ -442,7 +442,7 @@ const ServicesPage = () => {
 
         <main id="main-content" className="pb-12 sm:pb-16 lg:pb-20">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 items-stretch">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 items-stretch">
               {services.map((service) => (
                 <ServiceCard3D key={service.id} service={service} />
               ))}
