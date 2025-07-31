@@ -116,7 +116,7 @@ const Index = () => {
 
   // Solutions with more realistic and verifiable claims.
   const solutions = [
-    { icon: <Rocket className="w-6 h-6" />, title: "טעינה בפחות משנייה", desc: "ביצועים גבוהים עם ציון 90+ ב-Core Web Vitals של גוגל.", stat: "<1s" },
+    { icon: <Rocket className="w-6 h-6" />, title: "טעינה בפחות משנייה", desc: "ביצועים גבוהים עם ציון 90+ ב-Core Web Vitals של גוגל.", stat: "1sec" },
     { icon: <BarChart3 className="w-6 h-6" />, title: "SEO טכני מהיסוד", desc: "בסיס אופטימלי לדירוג גבוה בגוגל, ללא קוד מיותר.", stat: "90+" },
     { icon: <BadgeCheck className="w-6 h-6" />, title: "קוד איכותי ומותאם אישית", desc: "פיתוח ב-React ו-TypeScript לעיצוב ייחודי ושליטה מלאה.", stat: "100%" }
   ];
@@ -266,19 +266,19 @@ const Index = () => {
           {/* Social Proof Stats - with more realistic numbers */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
             <div className="text-center p-6 bg-slate-800/40 backdrop-blur-sm rounded-2xl border border-slate-700/30">
-              <div className="text-4xl font-bold text-cyan-400 mb-2">&lt;1s</div>
-              <div className="text-gray-300">זמן טעינה</div>
-              <div className="text-sm text-gray-500 mt-1">חווית משתמש מעולה</div>
+              <div className="text-4xl font-bold text-cyan-400 mb-2">1sec</div>
+              <div className="text-white">זמן טעינה</div>
+              <div className="text-sm text-white mt-1">חווית משתמש מעולה</div>
             </div>
             <div className="text-center p-6 bg-slate-800/40 backdrop-blur-sm rounded-2xl border border-slate-700/30">
               <div className="text-4xl font-bold text-green-400 mb-2">90+</div>
-              <div className="text-gray-300">ציון ביצועים בגוגל</div>
-              <div className="text-sm text-gray-500 mt-1">בסיס חזק ל-SEO</div>
+              <div className="text-white">ציון ביצועים בגוגל</div>
+              <div className="text-sm text-white mt-1">בסיס חזק ל-SEO</div>
             </div>
             <div className="text-center p-6 bg-slate-800/40 backdrop-blur-sm rounded-2xl border border-slate-700/30">
               <div className="text-4xl font-bold text-blue-400 mb-2">100%</div>
-              <div className="text-gray-300">קוד מותאם אישית</div>
-              <div className="text-sm text-gray-500 mt-1">ללא תבניות או מגבלות</div>
+              <div className="text-white">קוד מותאם אישית</div>
+              <div className="text-sm text-white mt-1">ללא תבניות או מגבלות</div>
             </div>
           </div>
         </div>
@@ -323,7 +323,7 @@ const Index = () => {
                   <div className="p-4 bg-cyan-600/20 rounded-full text-cyan-300">{solution.icon}</div>
                 </div>
                 <h3 className="text-xl font-bold text-white mb-3">{solution.title}</h3>
-                <p className="text-gray-300">{solution.desc}</p>
+                <p className="text-white">{solution.desc}</p>
               </div>
             ))}
           </div>

@@ -278,7 +278,7 @@ const AdvancedContact = () => {
                       <Phone className="w-6 h-6 text-green-400" />
                     </div>
                     <div>
-                      <h3 className="text-xl font-bold text-white">ווצאפ וטלפון</h3>
+                      <h3 className="text-xl font-bold text-white">ווצאפ</h3>
                       <p className="text-gray-400">זמינים א'-ה' 08:00-21:00</p>
                     </div>
                   </div>
@@ -288,10 +288,6 @@ const AdvancedContact = () => {
                     <Button size="sm" variant="outline" className="p-3 text-green-400 bg-green-600/20 rounded-2xl border border-green-500/30 group-hover:bg-green-600/30 hover:text-green-300 transition-colors" onClick={contactByWhatsApp}>
                         <MessageCircle className="w-4 h-4 ml-1" />
                         הודעה בווצאפ
-                      </Button>
-                    <Button size="sm" variant="outline" className="p-3 text-green-400 bg-green-600/20 rounded-2xl border border-green-500/30 group-hover:bg-green-600/30 hover:text-green-300 transition-colors" onClick={contactByPhone}>
-                        <Phone className="w-4 h-4 ml-1" />
-                        שיחה טלפונית
                       </Button>
                     </div>
                   </div>
