@@ -235,10 +235,8 @@ const Index = () => {
           }`}>
 
           {/* Main Headline - Clear value proposition */}
-          <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold mb-8 ">
-            <span className="text-white text-3xl md:text-4xl lg:text-6xl">
-              קוד נקי, עיצוב חכם, תוצאות אמיתיות
-            </span>
+          <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
+            קוד נקי, עיצוב חכם, תוצאות אמיתיות
           </h1>
 
           {/* Sub-headline with clear benefits */}
@@ -288,9 +286,9 @@ const Index = () => {
       <section className="py-20 px-4 relative bg-primary/90 backdrop-blur-sm">
         <div className="container mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
-              אתרי תבניות פוגעים בעסק שלכם
-            </h2>
+            <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-blue-300 to-cyan-400 bg-clip-text text-transparent">
+              אתרי תבניות לא מביאים תוצאות
+            </h1>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
@@ -415,7 +413,7 @@ const Index = () => {
                 שחר מעוז | מפתח אתרים שמבין שיווק
               </h2>
               <p className="text-lg text-gray-300 mb-6 leading-relaxed">
-                 עם ניסיון של שנים בעולמות השיווק והיזמות, אני יודע שאתר הוא קודם כל כלי עסקי. המטרה שלי היא לתרגם את החזון שלכם לאתר מהיר, יעיל ומעוצב שמניע לקוחות לפעולה.
+                עם ניסיון של שנים בעולמות השיווק והיזמות, אני יודע שאתר הוא קודם כל כלי עסקי. המטרה שלי היא לתרגם את החזון שלכם לאתר מהיר, יעיל ומעוצב שמניע לקוחות לפעולה.
               </p>
               <p className="text-lg text-gray-300 mb-8 leading-relaxed">
                 בניגוד לעבודה עם תבניות, אני בונה כל אתר מאפס. זה מאפשר לי שליטה מלאה על הביצועים, ה-SEO הטכני וחווית המשתמש - שלושת המרכיבים החיוניים להצלחה דיגיטלית.
@@ -466,7 +464,7 @@ const Index = () => {
               השקעה חכמה באתר מקצועי
             </h2>
             <p className="text-xl text-gray-300 mb-8">
-               מחירים שקופים, ללא הפתעות. <strong className="text-cyan-400 text-2xl font-bold"> <br />מחירי השקה! אל תפספסו כי בקרוב המחיר עולה!</strong>
+              מחירים שקופים, ללא הפתעות. <strong className="text-cyan-400 text-2xl font-bold"> <br />מחירי השקה! אל תפספסו כי בקרוב המחיר עולה!</strong>
             </p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
               <div className="p-6 bg-slate-800/60 rounded-xl border border-slate-700/50">
@@ -540,7 +538,7 @@ const Index = () => {
       <section id="contact" className="py-20 px-4 relative z-10 bg-gradient-to-b from-primary via-primary/20 to-slate-950/80 backdrop-blur-sm">
         <div className="container mx-auto px-6 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-8">
-או השאירו פרטים
+            או השאירו פרטים
           </h2>
           <p className="text-lg text-gray-400 mb-12 max-w-2xl mx-auto">
             מלאו את הטופס ואחזור אליכם עם כל המידע הדרוש.
