@@ -4,7 +4,13 @@
       "Bash(npm install:*)",
       "Bash(npm run build:*)",
       "Bash(npx tsc:*)",
-      "Bash(npx eslint:*)"
+      "Bash(npx eslint:*)",
+      "Bash(npm outdated)",
+      "Bash(npm update:*)",
+      "Bash(cp:*)",
+      "Bash(npm uninstall:*)",
+      "Bash(sed:*)",
+      "Bash(rm:*)"
     ],
     "deny": []
   }

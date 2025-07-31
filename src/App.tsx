@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { HelmetProvider } from 'react-helmet-async';
 import { lazy, Suspense } from "react";
+import ErrorBoundary from "./components/ErrorBoundary";
 
 // Lazy load pages for better performance
 const Index = lazy(() => import("./pages/Index"));
@@ -29,30 +30,33 @@ const PageLoader = () => (
 const queryClient = new QueryClient();
 
 const App = () => (
-  <HelmetProvider>
-    <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
-        <Toaster />
-        <Sonner />
-        <BrowserRouter>
-          <Suspense fallback={<PageLoader />}>
-            <Routes>
-              <Route path="/" element={<Index />} />
-              <Route path="/services" element={<ServicesPage />} />
-              <Route path="/about" element={<AboutPage />} />
+  <ErrorBoundary>
+    <HelmetProvider>
+      <QueryClientProvider client={queryClient}>
+        <TooltipProvider>
+          <Toaster />
+          <Sonner />
+          
+          <BrowserRouter>
+            <Suspense fallback={<PageLoader />}>
+              <Routes>
+                <Route path="/" element={<Index />} />
+                <Route path="/services" element={<ServicesPage />} />
+                <Route path="/about" element={<AboutPage />} />
 
-              <Route path="/news" element={<NewsPage />} />
-              <Route path="/articles/landing-page-with-ai" element={<ArticlesPage />} />
-              <Route path="/articles/business-website-guide" element={<ArticlesPage2 />} />
-              <Route path="/contact" element={<ContactPage />} />
-              {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-          </Suspense>
-        </BrowserRouter>
-      </TooltipProvider>
-    </QueryClientProvider>
-  </HelmetProvider>
+                <Route path="/news" element={<NewsPage />} />
+                <Route path="/articles/landing-page-with-ai" element={<ArticlesPage />} />
+                <Route path="/articles/business-website-guide" element={<ArticlesPage2 />} />
+                <Route path="/contact" element={<ContactPage />} />
+                {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </Suspense>
+          </BrowserRouter>
+        </TooltipProvider>
+      </QueryClientProvider>
+    </HelmetProvider>
+  </ErrorBoundary>
 );
 
 export default App;

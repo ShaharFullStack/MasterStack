@@ -46,11 +46,6 @@ const ContactPage = () => {
       <Header />
       <AccessibilityMenu />
       <div className="relative z-10">
-        <Breadcrumbs 
-          items={[
-            { label: "צור קשר", current: true }
-          ]} 
-        />
         <AdvancedContact />
       </div>
       <Footer />

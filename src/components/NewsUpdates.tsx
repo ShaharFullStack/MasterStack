@@ -85,9 +85,9 @@ const NewsUpdates = () => {
 
       <div className="container mx-auto relative z-10 max-w-7xl">
         <div className="text-center mb-2 md:mb-20">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 md:mb-6 bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
+            <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
             ניוזלטר ומאמרים
-          </h2>
+          </h1>
           <p className="text-lg sm:text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed px-4">
             מדריכים מעשיים, טיפים מקצועיים וכלי AI מתקדמים לבניית אתרים ופיתוח מוצרים דיגיטליים
           </p>

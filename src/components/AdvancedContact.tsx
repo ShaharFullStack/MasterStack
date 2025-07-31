@@ -92,15 +92,12 @@ const AdvancedContact = () => {
         {/* Header */}
         <div className="text-center mb-16">
           <div className="flex items-center justify-center gap-3 mb-6">
-            <div className="p-4 bg-blue-600/20 rounded-2xl border border-blue-500/30">
-              <MessageSquare className="w-8 h-8 text-blue-400" />
-            </div>
-            <h1 className="text-4xl md:text-5xl font-bold text-white">
+            <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
               בואו נדבר על הפרויקט שלכם
             </h1>
           </div>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            השאירו פרטים ונחזור אליכם תוך 24 שעות עם הצעה מותאמת אישית
+            השאירו פרטים ואחזור אליכם תוך 24 שעות 
           </p>
         </div>
 

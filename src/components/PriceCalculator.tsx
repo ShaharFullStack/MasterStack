@@ -102,7 +102,6 @@ const PriceCalculator = () => {
     { 
       id: "speed", 
       icon: <Gauge className="w-6 h-6" />,
-      emoji: "🚀",
       name: "שירותי מהירות ואופטימיזציה", 
       minPrice: 800, 
       maxPrice: 1500, 

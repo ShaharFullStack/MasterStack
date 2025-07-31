@@ -28,9 +28,9 @@ const Header = () => {
 
   const navigationItems = [
     { href: "/", label: "בית" },
-    { href: "/about", label: "אודות" },
     { href: "/services", label: "שירותים" },
     { href: "/news", label: "חדשות" },
+    { href: "/about", label: "אודות" },
     // { href: "/calculator", label: "מחשבון מחיר" },
     { href: "/contact", label: "צור קשר" }
   ];

@@ -1,0 +1,23 @@
+{
+  "name": "MasterStack Web Solutions",
+  "short_name": "MasterStack",
+  "description": "פתרונות דיגיטליים מקצועיים - בניית אתרים ו-SEO",
+  "theme_color": "#0ea5e9",
+  "background_color": "#0f172a",
+  "display": "standalone",
+  "orientation": "portrait",
+  "scope": "/",
+  "start_url": "/",
+  "icons": [
+    {
+      "src": "/favicon-16x16.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    }
+  ]
+}

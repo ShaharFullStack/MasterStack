@@ -5,7 +5,8 @@ import {
   Zap
 } from "lucide-react";
 import { useEffect, useRef, useState } from 'react';
-import type * as THREE from 'three'; // Added for TypeScript type safety
+import * as THREE from 'three';
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import AccessibilityMenu from '../components/AccessibilityMenu';
 import Breadcrumbs from '../components/Breadcrumbs';
 import FloatingWhatsApp from '../components/FloatingWhatsApp';
@@ -114,12 +115,12 @@ const ServiceCard3D = ({ service, index = 0 }) => {
     if (!scriptsLoaded || !mountRef.current) return;
     const currentMount = mountRef.current;
 
-    let scene: THREE.Scene, camera: THREE.PerspectiveCamera, renderer: THREE.WebGLRenderer | InstanceType<typeof window.THREE.CSS3DRenderer>;
+    let scene: any, camera: any, renderer: any;
     let frameId: number;
     const targetRotation = { x: 0, y: 0 };
     const currentRotation = { x: 0, y: 0 };
-    let object: THREE.Object3D | InstanceType<typeof window.THREE.CSS3DObject>;
-    const innerShapes: THREE.Mesh[] = [];
+    let object: any;
+    const innerShapes: any[] = [];
     let iframeElement: HTMLIFrameElement;
 
     const init = () => {
@@ -155,7 +156,7 @@ const ServiceCard3D = ({ service, index = 0 }) => {
         notch.style.height = '25px';
         notch.style.background = '#000';
         notch.style.borderRadius = '0 0 20px 20px';
-        notch.style.zIndex = '10';
+        notch.style.zIndex = '0';
         phoneContainer.appendChild(notch);
 
         // Create screen container
@@ -219,7 +220,7 @@ const ServiceCard3D = ({ service, index = 0 }) => {
         phoneContainer.appendChild(screenContainer);
 
         object = new window.THREE.CSS3DObject(phoneContainer);
-        scene.add(object as unknown as THREE.Object3D);
+        scene.add(object as unknown as any);
 
         renderer = new window.THREE.CSS3DRenderer();
       
@@ -269,7 +270,7 @@ const ServiceCard3D = ({ service, index = 0 }) => {
         pointLight.position.set(5, 5, 5);
         scene.add(pointLight);
 
-        scene.add(object as THREE.Object3D);
+        scene.add(object as any);
         renderer = new window.THREE.WebGLRenderer({ antialias: true, alpha: true });
       }
 
@@ -389,7 +390,7 @@ const ServiceCard3D = ({ service, index = 0 }) => {
         currentMount.removeChild(renderer.domElement);
       }
     };
-  }, [scriptsLoaded, service.type, service.demoUrl]);
+  }, [scriptsLoaded, service.type, service.demoUrl, service.title]);
 
   return (
     <article 
@@ -440,7 +441,7 @@ const ServiceCard3D = ({ service, index = 0 }) => {
           <Button 
             className={`w-full mt-4 py-2 sm:py-3 px-4 sm:px-6 text-sm sm:text-base bg-gradient-to-r ${service.gradient} text-white hover:shadow-xl transition-all duration-300 transform hover:scale-105 pointer-events-auto`}
             onClick={() => {
-              const phoneNumber = '972525347274'; 
+              const phoneNumber = '+972525347274'; 
               const message = `שלום, אני מתעניין/ת בחבילה: "${service.title}"`;
               const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
               window.open(whatsappUrl, '_blank');
@@ -500,14 +501,14 @@ const ServicesPage = () => {
       <div className="relative z-10">
 
         
-        <section className="pt-16 mb-3 rounded-sm backdrop-blur-sm bg-black/70 sm:pt-20 lg:pt-24 pb-12 sm:pb-16 lg:pb-20 text-center">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <Badge className="bg-blue-500/10 text-blue-300 border border-blue-500/30 mb-4">השירותים שלנו</Badge>
-            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black text-white mb-4 sm:mb-6 leading-tight">
-              הופכים רעיונות לנוכחות דיגיטלית <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-xl sm:text-2xl md:text-3xl lg:text-4xl text-transparent">שמביאה תוצאות</span>
+        <section className="pt-16 mb-3 rounded-sm backdrop-blur-sm bg-primary/50 sm:pt-20 lg:pt-24 pb-12 sm:pb-16 lg:pb-20 text-center">
+          <div className="container mx-auto backdrop-blur-md p-8 rounded-2xl shadow-lg">
+            <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
+              העסק שלך מתחיל עם נוכחות דיגיטלית
             </h1>
-            <p className="text-base  sm:text-lg lg:text-xl text-slate-300 max-w-3xl mx-auto px-4">
-              בין אם אתם צריכים כרטיס ביקור דיגיטלי מרשים או אתר תדמית מלא, יש לנו את הפתרון המדויק עבורכם. אנחנו בונים אתרים מהירים, מאובטחים ומעוצבים אישית כדי שהעסק שלכם יבלוט.
+            <p className="text-lg sm:text-xl text-slate-300 mb-8 max-w-3xl mx-auto px-4">
+              הנוכחות הדיגיטלית שלך היא הבסיס להצלחה.
+              בעמוד תמצאו חבילות שירותים מותאמות אישית במחירי השקה, החל מאתרי תדמית מקצועיים ועד דפי נחיתה ממירים, מהרו להזמין, המחירים עתידים להשתנות.
             </p>
           </div>
         </section>

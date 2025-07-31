@@ -1,144 +1,231 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
+import * as THREE from 'three';
 
+// Interface defining the props for the PageBackground component
 interface PageBackgroundProps {
-  children: React.ReactNode;
-  showVideo?: boolean;
-  videoProps?: {
-    showContent?: boolean;
-    videoError?: boolean;
-  };
+  children: React.ReactNode; // Content to be displayed over the background
+  showVideo?: boolean; // Optional prop to control video background display
 }
 
-const PageBackground: React.FC<PageBackgroundProps> = ({ 
-  children, 
-  showVideo = false, 
-  videoProps = {} 
-}) => {
-  const { showContent = false, videoError = false } = videoProps;
+/**
+ * A React component that provides an interactive three.js background using vanilla Three.js.
+ * Avoids react-three-fiber to prevent reconciler issues.
+ */
+const PageBackground: React.FC<PageBackgroundProps> = ({ children, showVideo = false }) => {
+  const mountRef = useRef<HTMLDivElement>(null);
+  const sceneRef = useRef<{
+    scene?: THREE.Scene;
+    camera?: THREE.PerspectiveCamera;
+    renderer?: THREE.WebGLRenderer;
+    particles?: Array<{ position: THREE.Vector3; velocity: THREE.Vector3 }>;
+    points?: THREE.Points;
+    lines?: THREE.LineSegments;
+    animationId?: number;
+  }>({});
+
+  useEffect(() => {
+    if (!mountRef.current) return;
+
+    const mount = mountRef.current;
+    const width = mount.clientWidth;
+    const height = mount.clientHeight;
+
+    try {
+      // Scene setup
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(40, width / height, 0.1, 1000);
+      const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+
+      renderer.setSize(width, height);
+      renderer.setClearColor(0x0f172a, 1);
+      camera.position.z = 30;
+
+      mount.appendChild(renderer.domElement);
+
+      // Create particles
+      const particleCount = 60;
+      const particles: Array<{ position: THREE.Vector3; velocity: THREE.Vector3 }> = [];
+      const positions = new Float32Array(particleCount * 2);
+
+      for (let i = 0; i < particleCount; i++) {
+        const x = (Math.random() - 0.5) * 100;
+        const y = (Math.random() - 0.5) * 300;
+        const z = (Math.random() - 0.5) * 10;
+
+        particles.push({
+          position: new THREE.Vector3(x, y, z),
+          velocity: new THREE.Vector3(
+            (Math.random() - 0.5) * 0.02,
+            (Math.random() - 0.5) * 0.02,
+            0
+          )
+        });
+
+        positions[i * 3] = x;
+        positions[i * 3 + 1] = y;
+        positions[i * 3 + 2] = z;
+      }
+
+      // Create points
+      const pointsGeometry = new THREE.BufferGeometry();
+      pointsGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+      const pointsMaterial = new THREE.PointsMaterial({
+        color: 0x2dd4bf,
+        size: 0.2,
+        sizeAttenuation: true
+      });
+      const points = new THREE.Points(pointsGeometry, pointsMaterial);
+      scene.add(points);
+
+      // Create lines
+      const linesGeometry = new THREE.BufferGeometry();
+      const linesMaterial = new THREE.LineBasicMaterial({
+        color: 0x0891b2,
+        transparent: true,
+        opacity: 0.9
+      });
+      const lines = new THREE.LineSegments(linesGeometry, linesMaterial);
+      scene.add(lines);
+
+      // Mouse tracking
+      const mouse = new THREE.Vector2();
+      const handleMouseMove = (event: MouseEvent) => {
+        mouse.x = (event.clientX / width) * 2 - 1;
+        mouse.y = -(event.clientY / height) * 2 + 1;
+      };
+      window.addEventListener('mousemove', handleMouseMove);
+
+      // Animation loop
+      const animate = () => {
+        const animationId = requestAnimationFrame(animate);
+        sceneRef.current.animationId = animationId;
+
+        // Update particles
+        const linePositions: number[] = [];
+        const mouseWorld = new THREE.Vector3(
+          mouse.x * 25,
+          mouse.y * 15,
+          0
+        );
+
+        particles.forEach((particle, i) => {
+          // Update position
+          particle.position.add(particle.velocity);
+
+          // Boundary checks
+          if (particle.position.x < -25) particle.position.x = 25;
+          if (particle.position.x > 25) particle.position.x = -25;
+          if (particle.position.y < -15) particle.position.y = 15;
+          if (particle.position.y > 15) particle.position.y = -15;
+
+          // Update geometry
+          positions[i * 3] = particle.position.x;
+          positions[i * 3 + 1] = particle.position.y;
+          positions[i * 3 + 2] = particle.position.z;
+
+          // Connect to mouse
+          const distToMouse = particle.position.distanceTo(mouseWorld);
+          if (distToMouse < 10) {
+            linePositions.push(
+              particle.position.x, particle.position.y, particle.position.z,
+              mouseWorld.x, mouseWorld.y, mouseWorld.z
+            );
+          }
+
+          // Connect particles
+          for (let j = i + 1; j < particles.length; j++) {
+            const distance = particle.position.distanceTo(particles[j].position);
+            if (distance < 8) {
+              linePositions.push(
+                particle.position.x, particle.position.y, particle.position.z,
+                particles[j].position.x, particles[j].position.y, particles[j].position.z
+              );
+            }
+          }
+        });
+
+        // Update geometries
+        pointsGeometry.attributes.position.needsUpdate = true;
+        linesGeometry.setAttribute('position', new THREE.Float32BufferAttribute(linePositions, 3));
+
+        renderer.render(scene, camera);
+      };
+
+      animate();
+
+      // Store references
+      sceneRef.current = {
+        scene,
+        camera,
+        renderer,
+        particles,
+        points,
+        lines
+      };
+
+      // Handle resize
+      const handleResize = () => {
+        const newWidth = mount.clientWidth;
+        const newHeight = mount.clientHeight;
+        camera.aspect = newWidth / newHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(newWidth, newHeight);
+      };
+      window.addEventListener('resize', handleResize);
+
+      // Cleanup function
+      return () => {
+        window.removeEventListener('mousemove', handleMouseMove);
+        window.removeEventListener('resize', handleResize);
+        if (sceneRef.current.animationId) {
+          cancelAnimationFrame(sceneRef.current.animationId);
+        }
+        if (sceneRef.current.renderer) {
+          mount.removeChild(sceneRef.current.renderer.domElement);
+          sceneRef.current.renderer.dispose();
+        }
+        if (sceneRef.current.scene) {
+          sceneRef.current.scene.clear();
+        }
+      };
+    } catch (error) {
+      console.error('Three.js initialization failed:', error);
+      // Fallback to gradient background
+    }
+  }, []);
 
   return (
-    <div className="min-h-screen text-white bg-transparent relative" dir="rtl">
+    <div className="min-h-screen text-white bg-slate-950 relative" dir="rtl">
+      {/* Three.js canvas container */}
+      <div
+        ref={mountRef}
+        className="fixed inset-0 w-full h-full"
+        style={{ zIndex: 0 }}
+      />
+      
+      {/* Fallback gradient background */}
+      <div 
+        className="fixed inset-0 w-full h-full -z-10"
+        style={{
+          background: 'linear-gradient(45deg, #0f172a 0%, #1e293b 50%, #334155 100%)',
+          opacity: 0.8
+        }}
+      />
+      
+      {/* Optional video background */}
       {showVideo && (
-        <>
-          {/* Video Background - Only for hero sections */}
-          {!videoError && (
-            <video
-              className={`fixed inset-0 w-full h-full object-cover -z-40 transition-all duration-[4s] ease-out ${
-                showContent ? 'brightness-50 scale-105' : 'brightness-100 scale-100'
-              }`}
-              autoPlay
-              muted
-              loop
-              playsInline
-              aria-hidden="true"
-            >
-              <source src="/assets/videos/background.mp4" type="video/mp4" />
-            </video>
-          )}
-          {/* Fallback background image */}
-          {videoError && (
-            <div
-              className="fixed inset-0 w-full h-full -z-40"
-              style={{
-                backgroundImage: 'url(/assets/images/image.png)',
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-                backgroundRepeat: 'no-repeat',
-              }}
-              aria-hidden="true"
-            />
-          )}
-          {/* Video overlay */}
-          <div
-            className={`fixed inset-0 w-full h-full -z-30 transition-all duration-[4s] ease-out ${
-              showContent ? 'bg-gradient-to-b from-slate-900/40 via-slate-900/60 to-slate-900/80' : 'bg-slate-900/10'
-            }`}
-            aria-hidden="true"
-          />
-        </>
+        <video 
+          className="fixed inset-0 w-full h-full object-cover -z-20 brightness-[0.3]" 
+          autoPlay 
+          muted 
+          loop 
+          playsInline
+        >
+          <source src="/assets/videos/background.mp4" type="video/mp4" />
+        </video>
       )}
 
-      {!showVideo && (
-        <>
-          {/* Gradient Background */}
-          <div 
-            className="fixed inset-0 w-full h-full -z-50 bg-gradient-to-br from-slate-800 via-slate-900 to-slate-950"
-            aria-hidden="true"
-          />
-          
-          {/* Animated SVG Background Elements */}
-          <div className="fixed inset-0 w-full h-full -z-40 overflow-hidden" aria-hidden="true">
-            {/* Large floating circles */}
-            <svg className="absolute -top-20 -right-20 w-96 h-96 text-blue-500/10 animate-pulse">
-              <circle cx="50%" cy="50%" r="40%" fill="currentColor" />
-            </svg>
-            
-            <svg className="absolute top-1/3 -left-32 w-80 h-80 text-cyan-500/8 animate-pulse" style={{animationDelay: '2s'}}>
-              <circle cx="50%" cy="50%" r="45%" fill="currentColor" />
-            </svg>
-            
-            <svg className="absolute bottom-10 right-1/4 w-64 h-64 text-emerald-500/12 animate-pulse" style={{animationDelay: '4s'}}>
-              <circle cx="50%" cy="50%" r="35%" fill="currentColor" />
-            </svg>
-
-            {/* Geometric shapes */}
-            <svg className="absolute top-20 left-1/4 w-40 h-40 text-purple-500/15 animate-bounce" style={{animationDuration: '6s', animationDelay: '1s'}}>
-              <polygon points="50,10 90,90 10,90" fill="currentColor" />
-            </svg>
-            
-            <svg className="absolute bottom-1/3 left-10 w-32 h-32 text-orange-500/10 animate-bounce" style={{animationDuration: '8s', animationDelay: '3s'}}>
-              <rect x="10" y="10" width="80" height="80" rx="15" fill="currentColor" transform="rotate(45 50 50)" />
-            </svg>
-
-            {/* Flowing lines */}
-            <svg className="absolute top-0 left-0 w-full h-full text-blue-400/5">
-              <defs>
-                <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="currentColor" stopOpacity="0" />
-                  <stop offset="50%" stopColor="currentColor" stopOpacity="1" />
-                  <stop offset="100%" stopColor="currentColor" stopOpacity="0" />
-                </linearGradient>
-              </defs>
-              <path
-                d="M0,200 Q400,100 800,300 T1600,200"
-                stroke="url(#lineGradient)"
-                strokeWidth="2"
-                fill="none"
-                className="animate-pulse"
-              />
-              <path
-                d="M0,400 Q300,300 600,500 T1200,400"
-                stroke="url(#lineGradient)"
-                strokeWidth="1.5"
-                fill="none"
-                className="animate-pulse"
-                style={{animationDelay: '2s'}}
-              />
-            </svg>
-
-            {/* Scattered dots */}
-            <svg className="absolute inset-0 w-full h-full text-slate-400/20">
-              <circle cx="10%" cy="20%" r="2" fill="currentColor" className="animate-pulse" />
-              <circle cx="80%" cy="15%" r="1.5" fill="currentColor" className="animate-pulse" style={{animationDelay: '1s'}} />
-              <circle cx="60%" cy="70%" r="2.5" fill="currentColor" className="animate-pulse" style={{animationDelay: '3s'}} />
-              <circle cx="30%" cy="80%" r="1" fill="currentColor" className="animate-pulse" style={{animationDelay: '2s'}} />
-              <circle cx="90%" cy="60%" r="2" fill="currentColor" className="animate-pulse" style={{animationDelay: '4s'}} />
-              <circle cx="15%" cy="90%" r="1.5" fill="currentColor" className="animate-pulse" style={{animationDelay: '5s'}} />
-            </svg>
-          </div>
-
-          {/* Subtle noise texture overlay */}
-          <div 
-            className="fixed inset-0 w-full h-full -z-30 opacity-[0.02] mix-blend-overlay"
-            style={{
-              backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Ccircle cx='7' cy='7' r='1'/%3E%3Ccircle cx='27' cy='7' r='1'/%3E%3Ccircle cx='47' cy='7' r='1'/%3E%3Ccircle cx='7' cy='27' r='1'/%3E%3Ccircle cx='27' cy='27' r='1'/%3E%3Ccircle cx='47' cy='27' r='1'/%3E%3Ccircle cx='7' cy='47' r='1'/%3E%3Ccircle cx='27' cy='47' r='1'/%3E%3Ccircle cx='47' cy='47' r='1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-            }}
-            aria-hidden="true"
-          />
-        </>
-      )}
-
-      {/* Content */}
+      {/* The main content is placed here, above the background */}
       <div className="relative z-10">
         {children}
       </div>
